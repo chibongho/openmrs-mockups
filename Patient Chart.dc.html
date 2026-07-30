@@ -23,6 +23,8 @@
     .om-scroll::-webkit-scrollbar { width: 12px; height: 12px; }
     .om-scroll::-webkit-scrollbar-thumb { background: #c6c6c6; }
     .om-scroll::-webkit-scrollbar-track { background: transparent; }
+    @keyframes om-spin { to { transform: rotate(360deg); } }
+    @keyframes om-bar { 0% { transform: translateX(-100%); } 100% { transform: translateX(250%); } }
   </style>
 </helmet>
 
@@ -30,7 +32,7 @@
 
   <!-- App header -->
   <header style="flex-shrink:0;height:48px;display:flex;align-items:center;background:var(--teal-70);color:#fff">
-    <button aria-label="Menu" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:menu" width="20" height="20"></iconify-icon></button>
+    <button aria-label="Menu" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:menu" width="20" height="20"></iconify-icon></button>
     <div style="display:flex;align-items:center;gap:10px;padding:0 8px 0 8px">
       <iconify-icon icon="carbon:in-progress" width="24" height="24" style="color:#fff"></iconify-icon>
       <span style="font:600 15px/1 var(--font-sans)">OpenMRS</span>
@@ -40,12 +42,27 @@
       <iconify-icon icon="carbon:location" width="16" height="16"></iconify-icon>
       <span>Outpatient Clinic</span>
     </div>
-    <div style="margin-left:auto;display:flex;height:100%;align-items:center">
-      <button aria-label="Search" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:search" width="20" height="20"></iconify-icon></button>
-      <button aria-label="Tools" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:tools" width="20" height="20"></iconify-icon></button>
-      <button aria-label="Add patient" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:user-follow" width="20" height="20"></iconify-icon></button>
-      <button aria-label="Account" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:user-avatar" width="20" height="20"></iconify-icon></button>
-      <button aria-label="App menu" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:apps" width="20" height="20"></iconify-icon></button>
+    <div style="margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:12px;padding:4px 12px;background:rgba(255,255,255,0.12);border:1px dashed rgba(255,255,255,0.45);font:400 13px/1 var(--font-mono)">
+      <span style="opacity:0.85;letter-spacing:0.02em">Role:</span>
+      <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
+        <input type="radio" name="om-role" checked="{{ roleIsPOC }}" onChange="{{ setRolePOC }}" style="width:14px;height:14px;accent-color:#fff;cursor:pointer">
+        <span>POC</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
+        <input type="radio" name="om-role" checked="{{ roleIsRDE }}" onChange="{{ setRoleRDE }}" style="width:14px;height:14px;accent-color:#fff;cursor:pointer">
+        <span>RDE</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
+        <input type="radio" name="om-role" checked="{{ roleIsBoth }}" onChange="{{ setRoleBoth }}" style="width:14px;height:14px;accent-color:#fff;cursor:pointer">
+        <span>Both</span>
+      </label>
+    </div>
+    <div style="display:flex;height:100%;align-items:center">
+      <button aria-label="Search" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:search" width="20" height="20"></iconify-icon></button>
+      <button aria-label="Tools" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:tools" width="20" height="20"></iconify-icon></button>
+      <button aria-label="Add patient" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:user-follow" width="20" height="20"></iconify-icon></button>
+      <button aria-label="Account" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:user-avatar" width="20" height="20"></iconify-icon></button>
+      <button aria-label="App menu" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:apps" width="20" height="20"></iconify-icon></button>
     </div>
   </header>
 
@@ -55,12 +72,22 @@
     <!-- Left dashboard nav -->
     <nav class="om-scroll" style="width:224px;flex-shrink:0;background:var(--layer-02);border-right:1px solid var(--border-subtle-01);overflow-y:auto">
       <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="12">
-        <button onClick="{{ item.onClick }}" style="{{ item.style }}" style-hover="{ background: 'var(--layer-hover-01)' }">
+        <button onClick="{{ item.onClick }}" style="{{ item.style }}" style-hover="background:var(--layer-hover-01)">
           <iconify-icon icon="{{ item.icon }}" width="16" height="16" style="color:var(--icon-primary)"></iconify-icon>
           <span>{{ item.label }}</span>
         </button>
       </sc-for>
     </nav>
+
+    <!-- Role-switch page reset indication -->
+    <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
+      <div style="position:fixed;top:48px;left:0;right:0;bottom:0;z-index:700;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.78)">
+        <div style="width:56px;height:56px;border:4px solid var(--border-subtle-01);border-top-color:var(--blue-60);border-radius:50%;animation:om-spin 700ms linear infinite"></div>
+      </div>
+      <div style="position:fixed;top:48px;left:0;right:0;height:3px;z-index:701;background:var(--blue-20);overflow:hidden">
+        <div style="height:100%;width:40%;background:var(--blue-60);animation:om-bar 700ms cubic-bezier(.4,.14,.3,1) infinite"></div>
+      </div>
+    </sc-if>
 
     <!-- Center column -->
     <div style="{{ centerStyle }}">
@@ -96,17 +123,25 @@
                     <span>{{ ctxLoc }}</span>
                   </div>
                 </div>
-                <button onClick="{{ openVisitModal }}" style="margin-left:8px;border:none;background:transparent;color:var(--link-primary);font:400 13px/1 var(--font-sans);cursor:pointer;white-space:nowrap" style-hover="{ textDecoration:'underline' }">Change</button>
+                <sc-if value="{{ isActiveVisit }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ openEndModal }}" style="margin-left:8px;border:none;background:transparent;color:var(--red-60);font:400 13px/1 var(--font-sans);padding:6px 10px;cursor:pointer;white-space:nowrap;transition:background var(--duration-fast-02,110ms) var(--easing-entrance,ease)" style-hover="background:var(--red-60);color:#fff" style-active="background:var(--red-70);color:#fff">End</button>
+                </sc-if>
+                <sc-if value="{{ canSwitchVisit }}" hint-placeholder-val="{{ true }}">
+                  <button onClick="{{ openVisitModal }}" style="border:none;background:transparent;color:var(--link-primary);font:400 13px/1 var(--font-sans);cursor:pointer;white-space:nowrap" style-hover="text-decoration:underline">Change</button>
+                  <button onClick="{{ exitVisit }}" title="Exit visit context" aria-label="Exit visit context" style="width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-secondary);cursor:pointer" style-hover="background:rgba(22,22,22,0.08);color:var(--icon-primary)"><iconify-icon icon="carbon:close" width="18" height="18"></iconify-icon></button>
+                </sc-if>
               </div>
             </sc-if>
             <sc-if value="{{ noVisit }}" hint-placeholder-val="{{ true }}">
               <div style="flex-shrink:0;display:flex;align-items:center;gap:var(--spacing-04)">
-                <button onClick="{{ openStartVisit }}" style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:var(--teal-60);border:none;color:#fff;font:600 14px/1.2 var(--font-sans);cursor:pointer" style-hover="{ filter:'brightness(0.94)' }">
+                <button onClick="{{ openStartVisit }}" style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:var(--teal-60);border:none;color:#fff;font:600 14px/1.2 var(--font-sans);cursor:pointer" style-hover="filter:brightness(0.94)">
                   <iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon>Add visit
                 </button>
-                <button onClick="{{ openVisitModal }}" style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:var(--layer-01);border:1px dashed var(--border-strong-01);color:var(--link-primary);font:600 14px/1.2 var(--font-sans);cursor:pointer" style-hover="{ background:'var(--layer-hover-01)' }">
-                  <iconify-icon icon="carbon:calendar" width="16" height="16"></iconify-icon>Select past visit
-                </button>
+                <sc-if value="{{ canSwitchVisit }}" hint-placeholder-val="{{ true }}">
+                  <button onClick="{{ openVisitModal }}" style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:var(--layer-01);border:1px dashed var(--border-strong-01);color:var(--link-primary);font:600 14px/1.2 var(--font-sans);cursor:pointer" style-hover="background:var(--layer-hover-01)">
+                    <iconify-icon icon="carbon:calendar" width="16" height="16"></iconify-icon>Select past visit
+                  </button>
+                </sc-if>
               </div>
             </sc-if>
 
@@ -123,12 +158,12 @@
             </div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:var(--spacing-04);flex-shrink:0">
-            <button style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Actions<iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
-            <button style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Show more<iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button>
+            <button style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Actions<iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+            <button style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Show more<iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button>
           </div>
         </div>
         <div style="display:flex;justify-content:flex-end;padding:0 var(--spacing-06) var(--spacing-04)">
-          <button style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Sticky note<iconify-icon icon="carbon:document" width="16" height="16"></iconify-icon></button>
+          <button style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Sticky note<iconify-icon icon="carbon:document" width="16" height="16"></iconify-icon></button>
         </div>
       </section>
 
@@ -143,7 +178,7 @@
             <a href="#" style="font:400 13px/1 var(--font-sans)">Vitals history</a>
             <iconify-icon icon="carbon:information" width="16" height="16" style="color:var(--icon-secondary)"></iconify-icon>
           </div>
-          <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Record vitals<iconify-icon icon="carbon:arrow-right" width="16" height="16"></iconify-icon></button>
+          <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Record vitals<iconify-icon icon="carbon:arrow-right" width="16" height="16"></iconify-icon></button>
         </div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-05) var(--spacing-06);background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-06)">
           <sc-for list="{{ summary }}" as="m" hint-placeholder-count="8">
@@ -163,7 +198,7 @@
                 <button aria-label="Table view" style="width:32px;height:32px;border:none;background:var(--layer-02);color:var(--link-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;border-right:1px solid var(--border-subtle-01)"><iconify-icon icon="carbon:table" width="16" height="16"></iconify-icon></button>
                 <button aria-label="Chart view" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-secondary);display:flex;align-items:center;justify-content:center;cursor:pointer"><iconify-icon icon="carbon:chart-line" width="16" height="16"></iconify-icon></button>
               </div>
-              <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
+              <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
             </div>
           </div>
           <div style="{{ vitalsHeadStyle }}">
@@ -186,7 +221,7 @@
         <div style="background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-05)">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
             <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Biometrics</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
-            <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
+            <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
           </div>
           <div style="{{ bioHeadStyle }}">
             <sc-for list="{{ bioHead }}" as="h" hint-placeholder-count="5"><div style="padding:12px 8px">{{ h }}</div></sc-for>
@@ -205,7 +240,7 @@
           <div style="background:var(--layer-01);padding:var(--spacing-05)">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
               <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Conditions</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
-              <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
+              <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
             </div>
             <sc-for list="{{ conditions }}" as="c" hint-placeholder-count="3">
               <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--spacing-04) 0;border-bottom:1px solid var(--border-subtle-01)">
@@ -217,7 +252,7 @@
           <div style="background:var(--layer-01);padding:var(--spacing-05)">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
               <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Active medications</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
-              <button onClick="{{ openOrders }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
+              <button onClick="{{ openOrders }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
             </div>
             <sc-for list="{{ meds }}" as="m" hint-placeholder-count="3">
               <div style="padding:var(--spacing-04) 0;border-bottom:1px solid var(--border-subtle-01)">
@@ -239,7 +274,7 @@
     <!-- Right action rail -->
     <div style="width:48px;flex-shrink:0;background:var(--layer-02);border-left:1px solid var(--border-subtle-01);display:flex;flex-direction:column">
       <sc-for list="{{ railItems }}" as="r" hint-placeholder-count="5">
-        <button onClick="{{ r.onClick }}" aria-label="{{ r.label }}" title="{{ r.label }}" style="{{ r.style }}" style-hover="{ background:'var(--layer-hover-01)' }">
+        <button onClick="{{ r.onClick }}" aria-label="{{ r.label }}" title="{{ r.label }}" style="{{ r.style }}" style-hover="background:var(--layer-hover-01)">
           <iconify-icon icon="{{ r.icon }}" width="20" height="20"></iconify-icon>
         </button>
       </sc-for>
@@ -259,8 +294,8 @@
       <!-- Title bar -->
       <div style="flex-shrink:0;height:48px;display:flex;align-items:center;gap:var(--spacing-04);padding:0 var(--spacing-05);border-bottom:1px solid var(--border-subtle-01)">
         <span style="flex:1;font:600 15px/1 var(--font-sans)">{{ wsTitle }}</span>
-        <button aria-label="Expand" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'var(--layer-hover-01)' }"><iconify-icon icon="carbon:arrow-right" width="18" height="18"></iconify-icon></button>
-        <button onClick="{{ closeWs }}" aria-label="Close" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'var(--layer-hover-01)' }"><iconify-icon icon="carbon:close" width="18" height="18"></iconify-icon></button>
+        <button aria-label="Expand" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:arrow-right" width="18" height="18"></iconify-icon></button>
+        <button onClick="{{ closeWs }}" aria-label="Close" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:close" width="18" height="18"></iconify-icon></button>
       </div>
 
       <!-- Visit context banner -->
@@ -269,7 +304,9 @@
           <div style="display:flex;align-items:center;gap:8px">
             <span style="color:var(--text-secondary);font:400 13px/1 var(--font-sans)">Adding to:</span>
             <span style="font:600 14px/1 var(--font-sans)">{{ ctxName }}</span>
-            <button onClick="{{ openVisitModal }}" style="margin-left:auto;border:none;background:transparent;color:var(--link-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Change</button>
+            <sc-if value="{{ canSwitchVisit }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ openVisitModal }}" style="margin-left:auto;border:none;background:transparent;color:var(--link-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Change</button>
+            </sc-if>
           </div>
           <div style="display:flex;align-items:center;gap:6px;margin-top:4px;color:var(--text-secondary);font:400 12px/1.3 var(--font-sans)">
             <iconify-icon icon="carbon:time" width="12" height="12"></iconify-icon>
@@ -283,8 +320,10 @@
       <sc-if value="{{ showWsNoVisit }}" hint-placeholder-val="{{ false }}">
         <div style="flex-shrink:0;display:flex;align-items:center;gap:8px;padding:var(--spacing-04) var(--spacing-05);background:rgba(255,131,43,0.10);border-left:4px solid var(--orange-40);border-bottom:1px solid var(--orange-40)">
           <iconify-icon icon="carbon:warning-alt" width="16" height="16" style="color:var(--orange-60)"></iconify-icon>
-          <span style="flex:1;font:400 13px/1.3 var(--font-sans)">No visit selected — choose one before saving.</span>
-          <button onClick="{{ openVisitModal }}" style="border:none;background:transparent;color:var(--link-primary);font:600 13px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Select a visit</button>
+          <span style="flex:1;font:400 13px/1.3 var(--font-sans)">{{ wsNoVisitMsg }}</span>
+          <sc-if value="{{ canSwitchVisit }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ openVisitModal }}" style="border:none;background:transparent;color:var(--link-primary);font:600 13px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Select a visit</button>
+          </sc-if>
         </div>
       </sc-if>
 
@@ -299,7 +338,7 @@
                 <div style="display:flex;align-items:center;gap:var(--spacing-04);padding:var(--spacing-04) var(--spacing-05)">
                   <div style="{{ b.badge }}"><iconify-icon icon="{{ b.icon }}" width="16" height="16"></iconify-icon></div>
                   <span style="flex:1;font:600 15px/1 var(--font-sans)">{{ b.label }}</span>
-                  <button onClick="{{ b.onAdd }}" style="display:inline-flex;align-items:center;gap:4px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
+                  <button onClick="{{ b.onAdd }}" style="display:inline-flex;align-items:center;gap:4px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
                   <button aria-label="Toggle" style="width:24px;height:24px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer"><iconify-icon icon="carbon:chevron-down" width="18" height="18"></iconify-icon></button>
                 </div>
               </div>
@@ -336,6 +375,53 @@
               <span style="font:400 13px/1 var(--font-sans);color:var(--text-secondary)">The visit is</span>
               <x-import component-from-global-scope="CarbonDesignSystem_53f452.ContentSwitcher" options="{{ svModes }}" selectedIndex="{{ svModeIndex }}" onChange="{{ setSvMode }}" hint-size="100%,40px"></x-import>
             </div>
+            <sc-if value="{{ svShowDates }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <h3 style="margin:0;font:600 15px/1 var(--font-sans)">{{ svDateHeading }}</h3>
+                <div style="display:flex;gap:var(--spacing-04)">
+                  <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+                    <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Start date</label>
+                    <div style="display:flex;align-items:center;gap:8px;height:40px;padding:0 12px;background:var(--field-01);border-bottom:1px solid var(--border-strong-01)">
+                      <input type="text" value="30/07/2026" style="flex:1;min-width:0;border:none;background:transparent;font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+                      <iconify-icon icon="carbon:calendar" width="16" height="16" style="color:var(--icon-primary)"></iconify-icon>
+                    </div>
+                  </div>
+                  <div style="width:96px;flex-shrink:0;display:flex;flex-direction:column;gap:6px">
+                    <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Start time</label>
+                    <input type="text" value="12:20" style="height:40px;padding:0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+                  </div>
+                  <div style="width:84px;flex-shrink:0;display:flex;flex-direction:column;gap:6px">
+                    <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">&nbsp;</label>
+                    <select style="height:40px;padding:0 8px 0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none;cursor:pointer">
+                      <option>PM</option>
+                      <option>AM</option>
+                    </select>
+                  </div>
+                </div>
+                <sc-if value="{{ svShowEnd }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;gap:var(--spacing-04)">
+                    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+                      <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">End date</label>
+                      <div style="display:flex;align-items:center;gap:8px;height:40px;padding:0 12px;background:var(--field-01);border-bottom:1px solid var(--border-strong-01)">
+                        <input type="text" value="30/07/2026" style="flex:1;min-width:0;border:none;background:transparent;font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+                        <iconify-icon icon="carbon:calendar" width="16" height="16" style="color:var(--icon-primary)"></iconify-icon>
+                      </div>
+                    </div>
+                    <div style="width:96px;flex-shrink:0;display:flex;flex-direction:column;gap:6px">
+                      <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">End time</label>
+                      <input type="text" value="12:20" style="height:40px;padding:0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+                    </div>
+                    <div style="width:84px;flex-shrink:0;display:flex;flex-direction:column;gap:6px">
+                      <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">&nbsp;</label>
+                      <select style="height:40px;padding:0 8px 0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none;cursor:pointer">
+                        <option>PM</option>
+                        <option>AM</option>
+                      </select>
+                    </div>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-if>
             <x-import component-from-global-scope="CarbonDesignSystem_53f452.InlineNotification" kind="info" lowContrast="{{ true }}" title="Upcoming appointments" subtitle="No upcoming appointments found" hint-size="100%,64px"></x-import>
             <div style="display:flex;flex-direction:column;gap:8px">
               <h3 style="margin:0;font:600 15px/1 var(--font-sans)">Visit location</h3>
@@ -354,10 +440,48 @@
         </sc-if>
       </div>
       <div style="flex-shrink:0;display:flex;height:64px">
-        <button onClick="{{ closeWs }}" style="flex:1;border:none;background:#393939;color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{ background:'#4c4c4c' }">Cancel</button>
-        <button onClick="{{ signClose }}" style="{{ primaryBtnStyle }}" style-hover="{ filter:'brightness(0.94)' }">{{ wsPrimaryLabel }}<iconify-icon icon="{{ wsPrimaryIcon }}" width="16" height="16"></iconify-icon></button>
+        <button onClick="{{ closeWs }}" style="flex:1;border:none;background:#393939;color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:#4c4c4c">Cancel</button>
+        <button onClick="{{ signClose }}" style="{{ primaryBtnStyle }}" style-hover="filter:brightness(0.94)">{{ wsPrimaryLabel }}<iconify-icon icon="{{ wsPrimaryIcon }}" width="16" height="16"></iconify-icon></button>
       </div>
     </aside>
+  </sc-if>
+
+  <!-- No active visit -->
+  <sc-if value="{{ noVisitModal }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:650;display:flex;align-items:center;justify-content:center;background:var(--overlay)">
+      <div data-screen-label="No active visit" style="width:640px;max-width:92vw;background:var(--layer-02);box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+        <div style="padding:var(--spacing-05) var(--spacing-05) var(--spacing-07);display:flex;align-items:flex-start;gap:var(--spacing-05)">
+          <div style="flex:1;display:flex;flex-direction:column;gap:var(--spacing-03)">
+            <h2 style="margin:0;font:400 20px/1.3 var(--font-sans);color:var(--text-primary)">No active visit</h2>
+            <p style="margin:0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">You can't add data to the patient chart without an active visit. Would you like to start a new visit?</p>
+          </div>
+          <button onClick="{{ closeNoVisitModal }}" aria-label="Close" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:close" width="20" height="20"></iconify-icon></button>
+        </div>
+        <div style="display:flex">
+          <button onClick="{{ closeNoVisitModal }}" style="flex:1;padding:16px;border:none;background:var(--gray-80);color:#fff;font:400 14px/1.4 var(--font-sans);text-align:left;cursor:pointer" style-hover="background:var(--gray-70)">Cancel</button>
+          <button onClick="{{ startVisitFromModal }}" style="flex:1;padding:16px;border:none;background:var(--teal-70);color:#fff;font:400 14px/1.4 var(--font-sans);text-align:left;cursor:pointer" style-hover="filter:brightness(1.12)">Start new visit</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- End-visit confirmation -->
+  <sc-if value="{{ endModal }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:650;display:flex;align-items:center;justify-content:center;background:var(--overlay)">
+      <div data-screen-label="End visit confirmation" style="width:640px;max-width:92vw;background:var(--layer-02);box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+        <div style="padding:var(--spacing-05) var(--spacing-05) var(--spacing-07);display:flex;align-items:flex-start;gap:var(--spacing-05)">
+          <div style="flex:1;display:flex;flex-direction:column;gap:var(--spacing-03)">
+            <h2 style="margin:0;font:400 20px/1.3 var(--font-sans);color:var(--text-primary)">Are you sure you want to end this active visit?</h2>
+            <p style="margin:0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">You can add additional encounters to this visit in the visit summary.</p>
+          </div>
+          <button onClick="{{ closeEndModal }}" aria-label="Close" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:close" width="20" height="20"></iconify-icon></button>
+        </div>
+        <div style="display:flex">
+          <button onClick="{{ closeEndModal }}" style="flex:1;padding:16px;border:none;background:var(--gray-80);color:#fff;font:400 14px/1.4 var(--font-sans);text-align:left;cursor:pointer" style-hover="background:var(--gray-70)">Cancel</button>
+          <button onClick="{{ confirmEndVisit }}" style="flex:1;padding:16px;border:none;background:var(--red-60);color:#fff;font:400 14px/1.4 var(--font-sans);text-align:left;cursor:pointer" style-hover="background:var(--red-70)">End visit</button>
+        </div>
+      </div>
+    </div>
   </sc-if>
 
   <!-- Select-a-visit modal -->
@@ -366,7 +490,7 @@
       <div data-screen-label="Select a visit" style="width:640px;max-width:92vw;max-height:86vh;background:var(--layer-02);box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
         <div style="flex-shrink:0;display:flex;align-items:flex-start;justify-content:space-between;padding:var(--spacing-05) var(--spacing-06) var(--spacing-04)">
           <h2 style="margin:0;font:400 20px/1.2 var(--font-sans)">Select a visit</h2>
-          <button onClick="{{ closeModal }}" aria-label="Close" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'var(--layer-hover-01)' }"><iconify-icon icon="carbon:close" width="20" height="20"></iconify-icon></button>
+          <button onClick="{{ closeModal }}" aria-label="Close" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:close" width="20" height="20"></iconify-icon></button>
         </div>
         <div style="flex-shrink:0;padding:0 var(--spacing-06) var(--spacing-05)">
           <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Show visits with start date on or prior to:</label>
@@ -377,7 +501,7 @@
         </div>
         <div class="om-scroll" style="flex:1;overflow-y:auto;border-top:1px solid var(--border-subtle-01)">
           <sc-for list="{{ modalVisits }}" as="v" hint-placeholder-count="6">
-            <button onClick="{{ v.onPick }}" style="{{ v.style }}" style-hover="{{ v.hover }}">
+            <button onClick="{{ v.onPick }}" style="{{ v.style }}" style-hover="">
               <div style="min-width:0;text-align:left">
                 <div style="font:600 15px/1.2 var(--font-sans)">{{ v.name }}</div>
                 <div style="color:var(--text-secondary);font:400 13px/1.3 var(--font-sans);margin-top:2px">{{ v.sub }}</div>
@@ -385,11 +509,11 @@
               <span style="display:inline-flex;align-items:center;gap:8px;color:var(--text-secondary);font:400 13px/1 var(--font-sans)">{{ v.name }}<span style="{{ v.radio }}"><span style="{{ v.radioDot }}"></span></span></span>
             </button>
           </sc-for>
-          <div style="padding:var(--spacing-05) var(--spacing-06)"><a href="#" style="font:400 14px/1 var(--font-sans)">Create new visit…</a></div>
+          <div style="padding:var(--spacing-05) var(--spacing-06)"><button onClick="{{ createVisitFromModal }}" style="border:none;background:transparent;padding:0;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Create new visit…</button></div>
         </div>
         <div style="flex-shrink:0;display:flex;height:64px">
-          <button onClick="{{ closeModal }}" style="flex:1;border:none;background:#393939;color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer" style-hover="{ background:'#4c4c4c' }">Cancel</button>
-          <button onClick="{{ confirmVisit }}" style="flex:1;border:none;background:var(--teal-60);color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer" style-hover="{ filter:'brightness(0.94)' }">Continue</button>
+          <button onClick="{{ closeModal }}" style="flex:1;border:none;background:#393939;color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer" style-hover="background:#4c4c4c">Cancel</button>
+          <button onClick="{{ confirmVisit }}" style="flex:1;border:none;background:var(--teal-60);color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer" style-hover="filter:brightness(0.94)">Continue</button>
         </div>
       </div>
     </div>
@@ -401,7 +525,9 @@
 class Component extends DCLogic {
   state = {
     section: 'summary',
-    selectedVisitId: null,
+    rolePOC: true,
+    roleRDE: false,
+    selectedVisitId: 'v-opd',
     tempVisitId: null,
     workspace: null,   // 'orders' | 'vitals'
     visitModal: false,
@@ -437,12 +563,50 @@ class Component extends DCLogic {
 
   selectedVisit() { return this.VISITS.find(v => v.id === this.state.selectedVisitId) || null; }
 
+  activeVisit() { return this.VISITS.find(v => v.active) || null; }
+  // Role change resets the chart to that role's initial state.
+  applyRoles = (poc, rde) => {
+    const av = this.activeVisit();
+    clearTimeout(this._load);
+    this._load = setTimeout(() => this.setState({ loading: false }), 250);
+    this.setState({
+      rolePOC: poc, roleRDE: rde, loading: true,
+      selectedVisitId: poc && av ? av.id : null,
+      svMode: 0, tempVisitId: null, workspace: null, visitModal: false, endModal: false, toast: null,
+    });
+  };
+  setRolePOC = () => this.applyRoles(true, false);
+  setRoleRDE = () => this.applyRoles(false, true);
+  setRoleBoth = () => this.applyRoles(true, true);
+
   go = (id) => this.setState({ section: id });
-  openWs = (key) => this.setState({ workspace: key });
+  openWs = (key) => {
+    // Data-entry workspaces require a visit in context.
+    if (key !== 'startvisit' && !this.state.selectedVisitId) {
+      // RDE users pick a visit; POC-only users are offered a new visit.
+      return this.state.roleRDE
+        ? this.setState({ visitModal: true, tempVisitId: null })
+        : this.setState({ noVisitModal: true });
+    }
+    this.setState({ workspace: key });
+  };
+  closeNoVisitModal = () => this.setState({ noVisitModal: false });
+  createVisitFromModal = () => this.setState({ visitModal: false, workspace: 'startvisit' });
+  startVisitFromModal = () => this.setState({ noVisitModal: false, workspace: 'startvisit' });
   closeWs = () => this.setState({ workspace: null });
   openVisitModal = () => this.setState({ visitModal: true, tempVisitId: this.state.selectedVisitId });
   closeModal = () => this.setState({ visitModal: false });
   pickTemp = (id) => this.setState({ tempVisitId: id });
+  openEndModal = () => this.setState({ endModal: true });
+  closeEndModal = () => this.setState({ endModal: false });
+  confirmEndVisit = () => { this.setState({ endModal: false }); this.endVisit(); };
+  endVisit = () => {
+    const v = this.selectedVisit();
+    this.setState({ selectedVisitId: null, tempVisitId: null, workspace: null,
+      toast: { kind: 'success', title: 'Visit ended', sub: (v ? v.name : 'Visit') + ' has now ended. No visit is in context.' } });
+    clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toast: null }), 5000);
+  };
+  exitVisit = () => this.setState({ selectedVisitId: null, tempVisitId: null, workspace: null });
   confirmVisit = () => this.setState({ selectedVisitId: this.state.tempVisitId, visitModal: false });
   dismissToast = () => this.setState({ toast: null });
   signClose = () => {
@@ -572,11 +736,30 @@ class Component extends DCLogic {
     const wsMeta = { orders: { title: 'Order basket', primary: 'Sign and close' }, vitals: { title: 'Record vitals and biometrics', primary: 'Save and close' }, startvisit: { title: 'Start a visit', primary: 'Start visit' } };
     const wm = wsMeta[workspace] || {};
     const isStartVisit = workspace === 'startvisit';
+    // "New"/"Ongoing" are point-of-care modes; "In the past" is retrospective.
+    const svModes = [];
+    if (this.state.rolePOC) svModes.push({ label: 'New' }, { label: 'Ongoing' });
+    if (this.state.roleRDE) svModes.push({ label: 'In the past' });
+    const svIdx = Math.min(this.state.svMode || 0, Math.max(0, svModes.length - 1));
+    const svModeLabel = svModes[svIdx] ? svModes[svIdx].label : '';
 
     const sectionMeta = this.SECTIONS.find(s => s.id === section);
     const showSectionNote = section !== 'summary';
 
     return {
+      roleIsPOC: !!this.state.rolePOC && !this.state.roleRDE,
+      roleIsRDE: !this.state.rolePOC && !!this.state.roleRDE,
+      roleIsBoth: !!this.state.rolePOC && !!this.state.roleRDE,
+      loading: !!this.state.loading,
+      setRolePOC: this.setRolePOC, setRoleRDE: this.setRoleRDE, setRoleBoth: this.setRoleBoth,
+      canSwitchVisit: !!this.state.roleRDE,
+      wsNoVisitMsg: this.state.roleRDE
+        ? 'No visit selected \u2014 choose one before saving.'
+        : 'No active visit \u2014 start a visit before saving.',
+      exitVisit: this.exitVisit, endVisit: this.endVisit,
+      createVisitFromModal: this.createVisitFromModal,
+      noVisitModal: !!this.state.noVisitModal, closeNoVisitModal: this.closeNoVisitModal, startVisitFromModal: this.startVisitFromModal,
+      endModal: !!this.state.endModal, openEndModal: this.openEndModal, closeEndModal: this.closeEndModal, confirmEndVisit: this.confirmEndVisit,
       navItems, railItems, summary,
       vitalsHead: ['Date and time', 'Temp (DEG C)', 'BP (mmHg)', 'Pulse (beats/min)', 'R. Rate (breaths/min)', 'SpO2 (%)'],
       vitalsHeadStyle: { display: 'grid', gridTemplateColumns: vCols, background: '#e0e0e0', font: '600 13px/1.2 var(--font-sans)', color: 'var(--text-primary)' },
@@ -622,8 +805,10 @@ class Component extends DCLogic {
       showWsCtx: hasVisit && !isStartVisit, showWsNoVisit: !hasVisit && !isStartVisit,
       basket, closeWs: this.closeWs, signClose: this.signClose,
       openOrders: () => this.openWs('orders'), openVitals: () => this.openWs('vitals'), openStartVisit: () => this.openWs('startvisit'),
-      svModes: [{ label: 'New' }, { label: 'Ongoing' }, { label: 'In the past' }],
-      svModeIndex: this.state.svMode || 0, setSvMode: this.setSvMode,
+      svShowDates: svModeLabel === 'Ongoing' || svModeLabel === 'In the past',
+      svShowEnd: svModeLabel === 'In the past',
+      svDateHeading: svModeLabel === 'In the past' ? 'Visit start and end date' : 'Visit start date',
+      svModes, svModeIndex: Math.min(this.state.svMode || 0, Math.max(0, svModes.length - 1)), setSvMode: this.setSvMode,
       svLocations: [{ value: 'mobile', label: 'Mobile Clinic' }, { value: 'butaro', label: 'Butaro Hospital' }, { value: 'kinyinya', label: 'Kinyinya Health Post' }, { value: 'site42', label: 'Site 42' }],
       svVisitTypes: [{ value: 'facility', label: 'Facility Visit' }, { value: 'home', label: 'Home Visit' }, { value: 'opd', label: 'OPD Visit' }, { value: 'offline', label: 'Offline Visit' }, { value: 'group', label: 'Group Session' }],
       primaryBtnStyle: { flex: 1, border: 'none', background: hasVisit ? 'var(--teal-60)' : 'var(--button-disabled,#c6c6c6)', color: hasVisit ? '#fff' : 'var(--text-on-color-disabled,#8d8d8d)', font: '400 15px/1 var(--font-sans)', cursor: hasVisit ? 'pointer' : 'not-allowed', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' },
