@@ -1,0 +1,254 @@
+/* =====================================================================
+   CARBON · Color tokens
+   1) The IBM Color palette — raw swatches (10..100 per hue).
+   2) Semantic tokens for the White theme (default, on :root).
+   3) Gray 100 dark theme scope ([data-carbon-theme="g100"]).
+   Carbon themes remap the SAME semantic token names to different
+   palette steps; always consume the semantic tokens, not raw swatches.
+   ===================================================================== */
+
+:root {
+  /* ---------------- Gray ---------------- */
+  --gray-10: #f4f4f4;  --gray-20: #e0e0e0;  --gray-30: #c6c6c6;  --gray-40: #a8a8a8;
+  --gray-50: #8d8d8d;  --gray-60: #6f6f6f;  --gray-70: #525252;  --gray-80: #393939;
+  --gray-90: #262626;  --gray-100: #161616;
+
+  /* ------------- Cool gray -------------- */
+  --cool-gray-10: #f2f4f8; --cool-gray-20: #dde1e6; --cool-gray-30: #c1c7cd; --cool-gray-40: #a2a9b0;
+  --cool-gray-50: #878d96; --cool-gray-60: #697077; --cool-gray-70: #4d5358; --cool-gray-80: #343a3f;
+  --cool-gray-90: #21272a; --cool-gray-100: #121619;
+
+  /* ---------------- Blue ---------------- */
+  --blue-10: #edf5ff;  --blue-20: #d0e2ff;  --blue-30: #a6c8ff;  --blue-40: #78a9ff;
+  --blue-50: #4589ff;  --blue-60: #0f62fe;  --blue-70: #0043ce;  --blue-80: #002d9c;
+  --blue-90: #001d6c;  --blue-100: #001141;
+
+  /* ---------------- Cyan ---------------- */
+  --cyan-30: #82cfff; --cyan-40: #33b1ff; --cyan-50: #1192e8; --cyan-60: #0072c3; --cyan-70: #00539a;
+
+  /* ---------------- Teal ---------------- */
+  --teal-30: #3ddbd9; --teal-40: #08bdba; --teal-50: #009d9a; --teal-60: #007d79; --teal-70: #005d5d;
+
+  /* --------------- Green ---------------- */
+  --green-30: #6fdc8c; --green-40: #42be65; --green-50: #24a148; --green-60: #198038; --green-70: #0e6027;
+
+  /* ---------------- Red ----------------- */
+  --red-10: #fff1f1; --red-30: #ffb3b8; --red-40: #ff8389; --red-50: #fa4d56;
+  --red-60: #da1e28; --red-70: #a2191f; --red-80: #750e13;
+
+  /* -------------- Magenta --------------- */
+  --magenta-40: #ff7eb6; --magenta-50: #ee5396; --magenta-60: #d02670; --magenta-70: #9f1853;
+
+  /* -------------- Purple ---------------- */
+  --purple-40: #be95ff; --purple-50: #a56eff; --purple-60: #8a3ffc; --purple-70: #6929c4;
+
+  /* -------------- Yellow ---------------- */
+  --yellow-20: #fdd13a; --yellow-30: #f1c21b; --yellow-40: #d2a106; --yellow-50: #b28600;
+
+  /* -------------- Orange ---------------- */
+  --orange-30: #ffb784; --orange-40: #ff832b; --orange-50: #eb6200; --orange-60: #ba4e00;
+
+  --white: #ffffff;
+  --black: #000000;
+}
+
+/* =====================================================================
+   WHITE THEME (default) — semantic tokens on :root
+   ===================================================================== */
+:root,
+[data-carbon-theme="white"] {
+  /* Backgrounds & layering */
+  --background: #ffffff;
+  --background-inverse: #393939;
+  --background-hover: rgba(141,141,141,0.12);
+  --background-active: rgba(141,141,141,0.40);
+  --background-selected: rgba(141,141,141,0.20);
+  --background-brand: #0f62fe;
+
+  --layer-01: #f4f4f4;
+  --layer-02: #ffffff;
+  --layer-03: #f4f4f4;
+  --layer-hover-01: #e8e8e8;
+  --layer-hover-02: #e8e8e8;
+  --layer-accent-01: #e0e0e0;
+
+  --field-01: #f4f4f4;
+  --field-02: #ffffff;
+
+  /* Text */
+  --text-primary: #161616;
+  --text-secondary: #525252;
+  --text-placeholder: #a8a8a8;
+  --text-helper: #6f6f6f;
+  --text-on-color: #ffffff;
+  --text-on-color-disabled: #8d8d8d;
+  --text-disabled: rgba(22,22,22,0.25);
+  --text-inverse: #ffffff;
+  --text-error: #da1e28;
+
+  /* Links */
+  --link-primary: #0f62fe;
+  --link-primary-hover: #0043ce;
+  --link-secondary: #0043ce;
+  --link-inverse: #78a9ff;
+  --link-visited: #8a3ffc;
+
+  /* Icons */
+  --icon-primary: #161616;
+  --icon-secondary: #525252;
+  --icon-on-color: #ffffff;
+  --icon-disabled: rgba(22,22,22,0.25);
+  --icon-inverse: #ffffff;
+
+  /* Borders */
+  --border-subtle-00: #e0e0e0;
+  --border-subtle-01: #c6c6c6;
+  --border-strong-01: #8d8d8d;
+  --border-inverse: #161616;
+  --border-interactive: #0f62fe;
+  --border-disabled: #c6c6c6;
+
+  /* Interactive / focus */
+  --interactive: #0f62fe;
+  --focus: #0f62fe;
+  --focus-inset: #ffffff;
+  --highlight: #d0e2ff;
+
+  /* Buttons */
+  --button-primary: #0f62fe;
+  --button-primary-hover: #0050e6;
+  --button-primary-active: #002d9c;
+  --button-secondary: #393939;
+  --button-secondary-hover: #474747;
+  --button-secondary-active: #6f6f6f;
+  --button-tertiary: #0f62fe;
+  --button-tertiary-hover: #0050e6;
+  --button-tertiary-active: #002d9c;
+  --button-danger-primary: #da1e28;
+  --button-danger-hover: #b81921;
+  --button-danger-active: #750e13;
+  --button-disabled: #c6c6c6;
+
+  /* Support / status */
+  --support-error: #da1e28;
+  --support-success: #24a148;
+  --support-warning: #f1c21b;
+  --support-info: #0043ce;
+  --support-error-inverse: #fa4d56;
+  --support-success-inverse: #42be65;
+  --support-warning-inverse: #f1c21b;
+  --support-info-inverse: #4589ff;
+
+  /* Notification surface tints */
+  --notification-error-bg: #fff1f1;
+  --notification-success-bg: #defbe6;
+  --notification-warning-bg: #fdf6dd;
+  --notification-info-bg: #edf5ff;
+
+  /* Tag backgrounds (subtle) */
+  --tag-bg-gray: #e0e0e0;       --tag-text-gray: #393939;
+  --tag-bg-blue: #d0e2ff;       --tag-text-blue: #002d9c;
+  --tag-bg-green: #a7f0ba;      --tag-text-green: #0e6027;
+  --tag-bg-red: #ffd7d9;        --tag-text-red: #a2191f;
+  --tag-bg-purple: #e8daff;     --tag-text-purple: #491d8b;
+  --tag-bg-teal: #9ef0f0;       --tag-text-teal: #005d5d;
+
+  --overlay: rgba(22,22,22,0.50);
+  --toggle-off: #8d8d8d;
+  --skeleton: #e5e5e5;
+}
+
+/* =====================================================================
+   GRAY 100 — dark theme. Same token names, remapped.
+   ===================================================================== */
+[data-carbon-theme="g100"] {
+  --background: #161616;
+  --background-inverse: #f4f4f4;
+  --background-hover: rgba(141,141,141,0.16);
+  --background-active: rgba(141,141,141,0.40);
+  --background-selected: rgba(141,141,141,0.24);
+  --background-brand: #0f62fe;
+
+  --layer-01: #262626;
+  --layer-02: #393939;
+  --layer-03: #525252;
+  --layer-hover-01: #333333;
+  --layer-hover-02: #474747;
+  --layer-accent-01: #393939;
+
+  --field-01: #262626;
+  --field-02: #393939;
+
+  --text-primary: #f4f4f4;
+  --text-secondary: #c6c6c6;
+  --text-placeholder: #6f6f6f;
+  --text-helper: #8d8d8d;
+  --text-on-color: #ffffff;
+  --text-on-color-disabled: #8d8d8d;
+  --text-disabled: rgba(244,244,244,0.25);
+  --text-inverse: #161616;
+  --text-error: #ff8389;
+
+  --link-primary: #78a9ff;
+  --link-primary-hover: #a6c8ff;
+  --link-secondary: #a6c8ff;
+  --link-inverse: #0f62fe;
+  --link-visited: #be95ff;
+
+  --icon-primary: #f4f4f4;
+  --icon-secondary: #c6c6c6;
+  --icon-on-color: #ffffff;
+  --icon-disabled: rgba(244,244,244,0.25);
+  --icon-inverse: #161616;
+
+  --border-subtle-00: #393939;
+  --border-subtle-01: #525252;
+  --border-strong-01: #6f6f6f;
+  --border-inverse: #f4f4f4;
+  --border-interactive: #4589ff;
+  --border-disabled: #525252;
+
+  --interactive: #4589ff;
+  --focus: #ffffff;
+  --focus-inset: #161616;
+  --highlight: #002d9c;
+
+  --button-primary: #0f62fe;
+  --button-primary-hover: #0050e6;
+  --button-primary-active: #002d9c;
+  --button-secondary: #6f6f6f;
+  --button-secondary-hover: #5e5e5e;
+  --button-secondary-active: #393939;
+  --button-tertiary: #ffffff;
+  --button-tertiary-hover: #f4f4f4;
+  --button-tertiary-active: #c6c6c6;
+  --button-danger-primary: #da1e28;
+  --button-danger-hover: #b81921;
+  --button-danger-active: #750e13;
+  --button-disabled: rgba(141,141,141,0.30);
+
+  --support-error: #fa4d56;
+  --support-success: #42be65;
+  --support-warning: #f1c21b;
+  --support-info: #4589ff;
+  --support-error-inverse: #da1e28;
+  --support-success-inverse: #24a148;
+  --support-warning-inverse: #f1c21b;
+  --support-info-inverse: #0043ce;
+
+  --notification-error-bg: #2d0709;
+  --notification-success-bg: #071908;
+  --notification-warning-bg: #302400;
+  --notification-info-bg: #001141;
+
+  --tag-bg-gray: #525252;       --tag-text-gray: #f4f4f4;
+  --tag-bg-blue: #0043ce;       --tag-text-blue: #d0e2ff;
+  --tag-bg-green: #0e6027;      --tag-text-green: #a7f0ba;
+  --tag-bg-red: #a2191f;        --tag-text-red: #ffd7d9;
+  --tag-bg-purple: #6929c4;     --tag-text-purple: #e8daff;
+  --tag-bg-teal: #005d5d;       --tag-text-teal: #9ef0f0;
+
+  --overlay: rgba(0,0,0,0.65);
+  --toggle-off: #6f6f6f;
+  --skeleton: #333333;
+}

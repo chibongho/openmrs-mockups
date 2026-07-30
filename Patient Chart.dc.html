@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/layout.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/base.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/styles.css">
+  <script src="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/_ds_bundle.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    a { color: var(--link-primary); text-decoration: none; }
+    a:hover { color: var(--link-primary-hover); text-decoration: underline; }
+    .om-scroll::-webkit-scrollbar { width: 12px; height: 12px; }
+    .om-scroll::-webkit-scrollbar-thumb { background: #c6c6c6; }
+    .om-scroll::-webkit-scrollbar-track { background: transparent; }
+  </style>
+</helmet>
+
+<div style="height:100vh;display:flex;flex-direction:column;overflow:hidden;background:var(--background);font-family:var(--font-sans);color:var(--text-primary)">
+
+  <!-- App header -->
+  <header style="flex-shrink:0;height:48px;display:flex;align-items:center;background:var(--teal-70);color:#fff">
+    <button aria-label="Menu" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:menu" width="20" height="20"></iconify-icon></button>
+    <div style="display:flex;align-items:center;gap:10px;padding:0 8px 0 8px">
+      <iconify-icon icon="carbon:in-progress" width="24" height="24" style="color:#fff"></iconify-icon>
+      <span style="font:600 15px/1 var(--font-sans)">OpenMRS</span>
+    </div>
+    <div style="width:1px;height:24px;background:rgba(255,255,255,0.3);margin:0 12px"></div>
+    <div style="display:flex;align-items:center;gap:8px;color:#fff;font:400 14px/1 var(--font-sans)">
+      <iconify-icon icon="carbon:location" width="16" height="16"></iconify-icon>
+      <span>Outpatient Clinic</span>
+    </div>
+    <div style="margin-left:auto;display:flex;height:100%;align-items:center">
+      <button aria-label="Search" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:search" width="20" height="20"></iconify-icon></button>
+      <button aria-label="Tools" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:tools" width="20" height="20"></iconify-icon></button>
+      <button aria-label="Add patient" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:user-follow" width="20" height="20"></iconify-icon></button>
+      <button aria-label="Account" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:user-avatar" width="20" height="20"></iconify-icon></button>
+      <button aria-label="App menu" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'rgba(255,255,255,0.1)' }"><iconify-icon icon="carbon:apps" width="20" height="20"></iconify-icon></button>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div style="flex:1;display:flex;min-height:0">
+
+    <!-- Left dashboard nav -->
+    <nav class="om-scroll" style="width:224px;flex-shrink:0;background:var(--layer-02);border-right:1px solid var(--border-subtle-01);overflow-y:auto">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="12">
+        <button onClick="{{ item.onClick }}" style="{{ item.style }}" style-hover="{ background: 'var(--layer-hover-01)' }">
+          <iconify-icon icon="{{ item.icon }}" width="16" height="16" style="color:var(--icon-primary)"></iconify-icon>
+          <span>{{ item.label }}</span>
+        </button>
+      </sc-for>
+    </nav>
+
+    <!-- Center column -->
+    <div style="{{ centerStyle }}">
+
+      <!-- Patient banner -->
+      <section data-screen-label="Patient banner" style="flex-shrink:0;background:transparent;border-bottom:1px solid var(--border-subtle-01)">
+        <div style="display:flex;align-items:flex-start;gap:var(--spacing-05);padding:var(--spacing-05) var(--spacing-06)">
+          <div style="width:52px;height:52px;flex-shrink:0;background:var(--purple-70);color:#fff;display:flex;align-items:center;justify-content:center;font:600 18px/1 var(--font-sans)">RJ</div>
+          <div style="flex:1;min-width:0;display:flex;align-items:flex-start;gap:var(--spacing-06);flex-wrap:wrap">
+
+            <!-- 1 · Identity -->
+            <div style="flex:1;min-width:200px">
+              <div style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap">
+                <h1 style="margin:0;font:600 20px/1.1 var(--font-sans)">Richard Jones</h1>
+                <span style="display:inline-flex;align-items:center;gap:4px;color:var(--text-secondary);font:400 15px/1 var(--font-sans)"><iconify-icon icon="carbon:gender-male" width="16" height="16"></iconify-icon>Male</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:var(--spacing-04);margin-top:var(--spacing-03);color:var(--text-secondary);font:400 14px/1 var(--font-sans);flex-wrap:wrap">
+                <span>85 yrs</span><span>&middot;</span><span>14-Feb-1941</span><span>&middot;</span>
+                <span>CR Number:&nbsp; <span style="color:var(--text-primary);font-weight:600;font-family:var(--font-mono)">10000GX</span></span>
+              </div>
+            </div>
+
+            <!-- 2 · Visit context -->
+            <sc-if value="{{ hasVisit }}" hint-placeholder-val="{{ false }}">
+              <div style="{{ bannerCtxStyle }}">
+                <div style="display:flex;flex-direction:column;gap:3px;min-width:0">
+                  <span style="font:600 14px/1.2 var(--font-sans)">{{ ctxName }}</span>
+                  <div style="display:flex;align-items:center;gap:6px;color:var(--text-secondary);font:400 12px/1.3 var(--font-sans)">
+                    <iconify-icon icon="carbon:time" width="12" height="12"></iconify-icon>
+                    <span style="{{ ctxLabelStyle }}">{{ ctxWhen }}</span>
+                    <span>&middot;</span>
+                    <iconify-icon icon="carbon:enterprise" width="12" height="12"></iconify-icon>
+                    <span>{{ ctxLoc }}</span>
+                  </div>
+                </div>
+                <button onClick="{{ openVisitModal }}" style="margin-left:8px;border:none;background:transparent;color:var(--link-primary);font:400 13px/1 var(--font-sans);cursor:pointer;white-space:nowrap" style-hover="{ textDecoration:'underline' }">Change</button>
+              </div>
+            </sc-if>
+            <sc-if value="{{ noVisit }}" hint-placeholder-val="{{ true }}">
+              <div style="flex-shrink:0;display:flex;align-items:center;gap:var(--spacing-04)">
+                <button onClick="{{ openStartVisit }}" style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:var(--teal-60);border:none;color:#fff;font:600 14px/1.2 var(--font-sans);cursor:pointer" style-hover="{ filter:'brightness(0.94)' }">
+                  <iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon>Add visit
+                </button>
+                <button onClick="{{ openVisitModal }}" style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:var(--layer-01);border:1px dashed var(--border-strong-01);color:var(--link-primary);font:600 14px/1.2 var(--font-sans);cursor:pointer" style-hover="{ background:'var(--layer-hover-01)' }">
+                  <iconify-icon icon="carbon:calendar" width="16" height="16"></iconify-icon>Select past visit
+                </button>
+              </div>
+            </sc-if>
+
+            <!-- 3 · Visit attributes (only relevant to the active visit) -->
+            <div style="flex:1;min-width:200px;display:flex;flex-direction:column;align-items:flex-end;gap:var(--spacing-03);color:var(--text-secondary);font:400 13px/1 var(--font-sans)">
+              <sc-if value="{{ isActiveVisit }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;align-items:center;gap:var(--spacing-03)">
+                  <x-import component-from-global-scope="CarbonDesignSystem_53f452.Tag" type="green" size="sm" hint-size="auto,18px">Paid</x-import>
+                  <span>Outpatient Consultation</span>
+                  <x-import component-from-global-scope="CarbonDesignSystem_53f452.Tag" type="gray" size="sm" hint-size="auto,18px">Not urgent</x-import>
+                </div>
+                <a href="#" style="font:400 13px/1 var(--font-sans)">Move</a>
+              </sc-if>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:var(--spacing-04);flex-shrink:0">
+            <button style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Actions<iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+            <button style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Show more<iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;padding:0 var(--spacing-06) var(--spacing-04)">
+          <button style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Sticky note<iconify-icon icon="carbon:document" width="16" height="16"></iconify-icon></button>
+        </div>
+      </section>
+
+      <!-- Main content -->
+      <main class="om-scroll" style="flex:1;min-width:0;overflow-y:auto;background:transparent;padding:var(--spacing-06)">
+
+        <!-- Vitals & biometrics summary strip -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-05);flex-wrap:wrap;gap:var(--spacing-04)">
+          <div style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap">
+            <h2 style="margin:0;font:600 16px/1 var(--font-sans)">Vitals and biometrics</h2>
+            <span style="color:var(--text-secondary);font:400 13px/1 var(--font-sans)">26-Mar-2026, 10:06 AM</span>
+            <a href="#" style="font:400 13px/1 var(--font-sans)">Vitals history</a>
+            <iconify-icon icon="carbon:information" width="16" height="16" style="color:var(--icon-secondary)"></iconify-icon>
+          </div>
+          <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Record vitals<iconify-icon icon="carbon:arrow-right" width="16" height="16"></iconify-icon></button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-05) var(--spacing-06);background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-06)">
+          <sc-for list="{{ summary }}" as="m" hint-placeholder-count="8">
+            <div style="{{ m.wrap }}">
+              <div style="color:var(--text-secondary);font:400 12px/1 var(--font-sans);display:flex;align-items:center;gap:4px">{{ m.label }}<span style="color:var(--orange-60)">{{ m.arrow }}</span></div>
+              <div style="margin-top:6px;font:400 20px/1 var(--font-sans)">{{ m.value }} <span style="font-size:12px;color:var(--text-helper)">{{ m.unit }}</span></div>
+            </div>
+          </sc-for>
+        </div>
+
+        <!-- Vitals table -->
+        <div style="background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-05)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+            <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Vitals</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+            <div style="display:flex;align-items:center;gap:var(--spacing-04)">
+              <div style="display:flex;border:1px solid var(--border-subtle-01)">
+                <button aria-label="Table view" style="width:32px;height:32px;border:none;background:var(--layer-02);color:var(--link-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;border-right:1px solid var(--border-subtle-01)"><iconify-icon icon="carbon:table" width="16" height="16"></iconify-icon></button>
+                <button aria-label="Chart view" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-secondary);display:flex;align-items:center;justify-content:center;cursor:pointer"><iconify-icon icon="carbon:chart-line" width="16" height="16"></iconify-icon></button>
+              </div>
+              <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
+            </div>
+          </div>
+          <div style="{{ vitalsHeadStyle }}">
+            <sc-for list="{{ vitalsHead }}" as="h" hint-placeholder-count="6"><div style="padding:12px 8px">{{ h }}</div></sc-for>
+          </div>
+          <sc-for list="{{ vitalsRows }}" as="row" hint-placeholder-count="5">
+            <div style="{{ row.style }}">
+              <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="6">
+                <div style="{{ c.style }}">{{ c.text }}<span style="color:var(--red-60);font-size:12px">{{ c.arrow }}</span></div>
+              </sc-for>
+            </div>
+          </sc-for>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:var(--spacing-04);color:var(--text-secondary);font:400 13px/1 var(--font-sans)">
+            <div>5 / 6 items &nbsp; <a href="#">See all</a></div>
+            <div style="display:flex;align-items:center;gap:8px">1 <iconify-icon icon="carbon:chevron-down" width="14" height="14"></iconify-icon> of 2 pages <iconify-icon icon="carbon:chevron-left" width="16" height="16"></iconify-icon><iconify-icon icon="carbon:chevron-right" width="16" height="16"></iconify-icon></div>
+          </div>
+        </div>
+
+        <!-- Biometrics table -->
+        <div style="background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-05)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+            <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Biometrics</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+            <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
+          </div>
+          <div style="{{ bioHeadStyle }}">
+            <sc-for list="{{ bioHead }}" as="h" hint-placeholder-count="5"><div style="padding:12px 8px">{{ h }}</div></sc-for>
+          </div>
+          <sc-for list="{{ bioRows }}" as="row" hint-placeholder-count="5">
+            <div style="{{ row.style }}">
+              <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="5">
+                <div style="{{ c.style }}">{{ c.text }}<span style="color:var(--red-60);font-size:12px">{{ c.arrow }}</span></div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+
+        <!-- Conditions + Active medications -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-05);margin-bottom:var(--spacing-05)">
+          <div style="background:var(--layer-01);padding:var(--spacing-05)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+              <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Conditions</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+              <button onClick="{{ openVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
+            </div>
+            <sc-for list="{{ conditions }}" as="c" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--spacing-04) 0;border-bottom:1px solid var(--border-subtle-01)">
+                <div><div style="font:400 14px/1.3 var(--font-sans)">{{ c.name }}</div><div style="color:var(--text-secondary);font:400 12px/1 var(--font-sans);margin-top:2px">Onset {{ c.since }}</div></div>
+                <span style="color:var(--text-secondary);font:400 13px/1 var(--font-sans)">{{ c.status }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="background:var(--layer-01);padding:var(--spacing-05)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+              <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Active medications</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+              <button onClick="{{ openOrders }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
+            </div>
+            <sc-for list="{{ meds }}" as="m" hint-placeholder-count="3">
+              <div style="padding:var(--spacing-04) 0;border-bottom:1px solid var(--border-subtle-01)">
+                <div style="font:400 14px/1.3 var(--font-sans)">{{ m.name }}</div>
+                <div style="color:var(--text-secondary);font:400 12px/1 var(--font-sans);margin-top:2px">{{ m.dose }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- Section view fallback for other nav items -->
+        <sc-if value="{{ showSectionNote }}" hint-placeholder-val="{{ false }}">
+          <div style="background:var(--layer-01);padding:var(--spacing-05);color:var(--text-secondary);font:400 14px/1.4 var(--font-sans)">{{ sectionNote }}</div>
+        </sc-if>
+
+      </main>
+    </div>
+
+    <!-- Right action rail -->
+    <div style="width:48px;flex-shrink:0;background:var(--layer-02);border-left:1px solid var(--border-subtle-01);display:flex;flex-direction:column">
+      <sc-for list="{{ railItems }}" as="r" hint-placeholder-count="5">
+        <button onClick="{{ r.onClick }}" aria-label="{{ r.label }}" title="{{ r.label }}" style="{{ r.style }}" style-hover="{ background:'var(--layer-hover-01)' }">
+          <iconify-icon icon="{{ r.icon }}" width="20" height="20"></iconify-icon>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;right:24px;bottom:24px;z-index:500">
+      <x-import component-from-global-scope="CarbonDesignSystem_53f452.ToastNotification" kind="{{ toastKind }}" title="{{ toastTitle }}" subtitle="{{ toastSub }}" onClose="{{ dismissToast }}" hint-size="360px,90px"></x-import>
+    </div>
+  </sc-if>
+
+  <!-- Workspace slide-over -->
+  <sc-if value="{{ wsOpen }}" hint-placeholder-val="{{ false }}">
+    <aside data-screen-label="Workspace" style="position:fixed;top:48px;right:48px;bottom:0;z-index:300;width:456px;max-width:88vw;background:var(--layer-02);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;border-left:1px solid var(--border-subtle-01)">
+      <!-- Title bar -->
+      <div style="flex-shrink:0;height:48px;display:flex;align-items:center;gap:var(--spacing-04);padding:0 var(--spacing-05);border-bottom:1px solid var(--border-subtle-01)">
+        <span style="flex:1;font:600 15px/1 var(--font-sans)">{{ wsTitle }}</span>
+        <button aria-label="Expand" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'var(--layer-hover-01)' }"><iconify-icon icon="carbon:arrow-right" width="18" height="18"></iconify-icon></button>
+        <button onClick="{{ closeWs }}" aria-label="Close" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'var(--layer-hover-01)' }"><iconify-icon icon="carbon:close" width="18" height="18"></iconify-icon></button>
+      </div>
+
+      <!-- Visit context banner -->
+      <sc-if value="{{ showWsCtx }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ wsCtxStyle }}">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="color:var(--text-secondary);font:400 13px/1 var(--font-sans)">Adding to:</span>
+            <span style="font:600 14px/1 var(--font-sans)">{{ ctxName }}</span>
+            <button onClick="{{ openVisitModal }}" style="margin-left:auto;border:none;background:transparent;color:var(--link-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Change</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:4px;color:var(--text-secondary);font:400 12px/1.3 var(--font-sans)">
+            <iconify-icon icon="carbon:time" width="12" height="12"></iconify-icon>
+            <span style="{{ ctxLabelStyle }}">{{ ctxWhen }}</span>
+            <span>&middot;</span>
+            <iconify-icon icon="carbon:enterprise" width="12" height="12"></iconify-icon>
+            <span>{{ ctxLoc }}</span>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ showWsNoVisit }}" hint-placeholder-val="{{ false }}">
+        <div style="flex-shrink:0;display:flex;align-items:center;gap:8px;padding:var(--spacing-04) var(--spacing-05);background:rgba(255,131,43,0.10);border-left:4px solid var(--orange-40);border-bottom:1px solid var(--orange-40)">
+          <iconify-icon icon="carbon:warning-alt" width="16" height="16" style="color:var(--orange-60)"></iconify-icon>
+          <span style="flex:1;font:400 13px/1.3 var(--font-sans)">No visit selected — choose one before saving.</span>
+          <button onClick="{{ openVisitModal }}" style="border:none;background:transparent;color:var(--link-primary);font:600 13px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Select a visit</button>
+        </div>
+      </sc-if>
+
+      <!-- Body -->
+      <div class="om-scroll" style="flex:1;overflow-y:auto">
+
+        <!-- Order basket -->
+        <sc-if value="{{ isOrders }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:var(--spacing-05);display:flex;flex-direction:column;gap:var(--spacing-05)">
+            <sc-for list="{{ basket }}" as="b" hint-placeholder-count="2">
+              <div style="{{ b.style }}">
+                <div style="display:flex;align-items:center;gap:var(--spacing-04);padding:var(--spacing-04) var(--spacing-05)">
+                  <div style="{{ b.badge }}"><iconify-icon icon="{{ b.icon }}" width="16" height="16"></iconify-icon></div>
+                  <span style="flex:1;font:600 15px/1 var(--font-sans)">{{ b.label }}</span>
+                  <button onClick="{{ b.onAdd }}" style="display:inline-flex;align-items:center;gap:4px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="{ textDecoration:'underline' }">Add<iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon></button>
+                  <button aria-label="Toggle" style="width:24px;height:24px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer"><iconify-icon icon="carbon:chevron-down" width="18" height="18"></iconify-icon></button>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <!-- Record vitals -->
+        <sc-if value="{{ isVitals }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:var(--spacing-05);display:flex;flex-direction:column;gap:var(--spacing-05)">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Date &amp; time recorded</label>
+              <div style="display:flex;align-items:center;gap:var(--spacing-04);height:40px;background:var(--field-01);border-bottom:1px solid var(--border-strong-01);padding:0 var(--spacing-04)">
+                <iconify-icon icon="carbon:calendar" width="16" height="16" style="color:var(--icon-secondary)"></iconify-icon>
+                <span style="font:400 14px/1 var(--font-sans)">{{ encounterDate }}</span>
+              </div>
+              <span style="font:400 12px/1.3 var(--font-sans);color:var(--text-helper)">{{ encounterHelp }}</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-05)">
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.NumberInput" label="Systolic (mmHg)" defaultValue="{{ 122 }}" hint-size="100%,64px"></x-import>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.NumberInput" label="Diastolic (mmHg)" defaultValue="{{ 78 }}" hint-size="100%,64px"></x-import>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.NumberInput" label="Pulse (beats/min)" defaultValue="{{ 76 }}" hint-size="100%,64px"></x-import>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.NumberInput" label="Temperature (°C)" defaultValue="{{ 37 }}" step="{{ 0.1 }}" hint-size="100%,64px"></x-import>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.NumberInput" label="SpO₂ (%)" defaultValue="{{ 98 }}" hint-size="100%,64px"></x-import>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.NumberInput" label="Weight (kg)" defaultValue="{{ 61 }}" step="{{ 0.1 }}" hint-size="100%,64px"></x-import>
+            </div>
+            <x-import component-from-global-scope="CarbonDesignSystem_53f452.TextArea" label="Notes" rows="{{ 3 }}" placeholder="Any relevant observations…" hint-size="100%,120px"></x-import>
+          </div>
+        </sc-if>
+        <!-- Start a visit -->
+        <sc-if value="{{ isStartVisit }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:var(--spacing-05);display:flex;flex-direction:column;gap:var(--spacing-06)">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font:400 13px/1 var(--font-sans);color:var(--text-secondary)">The visit is</span>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.ContentSwitcher" options="{{ svModes }}" selectedIndex="{{ svModeIndex }}" onChange="{{ setSvMode }}" hint-size="100%,40px"></x-import>
+            </div>
+            <x-import component-from-global-scope="CarbonDesignSystem_53f452.InlineNotification" kind="info" lowContrast="{{ true }}" title="Upcoming appointments" subtitle="No upcoming appointments found" hint-size="100%,64px"></x-import>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h3 style="margin:0;font:600 15px/1 var(--font-sans)">Visit location</h3>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.Dropdown" items="{{ svLocations }}" placeholder="Select a location" label="Select a location" size="md" hint-size="100%,64px"></x-import>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <h3 style="margin:0;font:600 15px/1 var(--font-sans)">Visit type</h3>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.Search" placeholder="Search for a visit type" size="md" hint-size="100%,40px"></x-import>
+              <div style="display:flex;flex-direction:column;gap:var(--spacing-04);margin-top:4px">
+                <sc-for list="{{ svVisitTypes }}" as="t" hint-placeholder-count="5">
+                  <x-import component-from-global-scope="CarbonDesignSystem_53f452.RadioButton" name="svtype" value="{{ t.value }}" label="{{ t.label }}" hint-size="auto,24px"></x-import>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <div style="flex-shrink:0;display:flex;height:64px">
+        <button onClick="{{ closeWs }}" style="flex:1;border:none;background:#393939;color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="{ background:'#4c4c4c' }">Cancel</button>
+        <button onClick="{{ signClose }}" style="{{ primaryBtnStyle }}" style-hover="{ filter:'brightness(0.94)' }">{{ wsPrimaryLabel }}<iconify-icon icon="{{ wsPrimaryIcon }}" width="16" height="16"></iconify-icon></button>
+      </div>
+    </aside>
+  </sc-if>
+
+  <!-- Select-a-visit modal -->
+  <sc-if value="{{ visitModal }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:600;display:flex;align-items:center;justify-content:center;background:var(--overlay)">
+      <div data-screen-label="Select a visit" style="width:640px;max-width:92vw;max-height:86vh;background:var(--layer-02);box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+        <div style="flex-shrink:0;display:flex;align-items:flex-start;justify-content:space-between;padding:var(--spacing-05) var(--spacing-06) var(--spacing-04)">
+          <h2 style="margin:0;font:400 20px/1.2 var(--font-sans)">Select a visit</h2>
+          <button onClick="{{ closeModal }}" aria-label="Close" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="{ background:'var(--layer-hover-01)' }"><iconify-icon icon="carbon:close" width="20" height="20"></iconify-icon></button>
+        </div>
+        <div style="flex-shrink:0;padding:0 var(--spacing-06) var(--spacing-05)">
+          <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Show visits with start date on or prior to:</label>
+          <div style="display:flex;align-items:center;justify-content:space-between;height:40px;background:var(--field-01);border-bottom:1px solid var(--border-strong-01);padding:0 var(--spacing-04);margin-top:6px">
+            <span style="font:400 14px/1 var(--font-sans)">23/07/2026</span>
+            <iconify-icon icon="carbon:calendar" width="16" height="16" style="color:var(--icon-secondary)"></iconify-icon>
+          </div>
+        </div>
+        <div class="om-scroll" style="flex:1;overflow-y:auto;border-top:1px solid var(--border-subtle-01)">
+          <sc-for list="{{ modalVisits }}" as="v" hint-placeholder-count="6">
+            <button onClick="{{ v.onPick }}" style="{{ v.style }}" style-hover="{{ v.hover }}">
+              <div style="min-width:0;text-align:left">
+                <div style="font:600 15px/1.2 var(--font-sans)">{{ v.name }}</div>
+                <div style="color:var(--text-secondary);font:400 13px/1.3 var(--font-sans);margin-top:2px">{{ v.sub }}</div>
+              </div>
+              <span style="display:inline-flex;align-items:center;gap:8px;color:var(--text-secondary);font:400 13px/1 var(--font-sans)">{{ v.name }}<span style="{{ v.radio }}"><span style="{{ v.radioDot }}"></span></span></span>
+            </button>
+          </sc-for>
+          <div style="padding:var(--spacing-05) var(--spacing-06)"><a href="#" style="font:400 14px/1 var(--font-sans)">Create new visit…</a></div>
+        </div>
+        <div style="flex-shrink:0;display:flex;height:64px">
+          <button onClick="{{ closeModal }}" style="flex:1;border:none;background:#393939;color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer" style-hover="{ background:'#4c4c4c' }">Cancel</button>
+          <button onClick="{{ confirmVisit }}" style="flex:1;border:none;background:var(--teal-60);color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer" style-hover="{ filter:'brightness(0.94)' }">Continue</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    section: 'summary',
+    selectedVisitId: null,
+    tempVisitId: null,
+    workspace: null,   // 'orders' | 'vitals'
+    visitModal: false,
+    toast: null,
+  };
+
+  VISITS = [
+    { id: 'v-opd', name: 'OPD Visit', sub: 'Current active visit · Mobile Clinic', loc: 'Mobile Clinic', date: 'Today', start: 'Today, 10:06 AM', end: null, active: true },
+    { id: 'v-h1', name: 'Home Visit', sub: '26-Mar-2026 · Site 42', loc: 'Site 42', date: '26-Mar-2026', start: '26-Mar-2026', end: '26-Mar-2026', active: false },
+    { id: 'v-h2', name: 'Home Visit', sub: '29-Aug-2025 · Site 42', loc: 'Site 42', date: '29-Aug-2025', start: '29-Aug-2025', end: '29-Aug-2025', active: false },
+    { id: 'v-g1', name: 'Group Session', sub: '03-Oct-2024 · Site 42', loc: 'Site 42', date: '03-Oct-2024', start: '03-Oct-2024', end: '03-Oct-2024', active: false },
+    { id: 'v-g2', name: 'Group Session', sub: '12-Sept-2024 · Site 42', loc: 'Site 42', date: '12-Sept-2024', start: '12-Sept-2024', end: '12-Sept-2024', active: false },
+    { id: 'v-h3', name: 'Home Visit', sub: '11-Jun-2024 – 13-Jun-2024 · Site 42', loc: 'Site 42', date: '11-Jun-2024', start: '11-Jun-2024', end: '13-Jun-2024', active: false },
+  ];
+
+  SECTIONS = [
+    { id: 'summary', label: 'Patient summary', icon: 'carbon:document' },
+    { id: 'vitals', label: 'Vitals & Biometrics', icon: 'carbon:activity' },
+    { id: 'medications', label: 'Medications', icon: 'carbon:pills' },
+    { id: 'orders', label: 'Orders', icon: 'carbon:shopping-cart' },
+    { id: 'results', label: 'Results', icon: 'carbon:chart-line' },
+    { id: 'visits', label: 'Visits', icon: 'carbon:calendar' },
+    { id: 'allergies', label: 'Allergies', icon: 'carbon:warning-alt' },
+    { id: 'conditions', label: 'Conditions', icon: 'carbon:list' },
+    { id: 'procedures', label: 'Procedures', icon: 'carbon:cut-out' },
+    { id: 'immunizations', label: 'Immunizations', icon: 'carbon:syringe' },
+    { id: 'attachments', label: 'Attachments', icon: 'carbon:attachment' },
+    { id: 'programs', label: 'Programs', icon: 'carbon:flow' },
+    { id: 'appointments', label: 'Appointments', icon: 'carbon:time' },
+    { id: 'billing', label: 'Billing history', icon: 'carbon:receipt' },
+    { id: 'growth', label: 'Growth Chart', icon: 'carbon:chart-line-data' },
+  ];
+
+  selectedVisit() { return this.VISITS.find(v => v.id === this.state.selectedVisitId) || null; }
+
+  go = (id) => this.setState({ section: id });
+  openWs = (key) => this.setState({ workspace: key });
+  closeWs = () => this.setState({ workspace: null });
+  openVisitModal = () => this.setState({ visitModal: true, tempVisitId: this.state.selectedVisitId });
+  closeModal = () => this.setState({ visitModal: false });
+  pickTemp = (id) => this.setState({ tempVisitId: id });
+  confirmVisit = () => this.setState({ selectedVisitId: this.state.tempVisitId, visitModal: false });
+  dismissToast = () => this.setState({ toast: null });
+  signClose = () => {
+    if (this.state.workspace === 'startvisit') {
+      this.setState({ workspace: null, selectedVisitId: 'v-opd', toast: { kind: 'success', title: 'Visit started', sub: 'OPD Visit is now the active visit.' } });
+      clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toast: null }), 5000);
+      return;
+    }
+    const v = this.selectedVisit();
+    if (!v) { this.setState({ visitModal: true }); return; }
+    const label = v.active ? 'active OPD visit' : (v.name + ' of ' + v.date);
+    this.setState({ workspace: null, toast: { kind: 'success', title: 'Saved', sub: 'Recorded into the ' + label + '.' } });
+    clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toast: null }), 5000);
+  };
+  setSvMode = (i) => this.setState({ svMode: i });
+
+  // table cell builder
+  cell(text, tone, arrow) {
+    const bg = tone === 'crit' ? 'rgba(218,30,40,0.12)' : tone === 'abn' ? 'rgba(255,131,43,0.14)' : 'transparent';
+    return { text, arrow: arrow || '', style: { padding: '12px 8px', font: '400 14px/1.2 var(--font-sans)', background: bg, display: 'flex', alignItems: 'center', gap: '4px', fontWeight: tone === 'normal' ? 400 : 600 } };
+  }
+  rowStyle(cols) { return { display: 'grid', gridTemplateColumns: cols, borderBottom: '1px solid var(--border-subtle-01)' }; }
+
+  renderVals() {
+    const { section, workspace, visitModal, toast, tempVisitId } = this.state;
+    const v = this.selectedVisit();
+    const hasVisit = !!v;
+    const retro = hasVisit && !v.active;
+
+    const accent = !hasVisit ? 'var(--border-strong-01)' : (retro ? 'var(--orange-40)' : 'var(--green-50)');
+    // whole-chart tint (light) + a slightly darker fill for the ctx chip so it reads against it
+    const pageTint = !hasVisit ? 'var(--background)' : (retro ? '#fdf3ec' : '#eef8ec');
+    const ctxBg = retro ? '#f8e5d6' : '#d8efd3';
+
+    const navItems = this.SECTIONS.map(s => {
+      const on = s.id === section;
+      return {
+        label: s.label, icon: s.icon, onClick: () => this.go(s.id),
+        style: {
+          width: '100%', minHeight: '48px', display: 'flex', alignItems: 'center', gap: 'var(--spacing-04)',
+          padding: '0 var(--spacing-05)', border: 'none', textAlign: 'left', cursor: 'pointer',
+          background: on ? 'var(--layer-01)' : 'transparent', color: 'var(--text-primary)',
+          borderLeft: on ? '3px solid var(--teal-50)' : '3px solid transparent',
+          font: (on ? 600 : 400) + ' 14px/1.2 var(--font-sans)',
+        },
+      };
+    });
+
+    const railBtn = (active) => ({
+      width: '48px', height: '48px', border: 'none', cursor: 'pointer',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      background: active ? 'var(--teal-70)' : 'transparent',
+      color: active ? '#fff' : 'var(--icon-primary)',
+    });
+    const railItems = [
+      { label: 'Order basket', icon: 'carbon:shopping-cart', onClick: () => this.openWs('orders'), style: railBtn(workspace === 'orders') },
+      { label: 'Clinical form', icon: 'carbon:pen', onClick: () => this.openWs('vitals'), style: railBtn(false) },
+      { label: 'Clinical forms', icon: 'carbon:task-view', onClick: () => this.openWs('vitals'), style: railBtn(workspace === 'vitals') },
+      { label: 'Visit notes', icon: 'carbon:document', onClick: () => this.openWs('vitals'), style: railBtn(false) },
+      { label: 'Patient lists', icon: 'carbon:group', onClick: () => this.openWs('orders'), style: railBtn(false) },
+    ];
+
+    // summary strip
+    const boxed = { padding: '8px 12px', border: '1px solid var(--orange-40)', background: 'rgba(255,131,43,0.10)' };
+    const summary = [
+      { label: 'BP', value: '107 / 56', unit: 'mmHg', arrow: '↓', wrap: boxed },
+      { label: 'Heart rate', value: '96', unit: 'beats/min', arrow: '', wrap: {} },
+      { label: 'R. rate', value: '13', unit: 'breaths/min', arrow: '', wrap: {} },
+      { label: 'SpO₂', value: '98.8', unit: '%', arrow: '', wrap: {} },
+      { label: 'Temp', value: '36.2', unit: 'DEG C', arrow: '', wrap: {} },
+      { label: 'Weight', value: '61', unit: 'kg', arrow: '', wrap: {} },
+      { label: 'Height', value: '186', unit: 'cm', arrow: '', wrap: {} },
+      { label: 'BMI', value: '17.6', unit: 'kg / m²', arrow: '', wrap: {} },
+    ];
+
+    // vitals table
+    const vCols = '1.5fr 1fr 1.1fr 1fr 1fr 1fr';
+    const headStyle = (cols) => ({ display: 'grid', gridTemplateColumns: cols, background: 'var(--layer-accent-01, #e0e0e0)', padding: '0', font: '600 13px/1 var(--font-sans)' });
+    const hcell = { padding: '12px 8px' };
+    const C = this.cell.bind(this);
+    const vitalsRows = [
+      { style: this.rowStyle(vCols), cells: [C('26 — Mar — 2026, 10:06 AM','normal'), C('36.2','normal'), C('107 / 56','abn','↓'), C('96','normal'), C('13','normal'), C('98.8','normal')] },
+      { style: this.rowStyle(vCols), cells: [C('29 — Aug — 2025, 05:52 AM','normal'), C('36.3','normal'), C('104 / 69','normal'), C('96','normal'), C('12','normal'), C('89.8','crit','↓↓')] },
+      { style: this.rowStyle(vCols), cells: [C('03 — Oct — 2024, 12:27 AM','normal'), C('37.2','normal'), C('142 / 53','abn','↑'), C('83','normal'), C('20','abn','↑'), C('88','crit','↓↓')] },
+      { style: this.rowStyle(vCols), cells: [C('12 — Sept — 2024, 08:07 AM','normal'), C('36.7','normal'), C('111 / 52','abn','↓'), C('56','abn','↓'), C('13','normal'), C('97.1','normal')] },
+      { style: this.rowStyle(vCols), cells: [C('12 — Jun — 2024, 05:54 PM','normal'), C('37.2','normal'), C('95 / 49','crit','↓↓'), C('71','normal'), C('20','abn','↑'), C('91.6','abn','↓')] },
+    ];
+
+    // biometrics table
+    const bCols = '1.6fr 1fr 1fr 1fr 1fr';
+    const bioRows = [
+      { style: this.rowStyle(bCols), cells: [C('26 — Mar — 2026, 10:06 AM','normal'), C('61','normal'), C('186','normal'), C('17.6','abn','↓'), C('--','normal')] },
+      { style: this.rowStyle(bCols), cells: [C('29 — Aug — 2025, 05:52 AM','normal'), C('49','normal'), C('151','normal'), C('21.5','normal'), C('--','normal')] },
+      { style: this.rowStyle(bCols), cells: [C('03 — Oct — 2024, 12:27 AM','normal'), C('94','normal'), C('196','normal'), C('24.5','normal'), C('--','normal')] },
+      { style: this.rowStyle(bCols), cells: [C('12 — Sept — 2024, 08:07 AM','normal'), C('68','normal'), C('161','normal'), C('26.2','abn','↑'), C('--','normal')] },
+      { style: this.rowStyle(bCols), cells: [C('12 — Jun — 2024, 05:54 PM','normal'), C('96','normal'), C('159','normal'), C('38','crit','↑↑'), C('--','normal')] },
+    ];
+
+    // order basket rows
+    const basketCard = { border: '1px solid var(--border-subtle-01)', borderLeft: '3px solid var(--blue-60)' };
+    const basket = [
+      { label: 'Drug orders (0)', icon: 'carbon:medication', onAdd: () => {}, style: { border: '1px solid var(--border-subtle-01)', borderLeft: '3px solid var(--blue-60)' }, badge: { width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--blue-20)', color: 'var(--blue-70)' }, icon: 'carbon:pills' },
+      { label: 'Lab orders (0)', icon: 'carbon:chemistry', onAdd: () => {}, style: { border: '1px solid var(--border-subtle-01)', borderLeft: '3px solid var(--purple-60)' }, badge: { width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--purple-40)', color: 'var(--purple-70)' }, icon: 'carbon:chemistry' },
+    ];
+
+    // modal visit list
+    const modalVisits = this.VISITS.map(mv => {
+      const sel = mv.id === tempVisitId;
+      const rowBg = mv.active ? '#e2f4e5' : '#fbeadd';
+      const rowHover = mv.active ? '#c8ebce' : '#f6d9c2';
+      const bar = mv.active ? 'var(--green-50)' : 'var(--orange-40)';
+      return {
+        name: mv.name, sub: mv.sub, onPick: () => this.pickTemp(mv.id),
+        style: {
+          width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          gap: '12px', padding: '16px 24px', border: 'none', cursor: 'pointer',
+          borderBottom: '1px solid rgba(0,0,0,0.06)', transition: 'background 70ms',
+          background: rowBg,
+          boxShadow: sel ? ('inset 4px 0 0 ' + bar) : 'inset 4px 0 0 transparent',
+        },
+        hover: { background: rowHover },
+        radio: { width: '18px', height: '18px', borderRadius: '50%', border: '2px solid ' + (sel ? 'var(--teal-60)' : 'var(--icon-secondary)'), display: 'inline-flex', alignItems: 'center', justifyContent: 'center' },
+        radioDot: { width: '10px', height: '10px', borderRadius: '50%', background: sel ? 'var(--teal-60)' : 'transparent' },
+      };
+    });
+
+    const wsMeta = { orders: { title: 'Order basket', primary: 'Sign and close' }, vitals: { title: 'Record vitals and biometrics', primary: 'Save and close' }, startvisit: { title: 'Start a visit', primary: 'Start visit' } };
+    const wm = wsMeta[workspace] || {};
+    const isStartVisit = workspace === 'startvisit';
+
+    const sectionMeta = this.SECTIONS.find(s => s.id === section);
+    const showSectionNote = section !== 'summary';
+
+    return {
+      navItems, railItems, summary,
+      vitalsHead: ['Date and time', 'Temp (DEG C)', 'BP (mmHg)', 'Pulse (beats/min)', 'R. Rate (breaths/min)', 'SpO2 (%)'],
+      vitalsHeadStyle: { display: 'grid', gridTemplateColumns: vCols, background: '#e0e0e0', font: '600 13px/1.2 var(--font-sans)', color: 'var(--text-primary)' },
+      vitalsRows,
+      bioHead: ['Date and time', 'Weight (kg)', 'Height (cm)', 'BMI (kg / m²)', 'MUAC (cm)'],
+      bioHeadStyle: { display: 'grid', gridTemplateColumns: bCols, background: '#e0e0e0', font: '600 13px/1.2 var(--font-sans)', color: 'var(--text-primary)' },
+      bioRows,
+
+      conditions: [
+        { name: 'Type 2 diabetes mellitus', since: '2021', status: 'Active' },
+        { name: 'Essential hypertension', since: '2020', status: 'Active' },
+        { name: 'Asthma', since: '2015', status: 'Inactive' },
+      ],
+      meds: [
+        { name: 'Metformin 500 mg', dose: 'Oral · twice daily' },
+        { name: 'Amlodipine 5 mg', dose: 'Oral · once daily' },
+        { name: 'Salbutamol inhaler', dose: '2 puffs · as needed' },
+      ],
+
+      showSectionNote,
+      sectionNote: sectionMeta ? (sectionMeta.label + ' — content for this section. This prototype focuses on Patient summary and the visit-context data-entry flow.') : '',
+
+      // visit context (banner + workspace share these)
+      hasVisit, noVisit: !hasVisit, isActiveVisit: hasVisit && !retro,
+      ctxName: v ? v.name : '',
+      ctxWhen: !hasVisit ? '' : (retro ? (v.end && v.end !== v.start ? v.start + ' – ' + v.end : v.start) : (v.start + ' · ongoing')),
+      ctxLoc: v ? v.loc : '',
+      ctxIcon: retro ? 'carbon:time' : 'carbon:pulse-outline',
+      ctxIconStyle: { color: accent, flexShrink: 0 },
+      ctxLabelStyle: { color: accent, fontWeight: 600 },
+      centerStyle: { flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', background: pageTint, transition: 'background var(--duration-moderate,150ms) var(--easing-standard,ease)' },
+      bannerCtxStyle: {
+        flexShrink: 0, display: 'inline-flex', alignItems: 'center', gap: '10px',
+        padding: '8px 12px', background: ctxBg, border: '1px solid ' + accent, borderLeft: '3px solid ' + accent, maxWidth: '520px',
+      },
+      wsCtxStyle: { flexShrink: 0, padding: 'var(--spacing-04) var(--spacing-05)', background: ctxBg, borderLeft: '4px solid ' + accent, borderBottom: '1px solid ' + accent },
+      openVisitModal: this.openVisitModal,
+
+      // workspace
+      wsOpen: !!workspace,
+      wsTitle: wm.title || '', wsPrimaryLabel: wm.primary || 'Save', wsPrimaryIcon: isStartVisit ? 'carbon:arrow-right' : 'carbon:save',
+      isOrders: workspace === 'orders', isVitals: workspace === 'vitals', isStartVisit,
+      showWsCtx: hasVisit && !isStartVisit, showWsNoVisit: !hasVisit && !isStartVisit,
+      basket, closeWs: this.closeWs, signClose: this.signClose,
+      openOrders: () => this.openWs('orders'), openVitals: () => this.openWs('vitals'), openStartVisit: () => this.openWs('startvisit'),
+      svModes: [{ label: 'New' }, { label: 'Ongoing' }, { label: 'In the past' }],
+      svModeIndex: this.state.svMode || 0, setSvMode: this.setSvMode,
+      svLocations: [{ value: 'mobile', label: 'Mobile Clinic' }, { value: 'butaro', label: 'Butaro Hospital' }, { value: 'kinyinya', label: 'Kinyinya Health Post' }, { value: 'site42', label: 'Site 42' }],
+      svVisitTypes: [{ value: 'facility', label: 'Facility Visit' }, { value: 'home', label: 'Home Visit' }, { value: 'opd', label: 'OPD Visit' }, { value: 'offline', label: 'Offline Visit' }, { value: 'group', label: 'Group Session' }],
+      primaryBtnStyle: { flex: 1, border: 'none', background: hasVisit ? 'var(--teal-60)' : 'var(--button-disabled,#c6c6c6)', color: hasVisit ? '#fff' : 'var(--text-on-color-disabled,#8d8d8d)', font: '400 15px/1 var(--font-sans)', cursor: hasVisit ? 'pointer' : 'not-allowed', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' },
+      encounterDate: !hasVisit ? 'Select a visit first' : (retro ? v.date : 'Today, 10:06 AM'),
+      encounterHelp: retro ? 'Defaults to the selected visit. Must fall within the visit window.' : 'Defaults to now, within the active visit.',
+
+      // modal
+      visitModal, modalVisits, closeModal: this.closeModal, confirmVisit: this.confirmVisit,
+
+      // toast
+      toast: !!toast, toastKind: toast ? toast.kind : 'success', toastTitle: toast ? toast.title : '', toastSub: toast ? toast.sub : '', dismissToast: this.dismissToast,
+    };
+  }
+}
+</script>
+</body>
+</html>

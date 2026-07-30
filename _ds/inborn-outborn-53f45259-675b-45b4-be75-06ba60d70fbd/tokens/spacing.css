@@ -1,0 +1,41 @@
+/* =====================================================================
+   CARBON · Spacing tokens
+   The 2x grid. Spacing scale 01..13 plus container, icon, and
+   fluid-spacing helpers. All in rem (base 16px).
+   ===================================================================== */
+
+:root {
+  --spacing-01: 0.125rem;  /* 2px  */
+  --spacing-02: 0.25rem;   /* 4px  */
+  --spacing-03: 0.5rem;    /* 8px  */
+  --spacing-04: 0.75rem;   /* 12px */
+  --spacing-05: 1rem;      /* 16px */
+  --spacing-06: 1.5rem;    /* 24px */
+  --spacing-07: 2rem;      /* 32px */
+  --spacing-08: 2.5rem;    /* 40px */
+  --spacing-09: 3rem;      /* 48px */
+  --spacing-10: 4rem;      /* 64px */
+  --spacing-11: 5rem;      /* 80px */
+  --spacing-12: 6rem;      /* 96px */
+  --spacing-13: 10rem;     /* 160px */
+
+  /* Container heights — control sizing (sm/md/lg/xl) */
+  --container-01: 1.5rem;  /* 24px */
+  --container-02: 2rem;    /* 32px */
+  --container-03: 2.5rem;  /* 40px */
+  --container-04: 3rem;    /* 48px */
+  --container-05: 4rem;    /* 64px */
+
+  /* Field heights */
+  --field-01-height: 2rem;    /* 32px - sm */
+  --field-02-height: 2.5rem;  /* 40px - md */
+  --field-03-height: 3rem;    /* 48px - lg */
+
+  /* Icon sizes */
+  --icon-size-01: 1rem;    /* 16px */
+  --icon-size-02: 1.25rem; /* 20px */
+
+  /* Layout / grid */
+  --layout-gutter: 2rem;
+  --layout-margin: 1rem;
+}

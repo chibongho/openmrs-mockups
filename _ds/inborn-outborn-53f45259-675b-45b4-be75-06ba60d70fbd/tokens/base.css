@@ -1,0 +1,54 @@
+/* =====================================================================
+   CARBON · Base — minimal global reset + element defaults.
+   Applies IBM Plex, sets the productive body type, and wires the
+   default theme background/text. Kept light so consumers can opt out.
+   ===================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--type-size-body-01);
+  line-height: var(--type-lh-body-01);
+  letter-spacing: var(--type-ls-body-01);
+  font-weight: var(--font-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Carbon-style focus: a 2px inset/outset ring in the focus color */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: var(--border-width-interactive) solid var(--focus);
+  outline-offset: -2px;
+}
+
+a {
+  color: var(--link-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: var(--link-primary-hover);
+}
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+}
+
+/* Optional helper: scoped theme containers also paint their own bg */
+[data-carbon-theme] {
+  background-color: var(--background);
+  color: var(--text-primary);
+}

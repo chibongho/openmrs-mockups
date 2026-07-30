@@ -1,0 +1,44 @@
+/* =====================================================================
+   CARBON · Layout primitives — radius, borders, elevation, motion.
+   Carbon is a square-cornered system: radius is 0 by default. A small
+   set of optional radii exist for newer rounded variants. Elevation is
+   minimal & functional (menus, modals), never decorative.
+   ===================================================================== */
+
+:root {
+  /* ---- Corner radius (Carbon is square; these are opt-in) ---- */
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* ---- Border widths ---- */
+  --border-width: 1px;
+  --border-width-interactive: 2px;   /* focus rings, active field underline */
+  --border-width-strong: 3px;        /* notification left accent bar */
+
+  /* ---- Elevation / shadow (functional only) ---- */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.20);     /* overflow menus, tooltips */
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.25);     /* popovers, dropdowns */
+  --shadow-lg: 0 8px 16px rgba(0,0,0,0.30);    /* modals */
+
+  /* ---- Motion · durations ---- */
+  --duration-fast-01: 70ms;     /* @kind other */  /* micro interactions, e.g. button */
+  --duration-fast-02: 110ms;    /* @kind other */  /* checkbox, toggle, small expansion */
+  --duration-moderate-01: 150ms;/* @kind other */  /* fade, small slide */
+  --duration-moderate-02: 240ms;/* @kind other */  /* tooltips, dropdowns */
+  --duration-slow-01: 400ms;    /* @kind other */  /* expansion, large panels */
+  --duration-slow-02: 700ms;    /* @kind other */  /* dialogs, full-screen */
+
+  /* ---- Motion · easing ----
+     Productive = focused, efficient UI. Expressive = emphasis/delight. */
+  --easing-productive-standard: cubic-bezier(0.2, 0, 0.38, 0.9); /* @kind other */
+  --easing-productive-entrance: cubic-bezier(0, 0, 0.38, 0.9); /* @kind other */
+  --easing-productive-exit: cubic-bezier(0.2, 0, 1, 0.9); /* @kind other */
+  --easing-expressive-standard: cubic-bezier(0.4, 0.14, 0.3, 1); /* @kind other */
+  --easing-expressive-entrance: cubic-bezier(0, 0, 0.3, 1); /* @kind other */
+  --easing-expressive-exit: cubic-bezier(0.4, 0.14, 1, 1); /* @kind other */
+
+  /* Default transition convenience */
+  --transition-base: var(--duration-fast-02) var(--easing-productive-standard);
+}

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@300;400;500;600&display=swap');
+
+/* =====================================================================
+   CARBON · Typography tokens
+   Type family: IBM Plex (Sans / Mono / Serif).
+   Carbon's productive type set. Sizes in rem, line-heights unitless
+   matched to Carbon's px ratios. Weights: 300 light, 400 regular,
+   500 medium, 600 semibold.
+   ===================================================================== */
+
+:root {
+  /* --- Font families --- */
+  --font-sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Menlo', 'Courier New', monospace;
+  --font-serif: 'IBM Plex Serif', Georgia, serif;
+
+  /* --- Font weights --- */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* =================================================================
+     Type set — each token is a size/line-height/weight triad.
+     Use as:  font: var(--type-weight-body-01) var(--type-size-body-01)/var(--type-lh-body-01) var(--font-sans);
+     or the convenience shorthands at the bottom.
+     ================================================================= */
+
+  /* Caption / label / helper / legal — 12px utility text */
+  --type-size-caption-01: 0.75rem;     --type-lh-caption-01: 1.34;   --type-weight-caption-01: 400; --type-ls-caption-01: 0.32px;
+  --type-size-label-01: 0.75rem;       --type-lh-label-01: 1.34;     --type-weight-label-01: 400;   --type-ls-label-01: 0.32px;
+  --type-size-helper-text-01: 0.75rem; --type-lh-helper-text-01: 1.34; --type-weight-helper-text-01: 400; --type-ls-helper-text-01: 0.32px;
+  --type-size-legal-01: 0.75rem;       --type-lh-legal-01: 1.34;     --type-weight-legal-01: 400;   --type-ls-legal-01: 0.32px;
+
+  --type-size-label-02: 0.875rem;      --type-lh-label-02: 1.29;     --type-weight-label-02: 400;   --type-ls-label-02: 0.16px;
+
+  /* Body — reading text */
+  --type-size-body-compact-01: 0.875rem; --type-lh-body-compact-01: 1.29; --type-weight-body-compact-01: 400; --type-ls-body-compact-01: 0.16px;
+  --type-size-body-compact-02: 1rem;     --type-lh-body-compact-02: 1.375; --type-weight-body-compact-02: 400; --type-ls-body-compact-02: 0;
+  --type-size-body-01: 0.875rem;       --type-lh-body-01: 1.43;      --type-weight-body-01: 400;    --type-ls-body-01: 0.16px;
+  --type-size-body-02: 1rem;           --type-lh-body-02: 1.5;       --type-weight-body-02: 400;    --type-ls-body-02: 0;
+
+  /* Headings — compact + standard */
+  --type-size-heading-compact-01: 0.875rem; --type-lh-heading-compact-01: 1.29; --type-weight-heading-compact-01: 600; --type-ls-heading-compact-01: 0.16px;
+  --type-size-heading-compact-02: 1rem;     --type-lh-heading-compact-02: 1.375; --type-weight-heading-compact-02: 600; --type-ls-heading-compact-02: 0;
+  --type-size-heading-01: 0.875rem;    --type-lh-heading-01: 1.43;   --type-weight-heading-01: 600;  --type-ls-heading-01: 0.16px;
+  --type-size-heading-02: 1rem;        --type-lh-heading-02: 1.5;    --type-weight-heading-02: 600;  --type-ls-heading-02: 0;
+  --type-size-heading-03: 1.25rem;     --type-lh-heading-03: 1.4;    --type-weight-heading-03: 400;  --type-ls-heading-03: 0;
+  --type-size-heading-04: 1.75rem;     --type-lh-heading-04: 1.29;   --type-weight-heading-04: 400;  --type-ls-heading-04: 0;
+  --type-size-heading-05: 2rem;        --type-lh-heading-05: 1.25;   --type-weight-heading-05: 400;  --type-ls-heading-05: 0;
+  --type-size-heading-06: 2.625rem;    --type-lh-heading-06: 1.199;  --type-weight-heading-06: 300;  --type-ls-heading-06: 0;
+  --type-size-heading-07: 3.375rem;    --type-lh-heading-07: 1.19;   --type-weight-heading-07: 300;  --type-ls-heading-07: 0;
+
+  /* Fluid display — large marketing-scale headings */
+  --type-size-display-01: 4.25rem; --type-lh-display-01: 1.15; --type-weight-display-01: 300;
+  --type-size-display-02: 5.75rem; --type-lh-display-02: 1.11; --type-weight-display-02: 300;
+
+  /* Code */
+  --type-size-code-01: 0.75rem;        --type-lh-code-01: 1.34;      --type-weight-code-01: 400;    --type-ls-code-01: 0.32px;
+  --type-size-code-02: 0.875rem;       --type-lh-code-02: 1.43;      --type-weight-code-02: 400;    --type-ls-code-02: 0.16px;
+}

@@ -1,0 +1,11 @@
+/* =====================================================================
+   CARBON DESIGN SYSTEM — global entry point.
+   Consumers link THIS file only. Import order matters:
+   tokens first (colors/type/spacing/layout), then base element styles.
+   Keep this file as @import lines only.
+   ===================================================================== */
+@import url("tokens/colors.css");
+@import url("tokens/typography.css");
+@import url("tokens/spacing.css");
+@import url("tokens/layout.css");
+@import url("tokens/base.css");
