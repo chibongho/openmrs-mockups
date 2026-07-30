@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenMRS Design Mockups</title>
+<meta name="description" content="Interactive HTML mockups for OpenMRS patient chart design work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* Carbon / OpenMRS tokens, inlined so this page stays independent of the
+     versioned _ds bundle under rde/. */
+  :root {
+    --sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+    --teal-70: #005d5d;
+    --teal-40: #08bdba;
+    --link: #0f62fe;
+    --bg: #f4f4f4;
+    --layer: #ffffff;
+    --layer-hover: #f9f9f9;
+    --border: #e0e0e0;
+    --text: #161616;
+    --text-secondary: #525252;
+    --text-helper: #6f6f6f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --link: #78a9ff;
+      --bg: #161616;
+      --layer: #262626;
+      --layer-hover: #333333;
+      --border: #393939;
+      --text: #f4f4f4;
+      --text-secondary: #c6c6c6;
+      --text-helper: #8d8d8d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 16px/1.5 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 16px;
+    background: var(--teal-70);
+    color: #fff;
+  }
+  header .brand { font: 600 15px/1 var(--sans); }
+  header .divider { width: 1px; height: 20px; background: rgba(255, 255, 255, 0.35); }
+  header .context { font: 400 15px/1 var(--sans); color: rgba(255, 255, 255, 0.9); }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { margin: 0 0 12px; font: 600 32px/1.25 var(--sans); letter-spacing: -0.01em; }
+  .lede { margin: 0 0 40px; color: var(--text-secondary); max-width: 56ch; }
+  h2 {
+    margin: 0 0 16px;
+    font: 400 12px/1 var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-helper);
+  }
+  .card {
+    display: block;
+    padding: 20px;
+    background: var(--layer);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal-40);
+    color: inherit;
+    text-decoration: none;
+    transition: background 70ms ease-out;
+  }
+  .card:hover { background: var(--layer-hover); }
+  .card:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  .card h3 { margin: 0 0 6px; font: 600 20px/1.3 var(--sans); }
+  .card p { margin: 0; color: var(--text-secondary); font-size: 15px; }
+  .card .arrow { color: var(--teal-70); }
+  @media (prefers-color-scheme: dark) {
+    .card .arrow { color: var(--teal-40); }
+  }
+  .tour {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .tour a { color: var(--link); }
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-helper);
+  }
+  footer a { color: var(--link); }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="brand">OpenMRS</span>
+  <span class="divider"></span>
+  <span class="context">Design Mockups</span>
+</header>
+
+<main>
+  <h1>OpenMRS Design Mockups</h1>
+  <p class="lede">
+    Interactive, self-contained HTML mockups used for design review. Each one runs
+    entirely in the browser against fabricated demo data — no server, no real records.
+  </p>
+
+  <h2>Mockups</h2>
+
+  <a class="card" href="rde/Patient%20Chart.dc.html">
+    <h3>Patient Chart — RDE &amp; POC roles <span class="arrow">&rarr;</span></h3>
+    <p>
+      How the patient chart behaves for a user with the point-of-care (POC) role,
+      the retrospective data entry (RDE) role, or both — including visit context in
+      the patient banner, and the order and form entry flows for each role.
+    </p>
+  </a>
+  <p class="tour">
+    Includes a guided walkthrough. Use the <strong>Play the guided narration</strong>
+    button in the chart header, or
+    <a href="rde/Patient%20Chart.dc.html?tour">open it with the tour already running</a>.
+  </p>
+
+  <footer>
+    All patient information shown is synthetic demo data.
+    Source: <a href="https://github.com/chibongho/openmrs-mockups">github.com/chibongho/openmrs-mockups</a>
+  </footer>
+</main>
+
+</body>
+</html>
