@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #ebebeb; font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif; }
+  a { color: #1c5f74; text-decoration: none; }
+  a:hover { color: #10404f; text-decoration: underline; }
+  table { border-collapse: collapse; }
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #ebebeb; padding: 0 0 60px;">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 14px 12px 0;">
+
+    <div style="background: #f5900a; display: flex; align-items: center; justify-content: space-between; padding: 12px 20px;">
+      <div style="display: flex; flex-direction: column; gap: 4px; align-items: flex-start;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 26px; height: 26px; border-radius: 3px; background: #ffffff; display: flex; align-items: center; justify-content: center; color: #f5900a; font-size: 15px; font-weight: 700;">✳</div>
+          <div style="color: #ffffff; font-size: 17px; font-weight: 600; line-height: 1.15;">Partners<br />In Health</div>
+        </div>
+        <div style="background: #ffffff; color: #7a7a7a; font-size: 10px; letter-spacing: 1.6px; padding: 2px 10px;">SIERRA LEONE</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 26px; color: #ffffff; font-size: 14px;">
+        <div style="display: flex; align-items: center; gap: 7px;">
+          <span style="font-size: 13px;">👤</span><span>cho</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 7px;">
+          <span style="font-size: 13px;">📍</span><span>Labour and Delivery</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 7px;">
+          <span>Logout</span><span style="font-size: 13px;">⇥</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 9px; padding: 9px 20px; font-size: 13.5px; color: #444;">
+      <span style="color: #1c5f74;">⌂</span>
+      <span style="color: #999;">›</span>
+      <a href="#" style="border-bottom: 1px solid #1c5f74;">Ho2, Mama 2024-08-06</a>
+      <span style="color: #999;">›</span>
+      <span style="color: #1a3a6b; font-weight: 600;">Visit</span>
+    </div>
+
+    <div style="background: #ffffff; border: 1px solid #dcdcdc;">
+
+      <div style="display: flex; justify-content: space-between; padding: 18px 22px 16px; border-bottom: 1px solid #e4e4e4;">
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 22px;">
+            <div>
+              <div style="font-size: 30px; color: #1c5f74; border-bottom: 2px solid #c9d6da; padding-bottom: 2px; display: inline-block;">Ho2, Mama 2024-08-06</div>
+              <div style="display: flex; gap: 16px; font-size: 12px; font-style: italic; color: #777; padding-top: 3px;">
+                <span>Surname</span><span>Given Name</span>
+              </div>
+            </div>
+            <div style="font-size: 14.5px; color: #333;">Female&nbsp; 36 year(s) ( 02 Jan 1990)</div>
+          </div>
+          <button type="button" style="margin-top: 12px; font-family: inherit; font-size: 14px; color: #333; background: linear-gradient(#ffffff, #f2f2f2); border: 1px solid #ccc; border-radius: 3px; padding: 7px 14px; cursor: pointer; display: flex; align-items: center; gap: 8px;" style-hover="background: #ececec;">
+            <span>Show Contact Info</span><span style="font-size: 10px;">▼</span>
+          </button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 7px; align-items: flex-end; font-size: 13.5px; font-style: italic; color: #8a8a8a;">
+          <div style="display: flex; align-items: center; gap: 40px;">
+            <span>KGH EMR ID</span>
+            <span style="background: #6f6f6f; color: #fff; font-style: normal; font-size: 13px; border-radius: 11px; padding: 3px 12px;">KGH24080039</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #e0e0e0; padding-bottom: 3px;"><span>Wellbody EMR ID</span><span style="color: #1a3a6b; font-style: normal;">⊕</span></div>
+          <div style="display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #e0e0e0; padding-bottom: 3px;"><span>NCD ID</span><span style="color: #1a3a6b; font-style: normal;">⊕</span></div>
+          <div style="display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #e0e0e0; padding-bottom: 3px;"><span>National ID Number</span><span style="color: #1a3a6b; font-style: normal;">⊕</span></div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 14px 22px 12px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 9px; font-size: 20px; color: #1c5f74;">
+            <span style="font-size: 16px;">🏥</span><span>KGH</span><span style="font-size: 13px; color: #7d7d7d;">✎</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #444; padding-top: 5px;">
+            <span style="color: #666;">◷</span><span>Aug 6, 2024 06:29 PM - Aug 6, 2024 06:29 PM</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" style="font-family: inherit; font-size: 13.5px; color: #333; background: linear-gradient(#ffffff, #f2f2f2); border: 1px solid #ccc; border-radius: 3px; padding: 7px 12px; cursor: pointer; display: flex; align-items: center; gap: 7px;" style-hover="background: #ececec;"><span>Change Visit</span><span style="font-size: 10px;">▼</span></button>
+          <button type="button" style="font-family: inherit; font-size: 13.5px; color: #333; background: linear-gradient(#ffffff, #f2f2f2); border: 1px solid #ccc; border-radius: 3px; padding: 7px 12px; cursor: pointer; display: flex; align-items: center; gap: 7px;" style-hover="background: #ececec;"><span>Actions</span><span style="font-size: 10px;">▼</span></button>
+          <button type="button" style="font-family: inherit; font-size: 13.5px; color: #333; background: linear-gradient(#ffffff, #f2f2f2); border: 1px solid #ccc; border-radius: 3px; padding: 7px 11px; cursor: pointer;" style-hover="background: #ececec;">≫</button>
+          <button type="button" style="font-family: inherit; font-size: 13.5px; color: #333; background: linear-gradient(#ffffff, #f2f2f2); border: 1px solid #ccc; border-radius: 3px; padding: 7px 11px; cursor: pointer;" style-hover="background: #ececec;">⎙</button>
+        </div>
+      </div>
+
+
+      <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+        <div style="padding: 16px 22px 4px; display: flex; flex-direction: column; gap: 10px;">
+          <sc-for list="{{ encounters }}" as="e" hint-placeholder-count="3">
+            <div style="border: 1px solid #d8d8d8; background: #fafafa;">
+              <div onClick="{{ e.toggle }}" style="padding: 13px 16px; display: flex; justify-content: space-between; align-items: flex-start; cursor: pointer;" style-hover="background: #f1f5f7;">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 9px; font-size: 17px; color: #1a3a6b; font-weight: 600;">
+                    <span style="font-size: 14px;">{{ e.glyph }}</span><span>{{ e.form }}</span>
+                  </div>
+                  <sc-if value="{{ e.byline }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-size: 13.5px; color: #444; padding-top: 4px; display: flex; align-items: center; gap: 7px;">
+                      <span>{{ e.byline }}</span>
+                      <span title="{{ e.flagTitle }}" style="display: inline-flex;">{{ e.flag }}</span>
+                    </div>
+                  </sc-if>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+                  <div style="display: flex; gap: 16px; font-size: 13.5px; color: #1a3a6b;">
+                    <span>🗓 {{ e.date }}</span><span>◷ {{ e.time }}</span>
+                  </div>
+                  <div style="display: flex; gap: 13px; font-size: 13px; color: #1a3a6b; align-items: center;">
+                    <span style="font-size: 11px;">{{ e.caret }}</span><span>✎</span><span style="font-weight: 700;">✕</span>
+                  </div>
+                </div>
+              </div>
+              <sc-if value="{{ e.open }}" hint-placeholder-val="{{ false }}">
+                <div style="border-top: 1px solid #e2e2e2; background: #f3f7f9; padding: 14px 16px;">
+                  <div style="display: flex; gap: 2px; border-bottom: 1px solid #d6d6d6; margin-bottom: 12px;">
+                    <button type="button" onClick="{{ e.showForm }}" style="{{ e.formTabStyle }}">Form</button>
+                    <button type="button" onClick="{{ e.showAudit }}" style="{{ e.auditTabStyle }}"><span>Audit Data</span><span title="{{ e.flagTitle }}" style="display: inline-flex;">{{ e.flag }}</span></button>
+                  </div>
+                  <sc-if value="{{ e.formTab }}" hint-placeholder-val="{{ true }}">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                      <sc-for list="{{ e.sections }}" as="s" hint-placeholder-count="2">
+                        <fieldset style="border: none; margin: 0; padding: 0;">
+                          
+                          <div style="background: #f1f1f1; border: 1px solid #e4e4e4; padding: 13px 15px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 30px;">
+                            <sc-for list="{{ s.fields }}" as="f" hint-placeholder-count="4">
+                              <div style="display: flex; gap: 9px; font-size: 14px; color: #1c5f74; align-items: baseline;">
+                                <span>{{ f.label }}</span>
+                                <span style="color: #1a3a6b; font-weight: 700;">{{ f.value }}</span>
+                              </div>
+                            </sc-for>
+                          </div>
+                        </fieldset>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ e.auditTab }}" hint-placeholder-val="{{ false }}">
+                    <table style="width: 100%; background: #ffffff; border: 1px solid #dcdcdc; font-size: 14px;">
+                    <thead>
+                      <tr>
+                        <th style="background: #f4f4f4; border-bottom: 1px solid #dcdcdc; width: 34px;"></th>
+                        <th style="text-align: left; font-size: 13.5px; font-weight: 700; color: #1a3a6b; padding: 9px 12px; background: #f4f4f4; border-bottom: 1px solid #dcdcdc; width: 28%;">Concept</th>
+                        <th style="text-align: left; font-size: 13.5px; font-weight: 700; color: #1a3a6b; padding: 9px 12px; background: #f4f4f4; border-bottom: 1px solid #dcdcdc; width: 22%;">Answer</th>
+                        <th style="text-align: left; font-size: 13.5px; font-weight: 700; color: #1a3a6b; padding: 9px 12px; background: #f4f4f4; border-bottom: 1px solid #dcdcdc; width: 24%;">Provider</th>
+                        <th style="text-align: left; font-size: 13.5px; font-weight: 700; color: #1a3a6b; padding: 9px 12px; background: #f4f4f4; border-bottom: 1px solid #dcdcdc;">Date entered</th>
+                        <th style="background: #f4f4f4; border-bottom: 1px solid #dcdcdc; width: 34px;"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <sc-for list="{{ e.obs }}" as="o" hint-placeholder-count="4">
+                        <tr onClick="{{ o.toggle }}" style="border-top: 1px solid #ededed; cursor: pointer;" style-hover="background: #f6f9fa;">
+                          <td style="padding: 9px 0 9px 10px; vertical-align: top; color: #1a3a6b; font-size: 11px;">{{ o.caret }}</td>
+                          <td style="padding: 9px 12px; vertical-align: top; color: #333;">{{ o.concept }}</td>
+                          <td style="padding: 9px 12px; vertical-align: top; color: #333;">{{ o.answer }}</td>
+                          <td style="padding: 9px 12px; vertical-align: top; color: #333;">{{ o.provider }}</td>
+                          <td style="padding: 9px 12px; vertical-align: top; color: #666; font-size: 13px;">{{ o.entered }}</td>
+                          <td style="padding: 9px 8px; vertical-align: top; text-align: center;" title="{{ o.flagTitle }}">{{ o.flag }}</td>
+                        </tr>
+                        <sc-if value="{{ o.open }}" hint-placeholder-val="{{ false }}">
+                          <tr style="background: #f8f8f5;">
+                            <td colspan="6" style="padding: 4px 14px 14px 44px;">
+                              <div style="font-size: 13px; font-weight: 700; color: #1a3a6b; padding: 6px 0 8px;">Edit history</div>
+                              <table style="width: 100%; background: #ffffff; border: 1px solid #e0e0e0; font-size: 13px;">
+                                <thead>
+                                  <tr>
+                                    <th style="text-align: left; font-weight: 700; color: #444; padding: 8px 11px; background: #f0f0ec; border-bottom: 1px solid #e0e0e0;">Answer</th>
+                                    <th style="text-align: left; font-weight: 700; color: #444; padding: 8px 11px; background: #f0f0ec; border-bottom: 1px solid #e0e0e0;">Action</th>
+                                    <th style="text-align: left; font-weight: 700; color: #444; padding: 8px 11px; background: #f0f0ec; border-bottom: 1px solid #e0e0e0;">Provider</th>
+                                    <th style="text-align: left; font-weight: 700; color: #444; padding: 8px 11px; background: #f0f0ec; border-bottom: 1px solid #e0e0e0;">Date entered</th>
+                                    <th style="text-align: left; font-weight: 700; color: #444; padding: 8px 11px; background: #f0f0ec; border-bottom: 1px solid #e0e0e0;">Reason</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <sc-for list="{{ o.history }}" as="h" hint-placeholder-count="2">
+                                    <tr style="border-top: 1px solid #ededed;">
+                                      <td style="padding: 8px 11px; color: #333;">{{ h.answer }}</td>
+                                      <td style="padding: 8px 11px; color: #333;">{{ h.action }}</td>
+                                      <td style="padding: 8px 11px; color: #333;">{{ h.provider }}</td>
+                                      <td style="padding: 8px 11px; color: #666;">{{ h.date }}</td>
+                                      <td style="padding: 8px 11px; color: #333;">{{ h.reason }}</td>
+                                    </tr>
+                                  </sc-for>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </sc-if>
+                      </sc-for>
+                    </tbody>
+                  </table>
+                  </sc-if>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isTable }}" hint-placeholder-val="{{ false }}">
+        <div style="padding: 16px 22px 4px;">
+          <table style="width: 100%; border: 1px solid #cfcfcf; font-size: 14.5px;">
+            <thead>
+              <tr>
+                <th style="background: #ffffff; border-bottom: 1px solid #cfcfcf; width: 40px;"></th>
+                <th style="text-align: left; font-size: 15.5px; color: #1a3a6b; font-weight: 700; padding: 12px 14px; background: #ffffff; border-bottom: 1px solid #cfcfcf; border-right: 1px solid #e2e2e2; width: 20%;">Date/Time</th>
+                <th style="text-align: left; font-size: 15.5px; color: #1a3a6b; font-weight: 700; padding: 12px 14px; background: #ffffff; border-bottom: 1px solid #cfcfcf; border-right: 1px solid #e2e2e2; width: 28%;">Encounter Type</th>
+                <th style="text-align: left; font-size: 15.5px; color: #1a3a6b; font-weight: 700; padding: 12px 14px; background: #ffffff; border-bottom: 1px solid #cfcfcf; border-right: 1px solid #e2e2e2; width: 26%;">Provider</th>
+                <th style="text-align: left; font-size: 15.5px; color: #1a3a6b; font-weight: 700; padding: 12px 14px; background: #ffffff; border-bottom: 1px solid #cfcfcf;">Form / Entered by</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{ pageRows }}" as="r" hint-placeholder-count="5">
+                <tr onClick="{{ r.toggle }}" style="background: #fdfdef; cursor: pointer; border-top: 1px solid #e8e8e8;" style-hover="background: #eaf1f4;">
+                  <td style="padding: 12px 0 12px 12px; vertical-align: top; width: 40px;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 3px; color: #1a3a6b; font-size: 11px;" style-hover="background: #dde7ec;">{{ r.caret }}</span>
+                  </td>
+                  <td style="padding: 12px 14px; border-right: 1px solid #e8e8e8; vertical-align: top; color: #1c5f74;">
+                    <span>{{ r.dateLabel }}</span>
+                    <span style="color: #777; font-size: 13px; margin-left: 7px;">{{ r.time }}</span>
+                  </td>
+                  <td style="padding: 12px 14px; border-right: 1px solid #e8e8e8; vertical-align: top; color: #333;">{{ r.type }}</td>
+                  <td style="padding: 12px 14px; border-right: 1px solid #e8e8e8; vertical-align: top; color: #333;">{{ r.provider }}</td>
+                  <td style="padding: 12px 14px; vertical-align: top; color: #333;">{{ r.form }}</td>
+                </tr>
+                <sc-if value="{{ r.open }}" hint-placeholder-val="{{ false }}">
+                  <tr style="background: #f3f7f9;">
+                    <td colspan="5" style="padding: 10px 18px 18px 52px;">
+                      <div style="display: flex; gap: 2px; border-bottom: 1px solid #d6d6d6; margin-bottom: 12px;">
+                        <button type="button" onClick="{{ r.showForm }}" style="{{ r.formTabStyle }}">Form</button>
+                        <button type="button" onClick="{{ r.showAudit }}" style="{{ r.auditTabStyle }}"><span>Audit Data</span><span title="{{ r.flagTitle }}" style="display: inline-flex;">{{ r.flag }}</span></button>
+                      </div>
+                      <sc-if value="{{ r.formTab }}" hint-placeholder-val="{{ true }}">
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                          <sc-for list="{{ r.sections }}" as="s" hint-placeholder-count="2">
+                            <fieldset style="border: none; margin: 0; padding: 0;">
+                              
+                              <div style="background: #f1f1f1; border: 1px solid #e4e4e4; padding: 13px 15px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 30px;">
+                                <sc-for list="{{ s.fields }}" as="f" hint-placeholder-count="4">
+                                  <div style="display: flex; gap: 9px; font-size: 14px; color: #1c5f74; align-items: baseline;">
+                                    <span>{{ f.label }}</span>
+                                    <span style="color: #1a3a6b; font-weight: 700;">{{ f.value }}</span>
+                                  </div>
+                                </sc-for>
+                              </div>
+                            </fieldset>
+                          </sc-for>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ r.auditTab }}" hint-placeholder-val="{{ false }}">
+                        <table style="width: 100%; background: #ffffff; border: 1px solid #dcdcdc; font-size: 14px;">
+                        <thead>
+                          <tr>
+                            <th style="background: #f4f4f4; border-bottom: 1px solid #dcdcdc; width: 34px;"></th>
+                            <th style="text-align: left; font-size: 13.5px; font-weight: 700; color: #1a3a6b; padding: 9px 12px; background: #f4f4f4; border-bottom: 1px solid #dcdcdc; width: 28%;">Concept</th>
+                            <th style="text-align: left; font-size: 13.5px; font-weight: 700; color: #1a3a6b; padding: 9px 12px; background: #f4f4f4; border-bottom: 1px solid #dcdcdc; width: 22%;">Answer</th>
+                            <th style="text-align: left; font-size: 13.5px; font-weight: 700; color: #1a3a6b; padding: 9px 12px; background: #f4f4f4; border-bottom: 1px solid #dcdcdc; width: 24%;">Provider</th>
+                            <th style="text-align: left; font-size: 13.5px; font-weight: 700; color: #1a3a6b; padding: 9px 12px; background: #f4f4f4; border-bottom: 1px solid #dcdcdc;">Date entered</th>
+                            <th style="background: #f4f4f4; border-bottom: 1px solid #dcdcdc; width: 34px;"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <sc-for list="{{ r.obs }}" as="o" hint-placeholder-count="4">
+                            <tr onClick="{{ o.toggle }}" style="border-top: 1px solid #ededed; cursor: pointer;" style-hover="background: #f6f9fa;">
+                              <td style="padding: 9px 0 9px 10px; vertical-align: top; color: #1a3a6b; font-size: 11px;">{{ o.caret }}</td>
+                              <td style="padding: 9px 12px; vertical-align: top; color: #333;">{{ o.concept }}</td>
+                              <td style="padding: 9px 12px; vertical-align: top; color: #333;">{{ o.answer }}</td>
+                              <td style="padding: 9px 12px; vertical-align: top; color: #333;">{{ o.provider }}</td>
+                              <td style="padding: 9px 12px; vertical-align: top; color: #666; font-size: 13px;">{{ o.entered }}</td>
+                              <td style="padding: 9px 8px; vertical-align: top; text-align: center;" title="{{ o.flagTitle }}">{{ o.flag }}</td>
+                            </tr>
+                            <sc-if value="{{ o.open }}" hint-placeholder-val="{{ false }}">
+                              <tr style="background: #f8f8f5;">
+                                <td colspan="6" style="padding: 4px 14px 14px 44px;">
+                                  <div style="font-size: 13px; font-weight: 700; color: #1a3a6b; padding: 6px 0 8px;">Edit history</div>
+                                  <table style="width: 100%; background: #ffffff; border: 1px solid #e0e0e0; font-size: 13px;">
+                                    <thead>
+                                      <tr>
+                                        <th style="text-align: left; font-weight: 700; color: #444; padding: 8px 11px; background: #f0f0ec; border-bottom: 1px solid #e0e0e0;">Answer</th>
+                                        <th style="text-align: left; font-weight: 700; color: #444; padding: 8px 11px; background: #f0f0ec; border-bottom: 1px solid #e0e0e0;">Action</th>
+                                        <th style="text-align: left; font-weight: 700; color: #444; padding: 8px 11px; background: #f0f0ec; border-bottom: 1px solid #e0e0e0;">Provider</th>
+                                        <th style="text-align: left; font-weight: 700; color: #444; padding: 8px 11px; background: #f0f0ec; border-bottom: 1px solid #e0e0e0;">Date entered</th>
+                                        <th style="text-align: left; font-weight: 700; color: #444; padding: 8px 11px; background: #f0f0ec; border-bottom: 1px solid #e0e0e0;">Reason</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <sc-for list="{{ o.history }}" as="h" hint-placeholder-count="3">
+                                        <tr style="border-top: 1px solid #ededed;">
+                                          <td style="padding: 8px 11px; color: #333;">{{ h.answer }}</td>
+                                          <td style="padding: 8px 11px; color: #333;">{{ h.action }}</td>
+                                          <td style="padding: 8px 11px; color: #333;">{{ h.provider }}</td>
+                                          <td style="padding: 8px 11px; color: #666;">{{ h.date }}</td>
+                                          <td style="padding: 8px 11px; color: #333;">{{ h.reason }}</td>
+                                        </tr>
+                                      </sc-for>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </sc-if>
+                          </sc-for>
+                        </tbody>
+                      </table>
+                      </sc-if>
+                      <div style="display: flex; gap: 14px; font-size: 13px; padding: 10px 2px 0;">
+                        <a href="#">View encounter</a>
+                        <a href="#">Edit</a>
+                        <a href="#">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                </sc-if>
+              </sc-for>
+            </tbody>
+          </table>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 2px 6px; font-size: 13.5px; color: #555;">
+            <span>{{ rangeLabel }}</span>
+            <div style="display: flex; gap: 6px; align-items: center;">
+              <button type="button" onClick="{{ prevPage }}" style="{{ prevStyle }}">‹ Prev</button>
+              <span style="padding: 0 6px;">{{ pageLabel }}</span>
+              <button type="button" onClick="{{ nextPage }}" style="{{ nextStyle }}">Next ›</button>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <div style="margin: 12px 0 0; border-top: 1px solid #e0e0e0; padding: 16px 22px 20px; display: flex; flex-wrap: wrap; gap: 10px;">
+        <sc-for list="{{ formButtons }}" as="f" hint-placeholder-count="7">
+          <button type="button" style="font-family: inherit; font-size: 14.5px; color: #ffffff; background: #34346b; border: none; border-radius: 3px; padding: 11px 18px; min-width: 300px; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 10px;" style-hover="background: #454590;">
+            <span style="font-size: 13px; opacity: 0.9;">{{ f.glyph }}</span><span>{{ f.label }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const ENCOUNTERS = [
+  { glyph: "⇥", type: "Triage", form: "Waiting - MCOE Triage", byline: "", date: "Aug 6, 2024", time: "06:29 PM", provider: "—", location: "MCOE Triage", details: "Patient placed in the MCOE Triage waiting queue." },
+  { glyph: "❦", type: "Antenatal", form: "ANC Followup", byline: "by Ho, Chi Bong at MCH OPD", date: "Aug 6, 2024", time: "06:29 PM", provider: "Ho, Chi Bong", location: "MCH OPD", details: "Gestational age 32 weeks. Fundal height 31 cm. Fetal heart rate 142 bpm. No complaints reported." },
+  { glyph: "♥", type: "Vitals", form: "Vital Signs Inpatient", byline: "by Kamara, Aminata at Labour and Delivery", date: "Aug 6, 2024", time: "07:04 PM", provider: "Kamara, Aminata", location: "Labour and Delivery", details: "BP 118/74 mmHg · HR 88 · Temp 36.8 °C · SpO₂ 98% · RR 18." },
+  { glyph: "H", type: "Admission", form: "Maternal Admission", byline: "by Sesay, Mohamed at Labour and Delivery", date: "Aug 6, 2024", time: "07:22 PM", provider: "Sesay, Mohamed", location: "Labour and Delivery", details: "Admitted for spontaneous onset of labour at term. Para 1, Gravida 2." },
+  { glyph: "☖", type: "Labour monitoring", form: "Labour Progress", byline: "by Kamara, Aminata at Labour and Delivery", date: "Aug 6, 2024", time: "09:15 PM", provider: "Kamara, Aminata", location: "Labour and Delivery", details: "Cervical dilation 6 cm. Contractions 3 in 10 minutes. Membranes intact." },
+  { glyph: "☖", type: "Delivery", form: "Labour/Delivery Summary", byline: "by Sesay, Mohamed at Labour and Delivery", date: "Aug 7, 2024", time: "01:48 AM", provider: "Sesay, Mohamed", location: "Labour and Delivery", details: "Spontaneous vaginal delivery. Live female infant, 3.2 kg. Apgar 8/9." },
+  { glyph: "▤", type: "Procedure", form: "Surgical Note", byline: "by Turay, Fatmata at Theatre", date: "Aug 7, 2024", time: "02:30 AM", provider: "Turay, Fatmata", location: "Theatre", details: "Repair of second-degree perineal tear under local anaesthesia. Blood loss minimal." },
+  { glyph: "→", type: "Discharge", form: "Maternal Discharge", byline: "by Ho, Chi Bong at Labour and Delivery", date: "Aug 8, 2024", time: "10:12 AM", provider: "Ho, Chi Bong", location: "Labour and Delivery", details: "Discharged home in stable condition. Postnatal follow-up in 6 days." }
+];
+
+const OBS = {
+  0: [
+    { concept: "Queue status", answer: "Waiting", provider: "—", entered: "06-Aug-2024, 06:29 PM" },
+    { concept: "Triage priority", answer: "Routine", provider: "—", entered: "06-Aug-2024, 06:29 PM" }
+  ],
+  1: [
+    { concept: "Gestational age", answer: "32 weeks", provider: "Ho, Chi Bong", entered: "06-Aug-2024, 06:29 PM" },
+    { concept: "Fundal height", answer: "31 cm", provider: "Ho, Chi Bong", entered: "06-Aug-2024, 06:29 PM",
+      history: [
+        { answer: "31 cm", action: "Edited", provider: "Ho, Chi Bong", date: "07-Aug-2024, 08:12 AM", reason: "Value confirmed against paper chart" },
+        { answer: "34 cm", action: "Entered", provider: "Ho, Chi Bong", date: "06-Aug-2024, 06:29 PM", reason: "--" }
+      ] },
+    { concept: "Fetal heart rate", answer: "142 bpm", provider: "Ho, Chi Bong", entered: "06-Aug-2024, 06:29 PM" },
+    { concept: "Presenting complaint", answer: "None reported", provider: "Ho, Chi Bong", entered: "06-Aug-2024, 06:29 PM" }
+  ],
+  2: [
+    { concept: "Systolic blood pressure", answer: "118 mmHg", provider: "Kamara, Aminata", entered: "06-Aug-2024, 07:04 PM",
+      history: [
+        { answer: "118 mmHg", action: "Edited", provider: "Sesay, Mohamed", date: "06-Aug-2024, 09:41 PM", reason: "Corrected transcription error" },
+        { answer: "181 mmHg", action: "Entered", provider: "Kamara, Aminata", date: "06-Aug-2024, 07:04 PM", reason: "--" }
+      ] },
+    { concept: "Diastolic blood pressure", answer: "74 mmHg", provider: "Kamara, Aminata", entered: "06-Aug-2024, 07:04 PM" },
+    { concept: "Pulse", answer: "88 beats/min", provider: "Kamara, Aminata", entered: "06-Aug-2024, 07:04 PM" },
+    { concept: "Temperature", answer: "36.8 °C", provider: "Kamara, Aminata", entered: "06-Aug-2024, 07:04 PM" },
+    { concept: "Oxygen saturation", answer: "98 %", provider: "Kamara, Aminata", entered: "06-Aug-2024, 07:04 PM" }
+  ],
+  3: [
+    { concept: "Admission reason", answer: "Spontaneous onset of labour", provider: "Sesay, Mohamed", entered: "06-Aug-2024, 07:22 PM" },
+    { concept: "Parity", answer: "1", provider: "Sesay, Mohamed", entered: "06-Aug-2024, 07:22 PM" },
+    { concept: "Gravidity", answer: "2", provider: "Sesay, Mohamed", entered: "06-Aug-2024, 07:22 PM" },
+    { concept: "Admission ward", answer: "Labour and Delivery", provider: "Sesay, Mohamed", entered: "06-Aug-2024, 07:22 PM" }
+  ],
+  4: [
+    { concept: "Cervical dilation", answer: "6 cm", provider: "Kamara, Aminata", entered: "06-Aug-2024, 09:15 PM" },
+    { concept: "Contractions per 10 min", answer: "3", provider: "Kamara, Aminata", entered: "06-Aug-2024, 09:15 PM" },
+    { concept: "Membrane status", answer: "Intact", provider: "Kamara, Aminata", entered: "06-Aug-2024, 09:15 PM" }
+  ],
+  5: [
+    { concept: "Mode of delivery", answer: "Spontaneous vaginal", provider: "Sesay, Mohamed", entered: "07-Aug-2024, 01:48 AM" },
+    { concept: "Infant sex", answer: "Female", provider: "Sesay, Mohamed", entered: "07-Aug-2024, 01:48 AM" },
+    { concept: "Birth weight", answer: "3.2 kg", provider: "Sesay, Mohamed", entered: "07-Aug-2024, 01:48 AM",
+      history: [
+        { answer: "3.2 kg", action: "Edited", provider: "Turay, Fatmata", date: "07-Aug-2024, 06:20 AM", reason: "Re-weighed on calibrated scale" },
+        { answer: "3.6 kg", action: "Entered", provider: "Sesay, Mohamed", date: "07-Aug-2024, 01:48 AM", reason: "--" }
+      ] },
+    { concept: "Apgar score, 5 min", answer: "9", provider: "Sesay, Mohamed", entered: "07-Aug-2024, 01:48 AM" }
+  ],
+  6: [
+    { concept: "Procedure", answer: "Repair of perineal tear", provider: "Turay, Fatmata", entered: "07-Aug-2024, 02:30 AM" },
+    { concept: "Anaesthesia type", answer: "Local", provider: "Turay, Fatmata", entered: "07-Aug-2024, 02:30 AM" },
+    { concept: "Estimated blood loss", answer: "Minimal", provider: "Turay, Fatmata", entered: "07-Aug-2024, 02:30 AM" }
+  ],
+  7: [
+    { concept: "Discharge condition", answer: "Stable", provider: "Ho, Chi Bong", entered: "08-Aug-2024, 10:12 AM" },
+    { concept: "Postnatal follow-up date", answer: "14-Aug-2024", provider: "Ho, Chi Bong", entered: "08-Aug-2024, 10:12 AM" }
+  ]
+};
+
+const FORM_BUTTONS = [
+  { glyph: "♥", label: "Vital Signs Inpatient" },
+  { glyph: "◉", label: "Check-In" },
+  { glyph: "▤", label: "Surgical Note" },
+  { glyph: "H", label: "Maternal Admission" },
+  { glyph: "→", label: "Maternal Discharge" },
+  { glyph: "☖", label: "Labour Progress" },
+  { glyph: "☖", label: "Labour/Delivery Summary" }
+];
+
+const PAGE_SIZE = 5;
+
+class Component extends DCLogic {
+  state = { tab: "list", page: 0, expanded: null, expandedObs: null, innerTab: "form" };
+
+  warnIcon(size) {
+    return React.createElement("svg", {
+      width: size, height: size, viewBox: "0 0 20 18", "aria-label": "Edited value",
+      style: { display: "block" }
+    }, [
+      React.createElement("path", { key: "t", d: "M10 1.2 19 16.8H1z", fill: "#f0b429", stroke: "#c99000", strokeWidth: "0.9", strokeLinejoin: "round" }),
+      React.createElement("path", { key: "b", d: "M10 6.4v5", stroke: "#4a3200", strokeWidth: "1.8", strokeLinecap: "round" }),
+      React.createElement("circle", { key: "d", cx: "10", cy: "14.1", r: "1.05", fill: "#4a3200" })
+    ]);
+  }
+
+  buildObs(idx) {
+    const expandedObs = this.state.expandedObs;
+    return (OBS[idx] || []).map((o, j) => {
+      const key = idx + "-" + j;
+      const edited = !!o.history;
+      const oOpen = expandedObs === key;
+      return {
+        concept: o.concept,
+        answer: o.answer,
+        provider: o.provider,
+        entered: o.entered,
+        caret: edited ? (oOpen ? "▼" : "►") : "",
+        flag: edited ? this.warnIcon(15) : "",
+        flagTitle: edited ? "Value edited — expand to view edit history" : "",
+        open: oOpen,
+        history: o.history || [],
+        toggle: edited
+          ? ((ev) => { ev.stopPropagation(); this.setState({ expandedObs: oOpen ? null : key }); })
+          : ((ev) => { ev.stopPropagation(); })
+      };
+    });
+  }
+
+  innerTabStyle(active) {
+    return {
+      fontFamily: "inherit",
+      fontSize: "13.5px",
+      fontWeight: active ? 700 : 400,
+      color: active ? "#1a3a6b" : "#5c5c5c",
+      background: active ? "#ffffff" : "#e9eef0",
+      border: "1px solid #d6d6d6",
+      borderBottom: active ? "1px solid #ffffff" : "1px solid #d6d6d6",
+      borderRadius: "3px 3px 0 0",
+      padding: "7px 18px",
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "7px",
+      marginBottom: "-1px",
+      cursor: "pointer"
+    };
+  }
+
+  buildSections(idx) {
+    const obs = OBS[idx] || [];
+    const e = ENCOUNTERS[idx];
+    return [{
+      title: "",
+      fields: obs.map((o) => ({ label: o.concept, value: o.answer })).concat([{ label: "Comment", value: e.details }])
+    }];
+  }
+
+  innerTabVals(idx) {
+    const active = this.state.innerTab;
+    return {
+      formTab: active === "form",
+      auditTab: active === "audit",
+      formTabStyle: this.innerTabStyle(active === "form"),
+      auditTabStyle: this.innerTabStyle(active === "audit"),
+      showForm: (ev) => { ev.stopPropagation(); this.setState({ innerTab: "form" }); },
+      showAudit: (ev) => { ev.stopPropagation(); this.setState({ innerTab: "audit" }); },
+      sections: this.buildSections(idx)
+    };
+  }
+
+  tabStyle(active) {
+    return {
+      fontFamily: "inherit",
+      fontSize: "14.5px",
+      fontWeight: active ? 700 : 400,
+      color: active ? "#1a3a6b" : "#5c5c5c",
+      background: active ? "#ffffff" : "#f0f0f0",
+      border: "1px solid #d6d6d6",
+      borderBottom: active ? "1px solid #ffffff" : "1px solid #d6d6d6",
+      borderRadius: "3px 3px 0 0",
+      padding: "9px 22px",
+      marginBottom: "-1px",
+      cursor: "pointer"
+    };
+  }
+
+  pagerStyle(disabled) {
+    return {
+      fontFamily: "inherit",
+      fontSize: "13px",
+      color: disabled ? "#aaa" : "#333",
+      background: disabled ? "#f4f4f4" : "linear-gradient(#ffffff, #f2f2f2)",
+      border: "1px solid #ccc",
+      borderRadius: "3px",
+      padding: "6px 12px",
+      cursor: disabled ? "default" : "pointer"
+    };
+  }
+
+  renderVals() {
+    const { tab, page, expanded, expandedObs } = this.state;
+    const total = ENCOUNTERS.length;
+    const maxPage = Math.ceil(total / PAGE_SIZE) - 1;
+    const start = page * PAGE_SIZE;
+    const slice = ENCOUNTERS.slice(start, start + PAGE_SIZE);
+
+    const pageRows = slice.map((e, i) => {
+      const idx = start + i;
+      const open = expanded === idx;
+      return {
+        dateLabel: e.date.replace(/^(\w+) (\d+), (\d+)$/, function(m, mo, d, y) { return (d.length < 2 ? "0" + d : d) + "-" + mo + "-" + y; }),
+        time: e.time,
+        type: e.type,
+        provider: e.provider,
+        form: e.form,
+        location: e.location,
+        caret: open ? "▼" : "►",
+        open: open,
+        toggle: () => this.setState({ expanded: open ? null : idx, expandedObs: null, innerTab: "form" }),
+        obs: this.buildObs(idx),
+        flag: (OBS[idx] || []).some((o) => !!o.history) ? this.warnIcon(14) : "",
+        flagTitle: (OBS[idx] || []).some((o) => !!o.history) ? "This encounter has edited observations" : "",
+        formTab: this.innerTabVals(idx).formTab,
+        auditTab: this.innerTabVals(idx).auditTab,
+        formTabStyle: this.innerTabVals(idx).formTabStyle,
+        auditTabStyle: this.innerTabVals(idx).auditTabStyle,
+        showForm: this.innerTabVals(idx).showForm,
+        showAudit: this.innerTabVals(idx).showAudit,
+        sections: this.innerTabVals(idx).sections
+      };
+    });
+
+    return {
+      encounters: ENCOUNTERS.map((e, i) => {
+        const hasEdits = (OBS[i] || []).some((o) => !!o.history);
+        const lOpen = expanded === i;
+        return {
+          glyph: e.glyph,
+          form: e.form,
+          byline: e.byline || ("at " + e.location),
+          date: e.date,
+          time: e.time,
+          flag: hasEdits ? this.warnIcon(14) : "",
+          flagTitle: hasEdits ? "This encounter has edited observations" : "",
+          caret: lOpen ? "▼" : "►",
+          open: lOpen,
+          toggle: () => this.setState({ expanded: lOpen ? null : i, expandedObs: null, innerTab: "form" }),
+          obs: this.buildObs(i),
+          formTab: this.innerTabVals(i).formTab,
+          auditTab: this.innerTabVals(i).auditTab,
+          formTabStyle: this.innerTabVals(i).formTabStyle,
+          auditTabStyle: this.innerTabVals(i).auditTabStyle,
+          showForm: this.innerTabVals(i).showForm,
+          showAudit: this.innerTabVals(i).showAudit,
+          sections: this.innerTabVals(i).sections
+        };
+      }),
+      formButtons: FORM_BUTTONS,
+      isList: tab === "list",
+      isTable: tab === "table",
+      listTabStyle: this.tabStyle(tab === "list"),
+      tableTabStyle: this.tabStyle(tab === "table"),
+      showList: () => this.setState({ tab: "list" }),
+      showTable: () => this.setState({ tab: "table" }),
+      pageRows: pageRows,
+      rangeLabel: (start + 1) + "–" + Math.min(start + PAGE_SIZE, total) + " of " + total + " encounters",
+      pageLabel: "Page " + (page + 1) + " of " + (maxPage + 1),
+      prevStyle: this.pagerStyle(page === 0),
+      nextStyle: this.pagerStyle(page >= maxPage),
+      prevPage: () => this.setState((s) => ({ page: Math.max(0, s.page - 1), expanded: null })),
+      nextPage: () => this.setState((s) => ({ page: Math.min(maxPage, s.page + 1), expanded: null }))
+    };
+  }
+}
+</script>
+</body>
+</html>
