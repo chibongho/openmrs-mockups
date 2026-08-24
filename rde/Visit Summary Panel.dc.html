@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/layout.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/base.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/styles.css">
+  <script src="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/_ds_bundle.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  <style>
+    .om-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+    .om-scroll::-webkit-scrollbar-thumb { background: #c6c6c6; }
+    .om-scroll::-webkit-scrollbar-track { background: transparent; }
+  </style>
+</helmet>
+
+<div style="height:100vh;display:flex;flex-direction:column;overflow:hidden;background:var(--background);font-family:var(--font-sans);color:var(--text-primary)">
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:40"></div>
+    <div style="{{ menuStyle }}">
+      <button onClick="{{ closeMenu }}" style="width:100%;padding:11px 16px;border:none;background:transparent;color:var(--text-primary);font:400 14px/1 var(--font-sans);cursor:pointer;text-align:left" style-hover="background:var(--layer-hover-01)">Edit</button>
+      <button onClick="{{ closeMenu }}" style="width:100%;padding:11px 16px;border:none;border-top:1px solid var(--border-subtle-01);background:transparent;color:var(--support-error,#da1e28);font:400 14px/1 var(--font-sans);cursor:pointer;text-align:left" style-hover="background:var(--support-error,#da1e28);color:#fff">Delete</button>
+    </div>
+  </sc-if>
+
+  <main class="om-scroll" style="flex:1;min-width:0;overflow-y:auto">
+      <sc-if value="{{ hasSelection }}" hint-placeholder-val="{{ true }}">
+        <div data-screen-label="Visit summary" style="padding:var(--spacing-06) var(--spacing-07) var(--spacing-09)">
+
+          <div style="{{ summaryHeaderStyle }}">
+            <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                <h2 style="margin:0;font:600 18px/1.2 var(--font-sans)">{{ selType }}</h2>
+                <span style="{{ selTagStyle }}">{{ selTag }}</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font:400 13px/1.35 var(--font-sans);flex-wrap:wrap">
+                <iconify-icon icon="carbon:time" width="13" height="13"></iconify-icon><span>{{ selWhen }}</span>
+                <span>&middot;</span>
+                <iconify-icon icon="carbon:enterprise" width="13" height="13"></iconify-icon><span>{{ selLoc }}</span>
+              </div>
+            </div>
+            <div style="margin-left:auto;display:flex;align-items:center;gap:var(--spacing-03)">
+              <button onClick="{{ onVisitMenu }}" aria-label="Visit actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+            </div>
+          </div>
+
+          <div data-screen-label="Visit-level actions" style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap;margin-top:var(--spacing-05);padding:var(--spacing-04) var(--spacing-05);background:var(--layer-01);border-left:3px solid var(--blue-60)">
+            <span style="font:600 12px/1.3 var(--font-sans);letter-spacing:0.02em;color:var(--text-secondary)">Add to this visit</span>
+            <div style="display:flex;align-items:center;gap:var(--spacing-03);flex-wrap:wrap">
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:none;background:var(--blue-60);color:#fff;font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:var(--blue-70)"><iconify-icon icon="carbon:document" width="16" height="16"></iconify-icon>Notes</button>
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><iconify-icon icon="carbon:activity" width="16" height="16"></iconify-icon>Vitals</button>
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><iconify-icon icon="carbon:shopping-cart" width="16" height="16"></iconify-icon>Orders</button>
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><iconify-icon icon="carbon:document-multiple-01" width="16" height="16"></iconify-icon>Clinical form</button>
+            </div>
+            <span style="margin-left:auto;display:inline-flex;align-items:center;gap:6px;font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)"><iconify-icon icon="carbon:link" width="14" height="14"></iconify-icon>Encounters attach to {{ selType }} &mdash; {{ selWhen }}</span>
+          </div>
+
+          <div style="display:flex;gap:var(--spacing-06);margin-top:var(--spacing-06)">
+
+          <!-- Vertical tab rail -->
+          <div style="width:180px;flex-shrink:0">
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
+                <button onClick="{{ t.onClick }}" style="{{ t.style }}">
+                  <sc-if value="{{ t.icon }}" hint-placeholder-val="{{ true }}">
+                    <iconify-icon icon="{{ t.icon }}" width="16" height="16"></iconify-icon>
+                  </sc-if>
+                  {{ t.label }}
+                </button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="flex:1;min-width:0">
+          <sc-if value="{{ isSummary }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;align-items:baseline;gap:var(--spacing-04);flex-wrap:wrap;margin-bottom:var(--spacing-05)">
+              <span style="font:600 13px/1.3 var(--font-sans);color:var(--text-secondary)">Diagnoses this visit</span>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;min-height:24px">
+                <sc-for list="{{ diagnoses }}" as="d" hint-placeholder-count="2">
+                  <x-import component-from-global-scope="CarbonDesignSystem_53f452.Tag" type="{{ d.type }}" size="md" hint-size="auto,24px">{{ d.text }}</x-import>
+                </sc-for>
+                <sc-if value="{{ noDiagnoses }}" hint-placeholder-val="{{ false }}">
+                  <span style="font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">No diagnoses found</span>
+                </sc-if>
+              </div>
+            </div>
+            <div style="display:flex;margin-bottom:var(--spacing-05);border:1px solid var(--border-strong-01);width:max-content">
+              <sc-for list="{{ views }}" as="v" hint-placeholder-count="2">
+                <button onClick="{{ v.onClick }}" style="{{ v.style }}">{{ v.label }}</button>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <div>
+
+            <!-- Timeline: everything recorded in this visit, in order -->
+            <sc-if value="{{ isTimeline }}" hint-placeholder-val="{{ true }}">
+              <sc-for list="{{ timelineDays }}" as="day" hint-placeholder-count="1">
+              <div style="display:flex;align-items:center;gap:var(--spacing-04);margin:0 0 var(--spacing-04)">
+                <span style="font:600 14px/1.3 var(--font-sans)">{{ day.label }}</span>
+                <span style="flex:1;height:1px;background:var(--border-subtle-01)"></span>
+              </div>
+              <sc-for list="{{ day.items }}" as="t" hint-placeholder-count="4">
+                <div style="padding-bottom:var(--spacing-05)">
+                  <div style="display:flex;gap:var(--spacing-05)">
+                    <div style="width:78px;flex-shrink:0;text-align:right;padding-top:2px;font:400 13px/1.4 var(--font-mono);color:var(--text-secondary)">{{ t.time }}</div>
+                    <div style="width:1px;flex-shrink:0;background:var(--border-subtle-01);position:relative">
+                      <span style="position:absolute;top:6px;left:-4px;width:9px;height:9px;background:var(--blue-60)"></span>
+                    </div>
+                    <div style="flex:1;min-width:0;display:flex;align-items:flex-start;gap:8px">
+                      <button onClick="{{ t.onToggle }}" aria-label="Expand item" style="{{ t.chevronStyle }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><path d="M8 11L3 6h10z"></path></svg></button>
+                      <div style="flex:1;min-width:0">
+                        <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
+                          <span style="font:600 14px/1.3 var(--font-sans)">{{ t.title }}</span>
+                          <span style="padding:1px 8px;font:400 11px/1.5 var(--font-sans);letter-spacing:0.02em;color:var(--text-secondary);background:var(--layer-accent-01,#e0e0e0)">{{ t.category }}</span>
+                        </div>
+                        <div style="margin-top:2px;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">{{ t.subtitle }}</div>
+                        <div style="margin-top:2px;font:400 12px/1.4 var(--font-sans);color:var(--text-secondary)">Recorded for {{ t.recordedFor }} &middot; entered by {{ t.enteredBy }} &middot; <span style="font-family:var(--font-mono)">{{ t.enteredAt }}</span></div>
+                      </div>
+                      <button onClick="{{ t.onToggleMenu }}" aria-label="Item actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                    </div>
+                  </div>
+
+                  <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}">
+                    <div style="margin:var(--spacing-04) 0 0 111px;padding:var(--spacing-05);background:var(--layer-01);border-left:2px solid var(--border-subtle-01)">
+
+                      <sc-if value="{{ t.isNote }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                          <span style="font:600 12px/1.3 var(--font-sans);color:var(--text-secondary)">Diagnoses</span>
+                          <sc-for list="{{ t.diagnoses }}" as="d" hint-placeholder-count="2">
+                            <x-import component-from-global-scope="CarbonDesignSystem_53f452.Tag" type="{{ d.type }}" size="md" hint-size="auto,24px">{{ d.text }}</x-import>
+                          </sc-for>
+                          <sc-if value="{{ t.noDiagnoses }}" hint-placeholder-val="{{ false }}">
+                            <span style="font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">None recorded</span>
+                          </sc-if>
+                        </div>
+                        <p style="margin:var(--spacing-04) 0 0;font:400 14px/1.5 var(--font-sans);text-wrap:pretty">{{ t.note }}</p>
+                      </sc-if>
+
+                      <sc-if value="{{ t.isVitals }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:grid;grid-template-columns:minmax(140px,1.4fr) minmax(90px,1fr)">
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Measure</div>
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Value</div>
+                          <sc-for list="{{ t.pairs }}" as="p" hint-placeholder-count="6">
+                            <div style="padding:8px var(--spacing-04);font:400 13px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ p.label }}</div>
+                            <div style="{{ p.valueStyle }}">{{ p.value }}</div>
+                          </sc-for>
+                        </div>
+                      </sc-if>
+
+                      <sc-if value="{{ t.isTests }}" hint-placeholder-val="{{ false }}">
+                        <div style="font:600 14px/1.3 var(--font-sans);margin-bottom:var(--spacing-03)">{{ t.panelName }}</div>
+                        <div style="display:grid;grid-template-columns:minmax(140px,1.6fr) minmax(90px,1fr) minmax(110px,1fr)">
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Test name</div>
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Value</div>
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Reference range</div>
+                          <sc-for list="{{ t.rows }}" as="r" hint-placeholder-count="3">
+                            <div style="{{ r.cellStyle }}">{{ r.name }}</div>
+                            <div style="{{ r.valueStyle }}">{{ r.value }}</div>
+                            <div style="{{ r.rangeStyle }}">{{ r.range }}</div>
+                          </sc-for>
+                        </div>
+                      </sc-if>
+
+                      <sc-if value="{{ t.isMeds }}" hint-placeholder-val="{{ false }}">
+                        <sc-for list="{{ t.meds }}" as="m" hint-placeholder-count="2">
+                          <div style="margin-bottom:var(--spacing-04);padding-bottom:var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                            <div style="font:400 15px/1.4 var(--font-sans)"><span style="font-weight:600">{{ m.name }}</span> &mdash; {{ m.form }}</div>
+                            <div style="margin-top:6px;font:400 14px/1.5 var(--font-sans)"><span style="font:400 11px/1.4 var(--font-sans);letter-spacing:0.03em;color:var(--text-secondary)">DOSE</span> <span style="font-weight:600">{{ m.dose }}</span> &mdash; {{ m.route }} &mdash; {{ m.frequency }} &mdash; {{ m.duration }}</div>
+                            <div style="margin-top:6px;font:400 14px/1.5 var(--font-sans)"><span style="font:400 11px/1.4 var(--font-sans);letter-spacing:0.03em;color:var(--text-secondary)">INDICATION</span> {{ m.indication }} &mdash; <span style="font:400 11px/1.4 var(--font-sans);letter-spacing:0.03em;color:var(--text-secondary)">QUANTITY</span> {{ m.quantity }}</div>
+                          </div>
+                        </sc-for>
+                      </sc-if>
+
+                      <sc-if value="{{ t.isForm }}" hint-placeholder-val="{{ false }}">
+                        <div style="display:grid;grid-template-columns:minmax(120px,1.1fr) minmax(180px,2.4fr)">
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Concept</div>
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Answer</div>
+                          <sc-for list="{{ t.obs }}" as="o" hint-placeholder-count="3">
+                            <div style="padding:8px var(--spacing-04);font:400 13px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ o.concept }}</div>
+                            <div style="padding:8px var(--spacing-04);font:400 13px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01);white-space:pre-wrap;text-wrap:pretty">{{ o.answer }}</div>
+                          </sc-for>
+                        </div>
+                      </sc-if>
+
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+              </sc-for>
+              <sc-if value="{{ noTimeline }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;padding:var(--spacing-07) 0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">Nothing has been recorded for this visit yet</p>
+              </sc-if>
+            </sc-if>
+
+            <!-- Notes -->
+            <sc-if value="{{ isNotes }}" hint-placeholder-val="{{ false }}">
+              <sc-for list="{{ notes }}" as="n" hint-placeholder-count="2">
+                <div style="padding:0 0 var(--spacing-05);margin-bottom:var(--spacing-05);border-bottom:1px solid var(--border-subtle-01)">
+                  <div style="display:flex;align-items:flex-start;gap:var(--spacing-05);flex-wrap:wrap">
+                    <div style="min-width:0">
+                      <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
+                        <span style="font:600 14px/1.3 var(--font-sans)">{{ n.provider }}</span>
+                        <span style="font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)">{{ n.role }}</span>
+                      </div>
+                      <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">Recorded {{ n.recordedAt }}</div>
+                    </div>
+                    <div style="margin-left:auto;text-align:right">
+                      <div style="font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)">Entered by {{ n.enteredBy }}</div>
+                      <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ n.enteredAt }}</div>
+                    </div>
+                    <button onClick="{{ n.onToggleMenu }}" aria-label="Note actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:var(--spacing-03)">
+                    <span style="font:600 12px/1.3 var(--font-sans);color:var(--text-secondary)">Diagnoses</span>
+                    <sc-for list="{{ n.diagnoses }}" as="d" hint-placeholder-count="2">
+                      <x-import component-from-global-scope="CarbonDesignSystem_53f452.Tag" type="{{ d.type }}" size="md" hint-size="auto,24px">{{ d.text }}</x-import>
+                    </sc-for>
+                    <sc-if value="{{ n.noDiagnoses }}" hint-placeholder-val="{{ false }}">
+                      <span style="font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">None recorded</span>
+                    </sc-if>
+                  </div>
+                  <p style="margin:var(--spacing-04) 0 0;font:400 14px/1.5 var(--font-sans);text-wrap:pretty">{{ n.note }}</p>
+                </div>
+              </sc-for>
+              <sc-if value="{{ noNotes }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;padding:var(--spacing-07) 0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">There are no notes to display for this patient</p>
+              </sc-if>
+            </sc-if>
+
+            <!-- Tests -->
+            <sc-if value="{{ isTests }}" hint-placeholder-val="{{ false }}">
+              <sc-for list="{{ testGroups }}" as="g" hint-placeholder-count="1">
+                <div style="margin-bottom:var(--spacing-06)">
+                  <div style="display:flex;align-items:flex-start;gap:var(--spacing-05);flex-wrap:wrap;padding-bottom:var(--spacing-03);border-bottom:1px solid var(--border-subtle-01)">
+                    <div style="min-width:0">
+                      <div style="font:600 14px/1.3 var(--font-sans)">{{ g.encounter }}</div>
+                      <div style="margin-top:2px;font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)">Recorded by {{ g.provider }} &middot; <span style="font-family:var(--font-mono)">{{ g.recordedAt }}</span></div>
+                    </div>
+                    <div style="margin-left:auto;text-align:right">
+                      <div style="font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)">Entered by {{ g.enteredBy }}</div>
+                      <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ g.enteredAt }}</div>
+                    </div>
+                    <button onClick="{{ g.onToggleMenu }}" aria-label="Encounter actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                  </div>
+                  <sc-for list="{{ g.panels }}" as="p" hint-placeholder-count="1">
+                    <div style="margin:var(--spacing-04) 0 0 var(--spacing-06);border-left:2px solid var(--border-subtle-01)">
+                      <div style="display:flex;align-items:flex-start;gap:var(--spacing-04);padding:var(--spacing-04) var(--spacing-05);background:var(--layer-01)">
+                        <div style="min-width:0">
+                          <div style="font:600 14px/1.3 var(--font-sans)">{{ p.name }}</div>
+                          <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ p.date }}</div>
+                        </div>
+                        <button onClick="{{ p.onToggleMenu }}" aria-label="Result actions" style="margin-left:auto;width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                      </div>
+                      <div style="display:grid;grid-template-columns:minmax(140px,1.6fr) minmax(90px,1fr) minmax(110px,1fr)">
+                        <div style="padding:8px var(--spacing-05);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Test name</div>
+                        <div style="padding:8px var(--spacing-05);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Value</div>
+                        <div style="padding:8px var(--spacing-05);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Reference range</div>
+                        <sc-for list="{{ p.rows }}" as="r" hint-placeholder-count="3">
+                          <div style="{{ r.cellStyle }}">{{ r.name }}</div>
+                          <div style="{{ r.valueStyle }}">{{ r.value }}</div>
+                          <div style="{{ r.rangeStyle }}">{{ r.range }}</div>
+                        </sc-for>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-for>
+              <sc-if value="{{ noTests }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;padding:var(--spacing-07) 0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">There are no test results to display for this patient</p>
+              </sc-if>
+            </sc-if>
+
+            <!-- Medications -->
+            <sc-if value="{{ isMeds }}" hint-placeholder-val="{{ false }}">
+              <sc-for list="{{ medGroups }}" as="g" hint-placeholder-count="1">
+                <div style="margin-bottom:var(--spacing-06)">
+                  <div style="display:flex;align-items:flex-start;gap:var(--spacing-05);flex-wrap:wrap;padding-bottom:var(--spacing-03);border-bottom:1px solid var(--border-subtle-01)">
+                    <div style="min-width:0">
+                      <div style="font:600 14px/1.3 var(--font-sans)">{{ g.encounter }}</div>
+                      <div style="margin-top:2px;font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)">Recorded by {{ g.provider }} &middot; <span style="font-family:var(--font-mono)">{{ g.recordedAt }}</span></div>
+                    </div>
+                    <div style="margin-left:auto;text-align:right">
+                      <div style="font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)">Entered by {{ g.enteredBy }}</div>
+                      <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ g.enteredAt }}</div>
+                    </div>
+                    <button onClick="{{ g.onToggleMenu }}" aria-label="Encounter actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                  </div>
+                  <sc-for list="{{ g.items }}" as="m" hint-placeholder-count="2">
+                    <div style="display:flex;align-items:flex-start;gap:var(--spacing-04);margin:var(--spacing-04) 0 0 var(--spacing-06);padding:var(--spacing-05);background:var(--layer-01);border-left:2px solid var(--border-subtle-01)">
+                      <div style="flex:1;min-width:0">
+                        <div style="font:400 15px/1.4 var(--font-sans)"><span style="font-weight:600">{{ m.name }}</span> &mdash; {{ m.form }}</div>
+                        <div style="margin-top:6px;font:400 14px/1.5 var(--font-sans)"><span style="font:400 11px/1.4 var(--font-sans);letter-spacing:0.03em;color:var(--text-secondary)">DOSE</span> <span style="font-weight:600">{{ m.dose }}</span> &mdash; {{ m.route }} &mdash; {{ m.frequency }} &mdash; {{ m.duration }}</div>
+                        <div style="margin-top:6px;font:400 14px/1.5 var(--font-sans)"><span style="font:400 11px/1.4 var(--font-sans);letter-spacing:0.03em;color:var(--text-secondary)">INDICATION</span> {{ m.indication }} &mdash; <span style="font:400 11px/1.4 var(--font-sans);letter-spacing:0.03em;color:var(--text-secondary)">QUANTITY</span> {{ m.quantity }}</div>
+                      </div>
+                      <button onClick="{{ m.onToggleMenu }}" aria-label="Medication actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-for>
+              <sc-if value="{{ noMeds }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;padding:var(--spacing-07) 0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">There are no medications to display for this patient</p>
+              </sc-if>
+            </sc-if>
+
+            <!-- Vitals -->
+            <sc-if value="{{ isVitals }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-bottom:var(--spacing-07)">
+                <h3 style="margin:0 0 var(--spacing-04);padding-bottom:6px;font:600 16px/1.2 var(--font-sans);border-bottom:2px solid var(--teal-70);width:max-content">Vitals</h3>
+                <div style="overflow-x:auto"><div style="{{ vtGridStyle }}">
+                  <sc-for list="{{ vtCols }}" as="c" hint-placeholder-count="6">
+                    <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">{{ c.label }}</div>
+                  </sc-for>
+                  <sc-for list="{{ vtCells }}" as="c" hint-placeholder-count="18">
+                    <div style="{{ c.style }}">
+                      <sc-if value="{{ c.hasSub }}" hint-placeholder-val="{{ false }}">
+                        <div style="font:400 13px/1.4 var(--font-sans)">{{ c.text }}</div>
+                        <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ c.sub }}</div>
+                      </sc-if>
+                      <sc-if value="{{ c.isPlain }}" hint-placeholder-val="{{ true }}">{{ c.text }}</sc-if>
+                      <sc-if value="{{ c.isAction }}" hint-placeholder-val="{{ false }}">
+                        <button onClick="{{ c.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                </div></div>
+              </div>
+              <div style="margin-bottom:var(--spacing-07)">
+                <h3 style="margin:0 0 var(--spacing-04);padding-bottom:6px;font:600 16px/1.2 var(--font-sans);border-bottom:2px solid var(--teal-70);width:max-content">Biometrics</h3>
+                <div style="overflow-x:auto"><div style="{{ bioGridStyle }}">
+                  <sc-for list="{{ bioCols }}" as="c" hint-placeholder-count="6">
+                    <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">{{ c.label }}</div>
+                  </sc-for>
+                  <sc-for list="{{ bioCells }}" as="c" hint-placeholder-count="18">
+                    <div style="{{ c.style }}">
+                      <sc-if value="{{ c.hasSub }}" hint-placeholder-val="{{ false }}">
+                        <div style="font:400 13px/1.4 var(--font-sans)">{{ c.text }}</div>
+                        <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ c.sub }}</div>
+                      </sc-if>
+                      <sc-if value="{{ c.isPlain }}" hint-placeholder-val="{{ true }}">{{ c.text }}</sc-if>
+                      <sc-if value="{{ c.isAction }}" hint-placeholder-val="{{ false }}">
+                        <button onClick="{{ c.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                </div></div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isSummaryTable }}" hint-placeholder-val="{{ false }}">
+              <div style="overflow-x:auto"><div style="display:grid;grid-template-columns:minmax(150px,1.2fr) minmax(150px,1.5fr) minmax(120px,1.2fr) minmax(120px,1.2fr) 44px;min-width:640px;border-top:1px solid var(--border-subtle-01)">
+                <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Date and time</div>
+                <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Item</div>
+                <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Recorded for / at</div>
+                <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">Entered by / at</div>
+                <div style="background:var(--layer-accent-01,#e0e0e0)"></div>
+                <sc-for list="{{ timelineItems }}" as="t" hint-placeholder-count="5">
+                  <div style="padding:10px var(--spacing-04);font:400 13px/1.4 var(--font-mono);border-bottom:1px solid var(--border-subtle-01)">{{ t.date }}, {{ t.time }}</div>
+                  <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                    <div style="font:400 13px/1.4 var(--font-sans)">{{ t.title }}</div>
+                    <div style="margin-top:2px;font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)">{{ t.category }}</div>
+                  </div>
+                  <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                    <div style="font:400 13px/1.4 var(--font-sans)">{{ t.recordedFor }}</div>
+                    <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ t.date }}, {{ t.time }}</div>
+                  </div>
+                  <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                    <div style="font:400 13px/1.4 var(--font-sans)">{{ t.enteredBy }}</div>
+                    <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ t.enteredAt }}</div>
+                  </div>
+                  <div style="display:flex;align-items:flex-start;justify-content:center;padding:4px 0;border-bottom:1px solid var(--border-subtle-01)">
+                    <button onClick="{{ t.onToggleMenu }}" aria-label="Item actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                  </div>
+                </sc-for>
+              </div></div>
+            </sc-if>
+
+            <!-- Clinical forms / encounter tables -->
+            <sc-if value="{{ isTable }}" hint-placeholder-val="{{ false }}">
+              <div style="overflow-x:auto;border-top:1px solid var(--border-subtle-01)">
+                <div style="min-width:600px">
+                <div style="display:grid;grid-template-columns:36px 130px minmax(130px,1.4fr) minmax(120px,1fr) minmax(120px,1fr) 44px;background:var(--layer-accent-01,#e0e0e0)">
+                  <div></div>
+                  <div style="padding:12px var(--spacing-05) 12px 0;font:600 13px/1.3 var(--font-sans)">Date &amp; time</div>
+                  <div style="padding:12px var(--spacing-05);font:600 13px/1.3 var(--font-sans)">Encounter</div>
+                  <div style="padding:12px var(--spacing-05);font:600 13px/1.3 var(--font-sans)">Recorded by / at</div>
+                  <div style="padding:12px var(--spacing-05);font:600 13px/1.3 var(--font-sans)">Entered by / at</div>
+                  <div></div>
+                </div>
+                <sc-for list="{{ tableRows }}" as="row" hint-placeholder-count="3">
+                  <div style="border-bottom:1px solid var(--border-subtle-01)">
+                    <div style="display:grid;grid-template-columns:36px 130px minmax(130px,1.4fr) minmax(120px,1fr) minmax(120px,1fr) 44px;align-items:center">
+                      <button onClick="{{ row.onToggle }}" aria-label="Expand row" style="{{ row.chevronStyle }}"><iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button>
+                      <div style="padding:12px var(--spacing-05) 12px 0;font:400 13px/1.4 var(--font-mono);color:var(--text-secondary)">{{ row.time }}</div>
+                      <div style="padding:12px var(--spacing-05)">
+                        <div style="font:400 13px/1.4 var(--font-sans)">{{ row.type }}</div>
+                        <div style="margin-top:2px;font:400 12px/1.4 var(--font-sans);color:var(--text-secondary)">{{ row.form }}</div>
+                      </div>
+                      <div style="padding:12px var(--spacing-05)">
+                        <div style="font:400 13px/1.4 var(--font-sans)">{{ row.provider }}</div>
+                        <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ row.recordedAt }}</div>
+                      </div>
+                      <div style="padding:12px var(--spacing-05)">
+                        <div style="font:400 13px/1.4 var(--font-sans)">{{ row.enteredBy }}</div>
+                        <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ row.enteredAt }}</div>
+                      </div>
+                      <div style="position:sticky;right:0;display:flex;align-items:center;justify-content:center;background:var(--background)">
+                        <button onClick="{{ row.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                      </div>
+                    </div>
+                    <sc-if value="{{ row.open }}" hint-placeholder-val="{{ false }}">
+                      <div style="padding:var(--spacing-05) var(--spacing-04) var(--spacing-06);background:var(--layer-01)">
+                        <div style="overflow-x:auto;border-top:1px solid var(--border-subtle-01)"><div style="display:grid;grid-template-columns:32px minmax(100px,1.1fr) minmax(160px,2.2fr) minmax(130px,1.2fr) minmax(130px,1.2fr) 40px;min-width:600px">
+                          <div style="border-bottom:1px solid var(--border-subtle-01)"></div>
+                          <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Concept</div>
+                          <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Answer</div>
+                          <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Recorded for / at</div>
+                          <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered by / at</div>
+                          <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)"></div>
+                          <sc-for list="{{ row.obs }}" as="o" hint-placeholder-count="3">
+                            <div style="display:flex;align-items:flex-start;justify-content:center;padding:10px 0;border-bottom:1px solid var(--border-subtle-01)"><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><button onClick="{{ o.onToggleHistory }}" title="Show edit history" aria-label="Show edit history" style="{{ o.historyChevronStyle }}"><iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button></sc-if></div>
+                            <div style="padding:10px var(--spacing-04);font:400 13px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ o.concept }}</div>
+                            <div style="padding:0;border-bottom:1px solid var(--border-subtle-01)">
+                              <div style="{{ o.answerStyle }}">{{ o.answer }}</div>
+                              <sc-if value="{{ o.showToggle }}" hint-placeholder-val="{{ false }}">
+                                <button onClick="{{ o.onToggleAnswer }}" style="margin:0 0 8px var(--spacing-04);border:none;background:transparent;padding:0;color:var(--link-primary);font:400 12px/1.3 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">{{ o.toggleLabel }}</button>
+                              </sc-if>
+                            </div>
+                            <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                              <div style="font:400 13px/1.4 var(--font-sans)">{{ o.provider }}</div>
+                              <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ o.recordedAt }}</div>
+                            </div>
+                            <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                              <div style="font:400 13px/1.4 var(--font-sans)">{{ o.enteredBy }}</div>
+                              <div style="margin-top:2px;display:flex;align-items:center;gap:6px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)"><span>{{ o.obsDatetime }}</span><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><iconify-icon icon="carbon:warning-alt-filled" width="16" height="16" title="Edited after entry" style="color:var(--support-warning,#f1c21b);flex-shrink:0"></iconify-icon></sc-if></div>
+                            </div>
+                            <div style="position:sticky;right:0;display:flex;align-items:flex-start;justify-content:center;padding:4px 0;border-bottom:1px solid var(--border-subtle-01);background:var(--layer-01)">
+                              <button onClick="{{ o.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                            </div>
+                            <sc-if value="{{ o.historyOpen }}" hint-placeholder-val="{{ false }}">
+                              <div style="grid-column:1 / -1;padding:var(--spacing-04) var(--spacing-05);background:var(--layer-accent-01,#e0e0e0);border-bottom:1px solid var(--border-subtle-01)">
+                                <p style="margin:0 0 var(--spacing-03);font:600 12px/1.3 var(--font-sans);letter-spacing:0.02em">Edit history</p>
+                                <div style="display:grid;grid-template-columns:minmax(70px,0.8fr) minmax(80px,0.9fr) minmax(110px,1.1fr) minmax(120px,1.2fr) minmax(100px,1fr) minmax(130px,1.3fr) minmax(140px,1.6fr)">
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Answer</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Action</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Recorded for</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Recorded at</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered by</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered at</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Reason</div>
+                                  <sc-for list="{{ o.history }}" as="h" hint-placeholder-count="3">
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.answer }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.action }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.provider }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-mono);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle-01)">{{ h.recordedAt }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.enteredBy }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-mono);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle-01)">{{ h.datetime }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle-01)">{{ h.reason }}</div>
+                                  </sc-for>
+                                </div>
+                              </div>
+                            </sc-if>
+                          </sc-for>
+                        </div>
+                        </div>
+                        <sc-if value="{{ row.noObs }}" hint-placeholder-val="{{ false }}">
+                          <p style="margin:0;padding:var(--spacing-05) var(--spacing-04);font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">No observations recorded for this encounter</p>
+                        </sc-if>
+                      </div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ noTableRows }}" hint-placeholder-val="{{ false }}">
+                  <p style="margin:0;padding:var(--spacing-07) var(--spacing-05);font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">No encounters to display</p>
+                </sc-if>
+                </div>
+              </div>
+            </sc-if>
+
+          </div>
+          </div>
+          </div>
+        </div>
+      </sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { selectedId: 'v-2026-07-20', cutoff: '23/07/2026', tab: 0, ptTab: 'visits' };
+
+  PT_TABS = [
+    { id: 'visits', label: 'Visits', icon: 'carbon:calendar-heat-map' },
+    { id: 'programs', label: 'Program enrollments', icon: 'carbon:user-profile' },
+    { id: 'conditions', label: 'Conditions', icon: 'carbon:list-bulleted' },
+    { id: 'allergies', label: 'Allergies', icon: 'carbon:warning' },
+    { id: 'procedures', label: 'Procedures', icon: 'carbon:scalpel' },
+    { id: 'immunizations', label: 'Immunizations', icon: 'carbon:medication' },
+  ];
+
+  REGISTRY = {
+    programs: {
+      title: 'Program enrollments', add: 'Add program enrollment',
+      cols: ['Program', 'Enrolled on', 'Completed on', 'Status', 'Recorded for', 'Recorded at', 'Entered by', 'Entered at'],
+      rows: [
+        ['HIV care and treatment', '14-Mar-2024', '--', 'Active', 'Dr. A. Nyirahabimana', '14-Mar-2024, 10:05 AM', 'K. Iradukunda', '20-Jul-2026, 11:26 AM'],
+        ['Non-communicable diseases', '02-Sep-2022', '11-Jan-2025', 'Completed', 'Dr. J. Mugisha', '02-Sep-2022, 02:40 PM', 'K. Iradukunda', '18-Jun-2026, 09:03 AM'],
+        ['Nutrition support', '05-Apr-2021', '30-Nov-2021', 'Completed', 'S. Uwase, RN', '05-Apr-2021, 09:15 AM', 'M. Ntaganda', '18-Jun-2026, 09:07 AM'],
+      ],
+    },
+    conditions: {
+      title: 'Conditions', add: 'Add condition',
+      cols: ['Condition', 'Onset date', 'Status', 'Recorded for', 'Recorded at', 'Entered by', 'Entered at'],
+      rows: [
+        ['Type 2 diabetes mellitus', '12-Feb-2019', 'Active', 'Dr. A. Nyirahabimana', '12-Feb-2019, 11:20 AM', 'K. Iradukunda', '20-Jul-2026, 11:31 AM'],
+        ['Hypertension', '30-Aug-2020', 'Active', 'Dr. A. Nyirahabimana', '30-Aug-2020, 08:55 AM', 'K. Iradukunda', '20-Jul-2026, 11:32 AM'],
+        ['Pulmonary tuberculosis', '04-Jun-2018', 'Inactive', 'Dr. J. Mugisha', '04-Jun-2018, 03:10 PM', 'M. Ntaganda', '18-Jun-2026, 09:12 AM'],
+      ],
+    },
+    allergies: {
+      title: 'Allergies', add: 'Add allergy',
+      cols: ['Allergen', 'Reaction', 'Severity', 'Onset date', 'Recorded for', 'Recorded at', 'Entered by', 'Entered at'],
+      rows: [
+        ['Penicillin', 'Hives, itching', 'Severe', '2015', 'Dr. J. Mugisha', '18-Jun-2015, 10:00 AM', 'M. Ntaganda', '18-Jun-2026, 09:18 AM'],
+        ['Peanuts', 'Swelling', 'Moderate', '2009', 'S. Uwase, RN', '22-Mar-2009, 04:25 PM', 'M. Ntaganda', '18-Jun-2026, 09:20 AM'],
+      ],
+    },
+    procedures: {
+      title: 'Procedures', add: 'Add procedure',
+      cols: ['Procedure', 'Date performed', 'Outcome', 'Recorded for', 'Recorded at', 'Entered by', 'Entered at'],
+      rows: [
+        ['Appendectomy', '21-Oct-2017', 'Successful', 'Dr. P. Habimana', '21-Oct-2017, 06:40 PM', 'M. Ntaganda', '18-Jun-2026, 09:24 AM'],
+        ['Cataract extraction, left eye', '09-May-2023', 'Successful', 'Dr. P. Habimana', '09-May-2023, 01:15 PM', 'M. Ntaganda', '18-Jun-2026, 09:26 AM'],
+      ],
+    },
+    immunizations: {
+      title: 'Immunizations', add: 'Add immunization',
+      cols: ['Vaccine', 'Dose', 'Date given', 'Recorded for', 'Recorded at', 'Entered by', 'Entered at'],
+      rows: [
+        ['Tetanus toxoid', 'Dose 3', '17-Jan-2022', 'S. Uwase, RN', '17-Jan-2022, 11:05 AM', 'M. Ntaganda', '18-Jun-2026, 09:31 AM'],
+        ['COVID-19 (Pfizer)', 'Booster 1', '02-Dec-2022', 'S. Uwase, RN', '02-Dec-2022, 09:50 AM', 'M. Ntaganda', '18-Jun-2026, 09:33 AM'],
+        ['Influenza', 'Annual', '11-Apr-2026', 'Dr. A. Nyirahabimana', '11-Apr-2026, 10:30 AM', 'K. Iradukunda', '20-Jul-2026, 11:40 AM'],
+      ],
+    },
+  };
+
+  setPtTab = (id) => this.setState({ ptTab: id, openMenu: null });
+
+  TABS = ['Summary', 'Notes', 'Vitals', 'Orders', 'Clinical forms'];
+
+  // flag: 'high' / 'low' = single arrow (amber), 'high2' / 'low2' = double (red)
+  VITALS_TABLE = {
+    cols: ['Date and time', 'Temp (DEG C)', 'BP (mmHg)', 'Pulse (beats/min)', 'R. Rate (breaths/min)', 'SpO2 (%)'],
+    widths: '150px 90px 100px 105px 120px 80px',
+    rows: [
+      { when: '20-Jul-2026, 11:31 AM', recordedFor: 'J. Uwase', recordedAt: '20-Jul-2026, 11:31 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:14 AM',
+        vals: [{ v: '36.8' }, { v: '138 / 86 ↑', flag: 'high' }, { v: '78' }, { v: '18' }, { v: '97' }] },
+      { when: '19-Jul-2026, 10:57 AM', recordedFor: 'S. Uwase, RN', recordedAt: '19-Jul-2026, 10:57 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:16 AM',
+        vals: [{ v: '38.7 ↑↑', flag: 'high2' }, { v: '152 / 47 ↓↓', flag: 'high2' }, { v: '59 ↓', flag: 'low' }, { v: '8 ↓↓', flag: 'low2' }, { v: '97' }] },
+      { when: '18-Jul-2026, 09:04 AM', recordedFor: 'S. Uwase, RN', recordedAt: '18-Jul-2026, 09:04 AM', enteredBy: 'M. Ntaganda', enteredAt: '22-Jul-2026, 08:20 AM',
+        vals: [{ v: '37.2' }, { v: '126 / 73 ↑', flag: 'high' }, { v: '80' }, { v: '14' }, { v: '92.4 ↓', flag: 'low' }] },
+    ],
+  };
+  BIOMETRICS_TABLE = {
+    cols: ['Date and time', 'Weight (kg)', 'Height (cm)', 'BMI (kg / m²)', 'MUAC (cm)'],
+    widths: '150px 95px 95px 105px 90px',
+    rows: [
+      { when: '20-Jul-2026, 11:31 AM', recordedFor: 'J. Uwase', recordedAt: '20-Jul-2026, 11:31 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:14 AM',
+        vals: [{ v: '74' }, { v: '178' }, { v: '23.4' }, { v: '--' }] },
+      { when: '19-Jul-2026, 10:57 AM', recordedFor: 'S. Uwase, RN', recordedAt: '19-Jul-2026, 10:57 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:16 AM',
+        vals: [{ v: '84' }, { v: '146' }, { v: '39.4 ↑↑', flag: 'high2' }, { v: '--' }] },
+      { when: '18-Jul-2026, 09:04 AM', recordedFor: 'S. Uwase, RN', recordedAt: '18-Jul-2026, 09:04 AM', enteredBy: 'M. Ntaganda', enteredAt: '22-Jul-2026, 08:20 AM',
+        vals: [{ v: '86' }, { v: '177' }, { v: '27.5 ↑', flag: 'high' }, { v: '--' }] },
+    ],
+  };
+
+  testPanel(p, cell, key) {
+    return {
+      name: p.name, date: p.date,
+      menuOpen: this.state.openMenu === key,
+      onToggleMenu: this.toggleMenu(key),
+      rows: p.rows.map(r => ({
+        name: r.name, value: r.value, range: r.range || '--',
+        cellStyle: cell,
+        valueStyle: Object.assign({}, cell, {
+          fontWeight: r.flag ? 600 : 400,
+          color: r.flag === 'high' ? 'var(--red-60)' : (r.flag === 'low' ? 'var(--blue-60)' : 'var(--text-primary)'),
+        }),
+        rangeStyle: Object.assign({}, cell, { color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', fontSize: '12px' }),
+      })),
+    };
+  }
+
+  FLAG_BG = { high: '#fff1e9', low: '#fff1e9', high2: '#ffd7d9', low2: '#ffd7d9' };
+
+  buildTable(def, key) {
+    const cols = def.cols.concat(['Recorded for / at', 'Entered by / at', '']);
+    const cells = [];
+    def.rows.forEach((r, ri) => {
+      const rowBg = ri % 2 ? 'var(--layer-01)' : 'transparent';
+      const base = 'padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01);';
+      cells.push({ text: r.when, isPlain: true, style: base + 'font:400 13px/1.4 var(--font-mono);background:' + rowBg });
+      r.vals.forEach(v => {
+        const bg = v.flag ? this.FLAG_BG[v.flag] : rowBg;
+        cells.push({ text: v.v, isPlain: true, style: base + 'font:' + (v.flag ? '600' : '400') + ' 13px/1.4 var(--font-sans);background:' + bg });
+      });
+      cells.push({ text: r.recordedFor, sub: r.recordedAt, hasSub: true, style: base + 'background:' + rowBg });
+      cells.push({ text: r.enteredBy, sub: r.enteredAt, hasSub: true, style: base + 'background:' + rowBg });
+      cells.push({
+        text: '', isAction: true,
+        menuOpen: this.state.openMenu === key + ':' + ri,
+        onToggleMenu: this.toggleMenu(key + ':' + ri),
+        style: 'position:sticky;right:0;display:flex;align-items:center;justify-content:center;padding:4px 0;border-bottom:1px solid var(--border-subtle-01);background:' + (ri % 2 ? 'var(--layer-01)' : 'var(--background)'),
+      });
+    });
+    return {
+      [key + 'Cols']: cols.map(label => ({ label })),
+      [key + 'Cells']: cells,
+      [key + 'GridStyle']: 'display:grid;min-width:920px;grid-template-columns:' + def.widths + ' minmax(130px,1.2fr) minmax(130px,1.2fr) 44px',
+    };
+  }
+  VIEWS = ['Timeline', 'Table'];
+  ORDER_VIEWS = ['Tests', 'Medications'];
+  setView = (v) => this.setState({ view: v, openMenu: null });
+  setOrderView = (v) => this.setState({ orderView: v, openMenu: null });
+
+  VISITS = [
+    {
+      id: 'v-2026-07-20', type: 'Facility Visit', loc: 'Butaro DH', active: true,
+      when: 'Started 20-Jul-2026, 11:19 AM', short: '20-Jul-2026', meta: 'Butaro DH · 3 encounters',
+      diagnoses: [{ text: 'Type 2 diabetes mellitus', primary: true }, { text: 'Hypertension', primary: false }],
+      notes: [
+        { provider: 'Dr. A. Nyirahabimana', role: 'Clinician', time: '11:42 AM', recordedAt: '20-Jul-2026, 11:42 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:14 AM', diagnoses: [{ text: 'Type 2 diabetes mellitus', primary: true }, { text: 'Hypertension', primary: false }], note: 'Patient reports improved glycaemic control since last review. Denies polyuria or blurred vision. Continue current regimen and review in three months.' },
+      ],
+      tests: [
+        { name: 'Complete blood count', encounter: 'Consultation — Adult outpatient note', provider: 'Dr. A. Nyirahabimana', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:18 AM', date: '20-Jul-2026, 12:04 PM', rows: [
+          { name: 'Haemoglobin', value: '13.8 g/dL', range: '13.0 – 17.0', flag: null },
+          { name: 'White cell count', value: '11.4 ×10⁹/L', range: '4.0 – 11.0', flag: 'high' },
+          { name: 'Platelets', value: '254 ×10⁹/L', range: '150 – 400', flag: null },
+        ] },
+      ],
+      medications: [
+        { name: 'Metformin', encounter: 'Consultation — Adult outpatient note', form: 'tablet', dose: '500 mg', route: 'oral', frequency: 'twice daily with meals', duration: 'for 90 days', indication: 'Type 2 diabetes mellitus', quantity: '180', provider: 'Dr. A. Nyirahabimana', date: '20-Jul-2026', recordedAt: '20-Jul-2026, 11:46 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:14 AM' },
+        { name: 'Amlodipine', encounter: 'Consultation — Adult outpatient note', form: 'tablet', dose: '5 mg', route: 'oral', frequency: 'once daily', duration: 'for 90 days', indication: 'Hypertension', quantity: '90', provider: 'Dr. A. Nyirahabimana', date: '20-Jul-2026', recordedAt: '20-Jul-2026, 11:48 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:15 AM' },
+      ],
+      encounters: [
+        { time: '11:19 AM', type: 'Registration', form: 'Visit registration', provider: 'J. Uwase', detail: 'Visit opened at Butaro DH, outpatient queue.' },
+        { time: '11:31 AM', type: 'Vitals', form: 'Vitals and biometrics', provider: 'J. Uwase', detail: 'BP 138/86 mmHg · Pulse 78 bpm · Temp 36.8 °C · Weight 74 kg' },
+        { time: '11:42 AM', type: 'Consultation', form: 'Adult outpatient note', provider: 'Dr. A. Nyirahabimana', detail: 'Diabetes review, medications continued.' },
+      ],
+      forms: [{ time: '11:31 AM', type: 'Vitals', form: 'Vitals and biometrics', provider: 'J. Uwase' }, { time: '11:42 AM', type: 'Consultation', form: 'Adult outpatient note', provider: 'Dr. A. Nyirahabimana' }],
+    },
+    {
+      id: 'v-2026-03-26', type: 'Home Visit', loc: 'Site 42', active: false,
+      when: '26-Mar-2026', short: '26-Mar-2026', meta: 'Site 42 · 2 encounters',
+      diagnoses: [{ text: 'Hypertension', primary: true }],
+      notes: [
+        { provider: 'CHW P. Mukamana', role: 'Community health worker', time: '09:15 AM', recordedAt: '26-Mar-2026, 09:15 AM', enteredBy: 'M. Ntaganda', enteredAt: '30-Mar-2026, 04:12 PM', diagnoses: [{ text: 'Hypertension', primary: true }], note: 'Home visit completed. Medication adherence confirmed by pill count. Household counselled on salt reduction.' },
+      ],
+      tests: [],
+      medications: [],
+      encounters: [
+        { time: '09:05 AM', type: 'Vitals', form: 'Community vitals', provider: 'CHW P. Mukamana', detail: 'BP 144/90 mmHg · Pulse 82 bpm' },
+        { time: '09:15 AM', type: 'Home visit note', form: 'Community follow-up', provider: 'CHW P. Mukamana', detail: 'Adherence counselling delivered.' },
+      ],
+      forms: [{ time: '09:05 AM', type: 'Vitals', form: 'Community vitals', provider: 'CHW P. Mukamana' }],
+    },
+    {
+      id: 'v-2026-02-11', type: 'Facility Visit', loc: 'Butaro DH', active: false,
+      when: '11-Feb-2026 – 13-Feb-2026', short: '11-Feb-2026', meta: 'Butaro DH · inpatient, 3 days',
+      diagnoses: [{ text: 'Community-acquired pneumonia', primary: true }, { text: 'Dehydration', primary: false }],
+      notes: [
+        { provider: 'Dr. E. Habimana', role: 'Clinician', time: '02:20 PM', recordedAt: '11-Feb-2026, 02:20 PM', enteredBy: 'M. Ntaganda', enteredAt: '18-Jun-2026, 09:40 AM', diagnoses: [{ text: 'Community-acquired pneumonia', primary: true }, { text: 'Dehydration', primary: false }], note: 'Admitted with three days of productive cough and fever. Started on IV ceftriaxone. Chest examination shows right basal crackles.' },
+        { provider: 'Dr. E. Habimana', role: 'Clinician', time: '10:05 AM', recordedAt: '13-Feb-2026, 10:05 AM', enteredBy: 'M. Ntaganda', enteredAt: '18-Jun-2026, 09:44 AM', diagnoses: [{ text: 'Community-acquired pneumonia', primary: true }], note: 'Day 3: afebrile for 24 hours, tolerating oral intake. Discharged on oral amoxicillin to complete the course.' },
+      ],
+      tests: [
+        { name: 'Basic metabolic panel', encounter: 'Admission — Inpatient note', provider: 'Dr. E. Habimana', enteredBy: 'M. Ntaganda', enteredAt: '18-Jun-2026, 09:52 AM', date: '11-Feb-2026, 03:10 PM', rows: [
+          { name: 'Sodium', value: '134 mmol/L', range: '135 – 145', flag: 'low' },
+          { name: 'Potassium', value: '4.1 mmol/L', range: '3.5 – 5.1', flag: null },
+          { name: 'Creatinine', value: '1.4 mg/dL', range: '0.7 – 1.3', flag: 'high' },
+        ] },
+      ],
+      medications: [
+        { name: 'Ceftriaxone', encounter: 'Admission — Inpatient note', form: 'injection', dose: '1 g', route: 'intravenous', frequency: 'once daily', duration: 'for 3 days', indication: 'Community-acquired pneumonia', quantity: '3', provider: 'Dr. E. Habimana', date: '11-Feb-2026', recordedAt: '11-Feb-2026, 02:35 PM', enteredBy: 'M. Ntaganda', enteredAt: '18-Jun-2026, 09:48 AM' },
+        { name: 'Amoxicillin', encounter: 'Discharge — Inpatient note', form: 'capsule', dose: '500 mg', route: 'oral', frequency: 'three times daily', duration: 'for 5 days', indication: 'Community-acquired pneumonia', quantity: '15', provider: 'Dr. E. Habimana', date: '13-Feb-2026', recordedAt: '13-Feb-2026, 10:10 AM', enteredBy: 'M. Ntaganda', enteredAt: '18-Jun-2026, 09:50 AM' },
+      ],
+      encounters: [
+        { time: '01:48 PM', type: 'Admission', form: 'Inpatient admission', provider: 'Dr. E. Habimana', detail: 'Admitted to medical ward, bed 12.' },
+        { time: '02:20 PM', type: 'Consultation', form: 'Adult inpatient note', provider: 'Dr. E. Habimana', detail: 'Pneumonia, IV antibiotics started.' },
+        { time: '10:05 AM', type: 'Discharge', form: 'Discharge summary', provider: 'Dr. E. Habimana', detail: 'Discharged 13-Feb-2026 in stable condition.' },
+      ],
+      forms: [{ time: '02:20 PM', type: 'Consultation', form: 'Adult inpatient note', provider: 'Dr. E. Habimana' }, { time: '10:05 AM', type: 'Discharge', form: 'Discharge summary', provider: 'Dr. E. Habimana' }],
+    },
+    {
+      id: 'v-2026-01-02', type: 'OPD Visit', loc: 'Mobile Clinic', active: false,
+      when: '02-Jan-2026', short: '02-Jan-2026', meta: 'Mobile Clinic · 1 encounter',
+      diagnoses: [],
+      notes: [],
+      tests: [],
+      medications: [{ name: 'Paracetamol', encounter: 'Consultation — Mobile clinic screening', form: 'tablet', dose: '1 g', route: 'oral', frequency: 'four times daily as needed', duration: 'for 5 days', indication: 'Fever', quantity: '20', provider: 'Nurse C. Ingabire', date: '02-Jan-2026', recordedAt: '02-Jan-2026, 02:52 PM', enteredBy: 'M. Ntaganda', enteredAt: '18-Jun-2026, 10:02 AM' }],
+      encounters: [{ time: '02:40 PM', type: 'Consultation', form: 'Mobile clinic screening', provider: 'Nurse C. Ingabire', detail: 'Screening visit, symptomatic treatment given.' }],
+      forms: [],
+    },
+    {
+      id: 'v-2025-11-08', type: 'Facility Visit', loc: 'Butaro DH', active: false,
+      when: '08-Nov-2025', short: '08-Nov-2025', meta: 'Butaro DH · no encounters recorded',
+      diagnoses: [], notes: [], tests: [], medications: [], encounters: [], forms: [],
+    },
+  ];
+
+  // Fallback observations by encounter type, used when a row has no obs of its own.
+  OBS_BY_TYPE = {
+    Vitals: [
+      { concept: 'Systolic blood pressure', answer: '138 mmHg', provider: 'Dr. A. Nyirahabimana', obsDatetime: '22-Jul-2026, 09:14 AM', edited: true,
+        history: [
+          { answer: '138 mmHg', provider: 'Dr. A. Nyirahabimana', recordedAt: '20-Jul-2026, 11:24 AM', enteredBy: 'K. Iradukunda', datetime: '22-Jul-2026, 09:14 AM', action: 'Edited', reason: 'Value confirmed against paper chart' },
+          { answer: '148 mmHg', provider: 'J. Uwase', recordedAt: '20-Jul-2026, 11:24 AM', enteredBy: 'M. Ntaganda', datetime: '21-Jul-2026, 04:02 PM', action: 'Edited', reason: 'Corrected transcription error' },
+          { answer: '184 mmHg', provider: 'J. Uwase', recordedAt: '20-Jul-2026, 11:24 AM', enteredBy: 'M. Ntaganda', datetime: '20-Jul-2026, 11:31 AM', action: 'Entered', reason: '--' },
+        ] },
+      { concept: 'Diastolic blood pressure', answer: '86 mmHg' },
+      { concept: 'Pulse', answer: '78 beats/min' },
+      { concept: 'Temperature', answer: '36.8 °C' },
+      { concept: 'Weight', answer: '74 kg' },
+    ],
+    Consultation: [
+      { concept: 'Text of encounter note', answer: 'Patient returns for routine diabetes review. Reports good adherence to metformin with no missed doses over the past month. Denies polyuria, polydipsia, blurred vision or paraesthesia. Home glucose readings shared from a paper log range 6.1–8.4 mmol/L fasting. Diet discussed at length: has reduced sweetened tea to one cup daily and increased vegetable intake with support from a household member. Feet examined, no ulceration or callus, pedal pulses intact bilaterally, monofilament sensation preserved at all sites. Blood pressure slightly above target today but consistent with previous readings taken in clinic; no symptoms of headache or dizziness. Counselled on salt reduction and on the importance of attending the ophthalmology screening appointment scheduled for next quarter. Plan: continue metformin 500 mg twice daily and amlodipine 5 mg once daily, repeat HbA1c and creatinine in three months, return sooner if symptoms of hypoglycaemia develop.' },
+      { concept: 'Visit diagnoses', answer: 'Type 2 diabetes mellitus (primary)' },
+      { concept: 'Plan', answer: 'Continue current regimen, review in three months' },
+    ],
+    Registration: [
+      { concept: 'Visit type', answer: 'Facility Visit' },
+      { concept: 'Queue', answer: 'Outpatient' },
+    ],
+    Admission: [
+      { concept: 'Ward', answer: 'Medical ward' },
+      { concept: 'Bed number', answer: '12' },
+    ],
+    Discharge: [
+      { concept: 'Discharge summary', answer: 'Admitted with a three-day history of productive cough, fever and reduced oral intake. Chest examination on admission revealed right basal crackles and the working diagnosis was community-acquired pneumonia with mild dehydration. Treated with intravenous ceftriaxone 1 g daily and maintenance fluids. Became afebrile within forty-eight hours and oral intake improved steadily thereafter. Repeat examination on day three showed clearing of the right base with no residual respiratory distress. Discharged on oral amoxicillin 500 mg three times daily to complete a five-day course, with advice to return immediately if fever recurs, breathing becomes difficult, or oral intake falls again. Follow-up arranged at the outpatient clinic in two weeks.' },
+      { concept: 'Discharge condition', answer: 'Stable' },
+      { concept: 'Discharge destination', answer: 'Home' },
+    ],
+    'Home visit note': [
+      { concept: 'Narrative summary', answer: 'Household visited at the agreed time and both the patient and his daughter were present. Pill count reconciled against the dispensing record with no discrepancy. The family described difficulty reaching the health centre during the rainy season because the road becomes impassable, and asked whether refills could be collected by a relative. Water source is a shared standpipe roughly ten minutes away. Counselling delivered on salt reduction, on recognising warning signs of stroke, and on keeping the appointment card in a dry place. Referral to the community adherence group offered and accepted.' },
+      { concept: 'Medication adherence', answer: 'Confirmed by pill count' },
+      { concept: 'Counselling provided', answer: 'Salt reduction' },
+    ],
+  };
+
+  // Long free-text answers clamp to two lines with an ellipsis until expanded.
+  CLAMP_AT = 150;
+  obsRows(list, keyPrefix, ctx) {
+    const expanded = this.state.expandedObs || {};
+    return (list || []).map((o, i) => {
+      const key = keyPrefix + ':' + i;
+      const full = o.answer || '';
+      const long = full.length > this.CLAMP_AT;
+      const open = !!expanded[key];
+      // Truncate in JS so the ellipsis is real text, not a CSS clamp.
+      const shown = long && !open ? full.slice(0, full.lastIndexOf(' ', this.CLAMP_AT)) + '…' : full;
+      return {
+        concept: o.concept, answer: shown,
+        provider: o.provider || (ctx && ctx.provider) || '--',
+        recordedAt: o.recordedAt || (ctx && ctx.datetime) || '--',
+        enteredBy: o.enteredBy || (ctx && ctx.enteredBy) || '--',
+        obsDatetime: o.obsDatetime || (ctx && ctx.enteredAt) || '--',
+        edited: !!o.edited,
+        menuOpen: this.state.openMenu === 'obs:' + key,
+        onToggleMenu: this.toggleMenu('obs:' + key),
+        history: o.history || [],
+        historyOpen: !!expanded['h:' + key],
+        onToggleHistory: () => this.setState({ expandedObs: Object.assign({}, expanded, { ['h:' + key]: !expanded['h:' + key] }), openMenu: null }),
+        historyChevronStyle: {
+          width: '20px', height: '20px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+          border: 'none', background: 'transparent', color: 'var(--link-primary)', cursor: 'pointer', padding: 0,
+          transform: expanded['h:' + key] ? 'rotate(180deg)' : 'none',
+          transition: 'transform var(--duration-fast-02,110ms) var(--easing-standard,ease)',
+        },
+        answerStyle: {
+          padding: '8px var(--spacing-04)', font: '400 13px/1.45 var(--font-sans)',
+          whiteSpace: 'pre-wrap', textWrap: 'pretty',
+        },
+        showToggle: long,
+        toggleLabel: open ? 'Show less' : 'Show more',
+        onToggleAnswer: () => this.setState({ expandedObs: Object.assign({}, expanded, { [key]: !open }) }),
+      };
+    });
+  }
+
+  toggleMenu = (key) => (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const r = e && e.currentTarget ? e.currentTarget.getBoundingClientRect() : null;
+    const MENU_H = 88;
+    const top = r ? (r.bottom + 2 + MENU_H > window.innerHeight ? Math.max(8, r.top - 2 - MENU_H) : r.bottom + 2) : 0;
+    this.setState(s => s.openMenu === key ? { openMenu: null } : { openMenu: key, menuRect: r ? { top, right: window.innerWidth - r.right } : null });
+  };
+  closeMenu = () => this.setState({ openMenu: null });
+  onAnyScroll = () => { if (this.state.openMenu) this.closeMenu(); };
+  componentDidMount() { window.addEventListener('scroll', this.onAnyScroll, true); }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onAnyScroll, true); }
+
+  onCutoff = (e) => this.setState({ cutoff: e.target.value });
+  onCreateVisit = () => this.setState({ createOpen: true, nvType: 'Facility Visit', nvLoc: 'Butaro DH', nvStart: '', nvEnd: '' });
+  closeCreate = () => this.setState({ createOpen: false });
+  setNv = (k) => (e) => this.setState({ [k]: e.target.value });
+
+  MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  toShort(s) {
+    const m = /^\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\s*$/.exec(s || '');
+    if (!m) return null;
+    return ('0' + m[1]).slice(-2) + '-' + this.MONTH_NAMES[+m[2] - 1] + '-' + m[3];
+  }
+  submitCreate = () => {
+    const short = this.toShort(this.state.nvStart);
+    if (!short) return;
+    const endShort = this.toShort(this.state.nvEnd);
+    const id = 'v-new-' + Date.now();
+    this.VISITS = [{
+      id, type: this.state.nvType, loc: this.state.nvLoc || '—', active: false,
+      when: endShort && endShort !== short ? short + ' – ' + endShort : short,
+      short, meta: (this.state.nvLoc || '—') + ' · no encounters recorded',
+      diagnoses: [], notes: [], tests: [], medications: [], encounters: [], forms: [],
+    }].concat(this.VISITS);
+    this.setState({ createOpen: false, selectedId: id, tab: 0 });
+  };
+
+  // dd/mm/yyyy → epoch ms; null when incomplete.
+  parseCutoff(s) {
+    const m = /^\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\s*$/.exec(s || '');
+    if (!m) return null;
+    return new Date(+m[3], +m[2] - 1, +m[1], 23, 59, 59).getTime();
+  }
+  select = (id) => this.setState({ selectedId: id, tab: 0, openMenu: null });
+  setTab = (i) => this.setState({ tab: i, openMenu: null });
+
+  registryVals() {
+    const cur = this.state.ptTab || 'visits';
+    const ptTabs = this.PT_TABS.map(t => {
+      const on = t.id === cur;
+      return {
+        label: t.label, icon: t.icon, onClick: () => this.setPtTab(t.id),
+        style: 'display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:12px 14px;border:none;border-bottom:2px solid ' + (on ? 'var(--blue-60)' : 'transparent') +
+          ';background:transparent;color:' + (on ? 'var(--text-primary)' : 'var(--text-secondary)') +
+          ';font:' + (on ? '600' : '400') + ' 13px/1 var(--font-sans);cursor:pointer',
+      };
+    });
+    const reg = this.REGISTRY[cur];
+    if (!reg) return { ptTabs, isVisits: true, isRegistry: false, regCols: [], regCells: [] };
+    // The four provenance values collapse into two stacked cells, as in the obs tables.
+    const dataCols = reg.cols.slice(0, -4).concat(['Recorded for / at', 'Entered by / at']);
+    const cells = [];
+    reg.rows.forEach((row, ri) => {
+      const bg = ri % 2 ? 'transparent' : 'var(--layer-01)';
+      const cellStyle = 'padding:12px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01);background:' + bg;
+      row.slice(0, -4).forEach(text => {
+        cells.push({ text, isPlain: true, style: cellStyle + ';font:400 13px/1.4 var(--font-sans)' });
+      });
+      const p = row.slice(-4);
+      cells.push({ text: p[0], sub: p[1], hasSub: true, style: cellStyle });
+      cells.push({ text: p[2], sub: p[3], hasSub: true, style: cellStyle });
+      cells.push({
+        text: '', isAction: true,
+        menuOpen: this.state.openMenu === 'reg:' + cur + ':' + ri,
+        onToggleMenu: this.toggleMenu('reg:' + cur + ':' + ri),
+        style: 'position:sticky;right:0;display:flex;align-items:center;justify-content:center;padding:4px 0;border-bottom:1px solid var(--border-subtle-01);background:' + (ri % 2 ? 'var(--background)' : 'var(--layer-01)'),
+      });
+    });
+    return {
+      ptTabs, isVisits: false, isRegistry: true,
+      regTitle: reg.title, regAddLabel: reg.add,
+      regCols: dataCols.map(label => ({ label })),
+      regCells: cells,
+      regGridStyle: 'display:grid;min-width:' + (110 * dataCols.length + 44) + 'px;grid-template-columns:repeat(' + (dataCols.length - 2) + ',minmax(110px,1fr)) minmax(140px,1.3fr) minmax(140px,1.3fr) 44px',
+    };
+  }
+
+  renderVals() {
+    const MONTHS = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+    const startMs = (v) => {
+      const m = /^(\d{1,2})-([A-Za-z]{3})-(\d{4})$/.exec(v.short || '');
+      return m ? new Date(+m[3], MONTHS[m[2].toLowerCase()], +m[1]).getTime() : 0;
+    };
+    const cut = this.parseCutoff(this.state.cutoff);
+    // Active visit pinned first, then reverse-chronological.
+    const filtered = this.VISITS
+      .filter(v => cut === null || startMs(v) <= cut)
+      .slice()
+      .sort((a, b) => (b.active ? 1 : 0) - (a.active ? 1 : 0) || startMs(b) - startMs(a));
+    // A visit filtered out of the list must not keep the summary pane.
+    const sel = filtered.find(v => v.id === this.state.selectedId) || null;
+    const tab = this.state.tab || 0;
+    const tabName = this.TABS[tab];
+
+    const visitRows = filtered.map(v => {
+      const on = sel && v.id === sel.id;
+      const base = v.active ? '#e2f4e5' : '#fbeadd';
+      const accent = v.active ? 'var(--green-50)' : 'var(--orange-40)';
+      return {
+        type: v.type, when: v.when, meta: v.meta, tag: v.active ? 'Active' : 'Past',
+        onClick: () => this.select(v.id),
+        style: {
+          width: '100%', display: 'flex', alignItems: 'flex-start', gap: 'var(--spacing-04)',
+          padding: 'var(--spacing-04) var(--spacing-05)', border: 'none', cursor: 'pointer',
+          background: on ? (v.active ? '#cfead4' : '#f5dcc9') : base,
+          boxShadow: on ? 'inset 3px 0 0 ' + accent : 'none',
+          marginBottom: '2px', textAlign: 'left',
+        },
+        dotStyle: { width: '8px', height: '8px', marginTop: '5px', flexShrink: 0, borderRadius: '50%', background: accent },
+        tagStyle: { flexShrink: 0, padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)', color: 'var(--text-primary)', background: 'rgba(255,255,255,0.7)' },
+      };
+    });
+
+    // Rail is a shallow tree: Orders carries Tests / Medications as children.
+    const orderView = this.state.orderView || 'Tests';
+    const TAB_ICONS = { Summary: 'carbon:catalog', Notes: 'carbon:document', Vitals: 'carbon:activity', Orders: 'carbon:shopping-cart', 'Clinical forms': 'carbon:document-multiple-01' };
+    const railStyle = (active, sub) => ({
+      display: 'flex', alignItems: 'center', gap: '10px',
+      padding: sub ? '8px 16px 8px 42px' : '10px 16px', border: 'none', background: 'transparent', cursor: 'pointer',
+      textAlign: 'left', whiteSpace: 'nowrap',
+      font: (active ? '600' : '400') + ' ' + (sub ? '13px' : '14px') + '/1.3 var(--font-sans)',
+      color: active ? 'var(--text-primary)' : 'var(--text-secondary)',
+      boxShadow: 'inset 2px 0 0 ' + (active ? 'var(--teal-70)' : 'var(--border-subtle-01)'),
+    });
+    const tabs = [];
+    this.TABS.forEach((label, i) => {
+      const isOrdersRow = label === 'Orders';
+      tabs.push({ label, icon: TAB_ICONS[label] || '', onClick: () => this.setTab(i), style: railStyle(i === tab && !isOrdersRow, false) });
+      if (isOrdersRow) {
+        this.ORDER_VIEWS.forEach(sub => tabs.push({
+          label: sub, icon: '',
+          onClick: () => this.setState({ tab: i, orderView: sub, openMenu: null }),
+          style: railStyle(i === tab && orderView === sub, true),
+        }));
+      }
+    });
+
+    const cell = { padding: '10px var(--spacing-04)', font: '400 13px/1.4 var(--font-sans)', borderBottom: '1px solid var(--border-subtle-01)' };
+    const testGroups = [];
+    (sel ? sel.tests : []).forEach((p, pi) => {
+      const provider = p.provider || (sel && sel.notes[0] ? sel.notes[0].provider : '--');
+      const day = (p.date || '').split(',')[0];
+      const gkey = provider + '|' + day;
+      let g = testGroups.find(x => x.gkey === gkey);
+      if (!g) {
+        g = {
+          gkey, encounter: p.encounter || 'Lab orders',
+          provider, recordedAt: p.date || '--',
+          enteredBy: p.enteredBy || 'K. Iradukunda', enteredAt: p.enteredAt || '22-Jul-2026, 08:14 AM',
+          menuOpen: this.state.openMenu === 'testgrp:' + gkey,
+          onToggleMenu: this.toggleMenu('testgrp:' + gkey),
+          panels: [],
+        };
+        testGroups.push(g);
+      }
+      g.panels.push(this.testPanel(p, cell, 'test:' + (sel ? sel.id : '') + ':' + pi));
+    });
+
+    // Drug orders are grouped by the encounter that recorded them.
+    const medGroups = [];
+    (sel ? sel.medications : []).forEach((m, i) => {
+      const provider = m.provider || '--';
+      const day = (m.recordedAt || m.date || '').split(',')[0];
+      const gkey = provider + '|' + day;
+      let g = medGroups.find(x => x.gkey === gkey);
+      if (!g) {
+        g = {
+          gkey, encounter: m.encounter || 'Drug orders',
+          provider, recordedAt: m.recordedAt || m.date || '--',
+          enteredBy: m.enteredBy || 'K. Iradukunda', enteredAt: m.enteredAt || '--',
+          menuOpen: this.state.openMenu === 'medgrp:' + gkey,
+          onToggleMenu: this.toggleMenu('medgrp:' + gkey),
+          items: [],
+        };
+        medGroups.push(g);
+      }
+      g.items.push(Object.assign({}, m, {
+        menuOpen: this.state.openMenu === 'med:' + (sel ? sel.id : '') + ':' + i,
+        onToggleMenu: this.toggleMenu('med:' + (sel ? sel.id : '') + ':' + i),
+      }));
+    });
+
+    // The timeline aggregates everything the other tabs show, in clock order.
+    const mins = (s) => {
+      const m = /(\d{1,2}):(\d{2})\s*(AM|PM)/i.exec(s || '');
+      if (!m) return 0;
+      let h = +m[1] % 12;
+      if (/pm/i.test(m[3])) h += 12;
+      return h * 60 + (+m[2]);
+    };
+    const timeOf = (s) => { const m = /(\d{1,2}:\d{2}\s*(?:AM|PM))/i.exec(s || ''); return m ? m[1] : (s || ''); };
+    const openTl = this.state.openRows || {};
+    const tlItems = [];
+    const pushItem = (o) => {
+      const key = 'tl:' + (sel ? sel.id : '') + ':' + tlItems.length + ':' + o.title;
+      tlItems.push(Object.assign({
+        date: sel ? sel.short : '',
+        recordedFor: '--', enteredBy: 'K. Iradukunda', enteredAt: '--',
+        isNote: false, isVitals: false, isTests: false, isMeds: false, isForm: false,
+      }, o, {
+        open: !!openTl[key],
+        onToggle: () => this.setState({ openRows: Object.assign({}, openTl, { [key]: !openTl[key] }), openMenu: null }),
+        chevronStyle: {
+          width: '24px', height: '24px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+          border: 'none', background: 'transparent', color: 'var(--link-primary)', cursor: 'pointer', padding: 0,
+          transform: openTl[key] ? 'rotate(180deg)' : 'none',
+          transition: 'transform var(--duration-fast-02,110ms) var(--easing-standard,ease)',
+        },
+        menuOpen: this.state.openMenu === key,
+        onToggleMenu: this.toggleMenu(key),
+      }));
+    };
+
+    (sel ? sel.notes : []).forEach(n => pushItem({
+      time: n.time, sortAt: mins(n.time), category: 'Note', date: (n.recordedAt || '').split(',')[0] || (sel ? sel.short : ''),
+      title: 'Visit note', subtitle: n.provider + ' · ' + n.role,
+      recordedFor: n.provider, enteredBy: n.enteredBy || '--', enteredAt: n.enteredAt || '--',
+      isNote: true, note: n.note,
+      diagnoses: (n.diagnoses || []).map(d => ({ text: d.text, type: d.primary ? 'red' : 'gray' })),
+      noDiagnoses: !(n.diagnoses || []).length,
+    }));
+
+    if (sel) {
+      const vRow = this.VITALS_TABLE.rows.find(r => r.when.indexOf(sel.short) === 0);
+      const bRow = this.BIOMETRICS_TABLE.rows.find(r => r.when.indexOf(sel.short) === 0);
+      if (vRow) {
+        const pairs = [];
+        const add = (def, row) => def.cols.slice(1).forEach((label, ci) => {
+          const v = row.vals[ci];
+          pairs.push({
+            label, value: v.v,
+            valueStyle: {
+              padding: '8px var(--spacing-04)', borderBottom: '1px solid var(--border-subtle-01)',
+              font: (v.flag ? '600' : '400') + ' 13px/1.4 var(--font-sans)',
+              background: v.flag ? this.FLAG_BG[v.flag] : 'transparent',
+            },
+          });
+        });
+        add(this.VITALS_TABLE, vRow);
+        if (bRow) add(this.BIOMETRICS_TABLE, bRow);
+        pushItem({
+          time: timeOf(vRow.when), sortAt: mins(vRow.when), category: 'Vitals', date: vRow.when.split(',')[0],
+          title: 'Vitals and biometrics', subtitle: 'Recorded at the point of care',
+          recordedFor: vRow.recordedFor, enteredBy: vRow.enteredBy, enteredAt: vRow.enteredAt,
+          isVitals: true, pairs,
+        });
+      }
+    }
+
+    testGroups.forEach(g => g.panels.forEach(p => pushItem({
+      time: timeOf(p.date), sortAt: mins(p.date), category: 'Orders — tests', date: (p.date || '').split(',')[0],
+      title: p.name, subtitle: g.encounter,
+      recordedFor: g.provider, enteredBy: g.enteredBy, enteredAt: g.enteredAt,
+      isTests: true, panelName: p.name, rows: p.rows,
+    })));
+
+    medGroups.forEach(g => pushItem({
+      time: timeOf(g.recordedAt), sortAt: mins(g.recordedAt), category: 'Orders — medications', date: (g.recordedAt || '').split(',')[0],
+      title: 'Drug orders', subtitle: g.encounter,
+      recordedFor: g.provider, enteredBy: g.enteredBy, enteredAt: g.enteredAt,
+      isMeds: true, meds: g.items,
+    }));
+
+    // Encounters not already represented above (registration, standalone forms).
+    const claimed = tlItems.map(t => t.sortAt);
+    (sel ? sel.encounters : []).forEach(r => {
+      if (r.type === 'Vitals') return;
+      if (claimed.indexOf(mins(r.time)) >= 0) return;
+      pushItem({
+        time: r.time, sortAt: mins(r.time), category: 'Clinical form',
+        title: r.form || r.type, subtitle: r.type,
+        recordedFor: r.provider || '--', enteredBy: r.enteredBy || 'K. Iradukunda', enteredAt: r.enteredAt || '22-Jul-2026, 08:14 AM',
+        isForm: true, obs: (r.obs || this.OBS_BY_TYPE[r.type] || []).map(o => ({ concept: o.concept, answer: o.answer })),
+      });
+    });
+
+    const timelineItems = tlItems.sort((a, b) => b.sortAt - a.sortAt);
+    const MONTH_IDX = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+    const dayMs = (d) => {
+      const m = /^(\d{1,2})-([A-Za-z]{3})-(\d{4})$/.exec((d || '').trim());
+      return m ? new Date(+m[3], MONTH_IDX[m[2].toLowerCase()], +m[1]).getTime() : 0;
+    };
+    const timelineDays = [];
+    timelineItems.forEach(t => {
+      let d = timelineDays.find(x => x.label === t.date);
+      if (!d) { d = { label: t.date, at: dayMs(t.date), items: [] }; timelineDays.push(d); }
+      d.items.push(t);
+    });
+    timelineDays.sort((a, b) => b.at - a.at);
+
+    const openRows = this.state.openRows || {};
+    const tableRows = !sel ? [] : (tabName === 'Clinical forms' ? sel.forms : sel.encounters).map((r, i) => {
+      const key = sel.id + ':' + tabName + ':' + i;
+      const open = !!openRows[key];
+      const obs = this.obsRows(r.obs || this.OBS_BY_TYPE[r.type], key, {
+        provider: r.provider,
+        datetime: (sel.short || '') + ', ' + r.time,
+        enteredBy: r.enteredBy || 'K. Iradukunda',
+        enteredAt: r.enteredAt || '22-Jul-2026, 08:14 AM',
+      });
+      return {
+        time: (sel.short || '') + ', ' + r.time, type: r.type, form: r.form || '--', provider: r.provider || '--',
+        recordedAt: (sel.short || '') + ', ' + r.time,
+        enteredBy: r.enteredBy || 'K. Iradukunda',
+        enteredAt: r.enteredAt || '22-Jul-2026, 08:14 AM',
+        open, obs, noObs: obs.length === 0,
+        menuOpen: this.state.openMenu === 'enc:' + key,
+        onToggleMenu: this.toggleMenu('enc:' + key),
+        onToggle: () => this.setState({ openRows: Object.assign({}, openRows, { [key]: !open }), openMenu: null }),
+        chevronStyle: {
+          width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          border: 'none', background: 'transparent', color: 'var(--icon-primary)', cursor: 'pointer',
+          transform: open ? 'rotate(180deg)' : 'none',
+          transition: 'transform var(--duration-fast-02,110ms) var(--easing-standard,ease)',
+        },
+      };
+    });
+
+    const accent = sel ? (sel.active ? 'var(--green-50)' : 'var(--orange-40)') : 'var(--border-strong-01)';
+
+    return {
+      cutoff: this.state.cutoff || '',
+      menuOpen: !!this.state.openMenu,
+      onVisitMenu: this.toggleMenu('visit:' + (this.state.selectedId || '')),
+      closeMenu: this.closeMenu,
+      menuStyle: 'position:fixed;z-index:41;min-width:160px;background:var(--layer-01);box-shadow:var(--shadow-md,0 2px 6px rgba(0,0,0,0.2));top:' +
+        ((this.state.menuRect && this.state.menuRect.top) || 0) + 'px;right:' + ((this.state.menuRect && this.state.menuRect.right) || 0) + 'px',
+      ...this.registryVals(),
+      onCutoff: this.onCutoff, onCreateVisit: this.onCreateVisit,
+      createOpen: !!this.state.createOpen, closeCreate: this.closeCreate, submitCreate: this.submitCreate,
+      nvType: this.state.nvType || '', nvLoc: this.state.nvLoc || '',
+      nvStart: this.state.nvStart || '', nvEnd: this.state.nvEnd || '',
+      setNvType: this.setNv('nvType'), setNvLoc: this.setNv('nvLoc'),
+      setNvStart: this.setNv('nvStart'), setNvEnd: this.setNv('nvEnd'),
+      createBtnStyle: {
+        flex: 1, padding: '16px', border: 'none', textAlign: 'left', font: '400 14px/1.4 var(--font-sans)',
+        background: this.toShort(this.state.nvStart) ? 'var(--teal-70)' : 'var(--button-disabled,#c6c6c6)',
+        color: this.toShort(this.state.nvStart) ? '#fff' : 'var(--text-on-color-disabled,#8d8d8d)',
+        cursor: this.toShort(this.state.nvStart) ? 'pointer' : 'not-allowed',
+      },
+      visitRows,
+      noResults: filtered.length === 0,
+      hasSelection: !!sel, noSelection: !sel,
+
+      selType: sel ? sel.type : '', selWhen: sel ? sel.when : '', selLoc: sel ? sel.loc : '',
+      selTag: sel ? (sel.active ? 'Active visit' : 'Past visit') : '',
+      selTagStyle: {
+        padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)',
+        background: sel && sel.active ? '#d8efd3' : '#f8e5d6', color: 'var(--text-primary)',
+      },
+      summaryHeaderStyle: {
+        display: 'flex', alignItems: 'flex-start', gap: 'var(--spacing-05)', flexWrap: 'wrap',
+        padding: 'var(--spacing-05)', background: sel && sel.active ? '#eef8ec' : '#fdf3ec',
+        borderLeft: '3px solid ' + accent,
+      },
+
+      diagnoses: (sel ? sel.diagnoses : []).map(d => ({
+        text: d.text, type: d.primary ? 'red' : 'gray',
+      })),
+      noDiagnoses: !!sel && sel.diagnoses.length === 0,
+
+      tabs,
+      isSummary: tabName === 'Summary',
+      views: this.VIEWS.map(label => {
+        const on = (this.state.view || 'Timeline') === label;
+        return {
+          label, onClick: () => this.setView(label),
+          style: 'padding:9px 16px;border:none;background:' + (on ? 'var(--gray-80)' : 'transparent') +
+            ';color:' + (on ? '#fff' : 'var(--text-primary)') +
+            ';font:400 13px/1 var(--font-sans);cursor:pointer',
+        };
+      }),
+      isTimeline: tabName === 'Summary' && (this.state.view || 'Timeline') === 'Timeline',
+      timelineDays, timelineItems, noTimeline: timelineItems.length === 0,
+      isSummaryTable: tabName === 'Summary' && this.state.view === 'Table',
+      isNotes: tabName === 'Notes',
+      isVitals: tabName === 'Vitals',
+      isTests: tabName === 'Orders' && orderView === 'Tests',
+      isMeds: tabName === 'Orders' && orderView === 'Medications',
+      isTable: tabName === 'Clinical forms',
+
+      encounters: (sel ? sel.encounters : []).map((e, i) => {
+        const key = sel.id + ':timeline:' + i;
+        const open = !!openRows[key];
+        const obs = this.obsRows(e.obs || this.OBS_BY_TYPE[e.type], key, {
+          provider: e.provider,
+          datetime: (sel.short || '') + ', ' + e.time,
+          enteredBy: e.enteredBy || 'K. Iradukunda',
+          enteredAt: e.enteredAt || '22-Jul-2026, 08:14 AM',
+        });
+        return Object.assign({}, e, {
+          open, obs, noObs: obs.length === 0,
+          menuOpen: this.state.openMenu === 'tl:' + key,
+          onToggleMenu: this.toggleMenu('tl:' + key),
+          onToggle: () => this.setState({ openRows: Object.assign({}, openRows, { [key]: !open }), openMenu: null }),
+          chevronStyle: {
+            width: '24px', height: '24px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+            border: 'none', background: 'transparent', color: 'var(--link-primary)', cursor: 'pointer',
+            transform: open ? 'rotate(180deg)' : 'none',
+            transition: 'transform var(--duration-fast-02,110ms) var(--easing-standard,ease)',
+          },
+        });
+      }),
+      noEncounters: !!sel && sel.encounters.length === 0,
+      notes: (sel ? sel.notes : []).map((n, i) => Object.assign({}, n, {
+        recordedAt: n.recordedAt || n.time,
+        enteredBy: n.enteredBy || '--',
+        enteredAt: n.enteredAt || '--',
+        diagnoses: (n.diagnoses || []).map(d => ({ text: d.text, type: d.primary ? 'red' : 'gray' })),
+        noDiagnoses: !(n.diagnoses || []).length,
+        menuOpen: this.state.openMenu === 'note:' + (sel ? sel.id : '') + ':' + i,
+        onToggleMenu: this.toggleMenu('note:' + (sel ? sel.id : '') + ':' + i),
+      })),
+      noNotes: !!sel && sel.notes.length === 0,
+      testGroups, noTests: !!sel && sel.tests.length === 0,
+      medGroups,
+      noMeds: !!sel && sel.medications.length === 0,
+      ...this.buildTable(this.VITALS_TABLE, 'vt'),
+      ...this.buildTable(this.BIOMETRICS_TABLE, 'bio'),
+      tableRows, noTableRows: tableRows.length === 0,
+    };
+  }
+}
+</script>
+</body>
+</html>

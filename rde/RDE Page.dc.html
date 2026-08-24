@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/layout.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/tokens/base.css">
+  <link rel="stylesheet" href="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/styles.css">
+  <script src="_ds/inborn-outborn-53f45259-675b-45b4-be75-06ba60d70fbd/_ds_bundle.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  <style>
+    .om-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+    .om-scroll::-webkit-scrollbar-thumb { background: #c6c6c6; }
+    .om-scroll::-webkit-scrollbar-track { background: transparent; }
+  </style>
+</helmet>
+
+<div style="height:100vh;display:flex;flex-direction:column;overflow:hidden;background:var(--background);font-family:var(--font-sans);color:var(--text-primary)">
+
+  <!-- App header -->
+  <header style="flex-shrink:0;height:48px;display:flex;align-items:center;background:var(--teal-70);color:#fff">
+    <button aria-label="Menu" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:menu" width="20" height="20"></iconify-icon></button>
+    <div style="display:flex;align-items:center;gap:10px;padding:0 8px">
+      <iconify-icon icon="carbon:in-progress" width="24" height="24" style="color:#fff"></iconify-icon>
+      <span style="font:600 15px/1 var(--font-sans)">OpenMRS</span>
+    </div>
+    <div style="width:1px;height:24px;background:rgba(255,255,255,0.3);margin:0 12px"></div>
+    <div style="display:flex;align-items:center;gap:8px;color:#fff;font:400 14px/1 var(--font-sans)">
+      <iconify-icon icon="carbon:location" width="16" height="16"></iconify-icon>
+      <span>Outpatient Clinic</span>
+    </div>
+    <div style="margin-left:auto;display:flex;height:100%;align-items:center">
+      <button aria-label="Search" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:search" width="20" height="20"></iconify-icon></button>
+      <button aria-label="Account" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:user-avatar" width="20" height="20"></iconify-icon></button>
+    </div>
+  </header>
+
+  <!-- Patient banner -->
+  <section data-screen-label="Patient banner" style="flex-shrink:0;background:var(--layer-01);border-bottom:1px solid var(--border-subtle-01)">
+    <div style="display:flex;align-items:flex-start;gap:var(--spacing-05);padding:var(--spacing-05) var(--spacing-06)">
+      <div style="width:52px;height:52px;flex-shrink:0;background:var(--purple-70);color:#fff;display:flex;align-items:center;justify-content:center;font:600 18px/1 var(--font-sans)">MW</div>
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap">
+          <h1 style="margin:0;font:600 20px/1.1 var(--font-sans)">Mark Williams</h1>
+          <span style="display:inline-flex;align-items:center;gap:4px;color:var(--text-secondary);font:400 15px/1 var(--font-sans)"><iconify-icon icon="carbon:gender-male" width="16" height="16"></iconify-icon>Male</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:var(--spacing-04);margin-top:var(--spacing-03);color:var(--text-secondary);font:400 14px/1 var(--font-sans);flex-wrap:wrap">
+          <span>63 yrs</span><span>&middot;</span><span>05-Apr-1963</span><span>&middot;</span>
+          <span>CR Number:&nbsp; <span style="color:var(--text-primary);font-weight:600;font-family:var(--font-mono)">100019A</span></span>
+        </div>
+      </div>
+      <div style="flex-shrink:0;display:flex;align-items:center;gap:var(--spacing-04);padding:6px 12px;background:var(--tag-bg-purple);border-left:3px solid var(--purple-60);font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">
+        <iconify-icon icon="carbon:time-plot" width="16" height="16" style="color:var(--purple-60)"></iconify-icon>
+        <span>Retrospective data entry</span>
+      </div>
+    </div>
+    <div data-screen-label="Patient tabs" style="display:flex;align-items:stretch;gap:var(--spacing-04);padding:0 var(--spacing-06);border-top:1px solid var(--border-subtle-01)">
+      <div style="display:flex;align-items:stretch;gap:var(--spacing-02);min-width:0;overflow-x:auto">
+        <sc-for list="{{ ptTabs }}" as="t" hint-placeholder-count="6">
+          <button onClick="{{ t.onClick }}" style="{{ t.style }}"><iconify-icon icon="{{ t.icon }}" width="16" height="16"></iconify-icon>{{ t.label }}</button>
+        </sc-for>
+      </div>
+      <button style="margin-left:auto;flex-shrink:0;align-self:center;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:none;background:transparent;color:var(--support-error,#da1e28);font:400 13px/1 var(--font-sans);cursor:pointer;white-space:nowrap" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:events" width="16" height="16"></iconify-icon>Mark patient deceased</button>
+    </div>
+  </section>
+
+  <!-- Patient-level registry -->
+  <sc-if value="{{ isRegistry }}" hint-placeholder-val="{{ false }}">
+    <div class="om-scroll" data-screen-label="Patient-level registry" style="flex:1;min-height:0;overflow-y:auto;padding:var(--spacing-06) var(--spacing-07) var(--spacing-09)">
+      <div style="display:flex;align-items:flex-start;gap:var(--spacing-05);margin-bottom:var(--spacing-05)">
+        <div style="flex:1;min-width:0">
+          <h2 style="margin:0;font:600 18px/1.2 var(--font-sans)">{{ regTitle }}</h2>
+          <p style="margin:4px 0 0;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">Not tied to a visit. Each entry records a back-date and the clinician it is recorded for.</p>
+        </div>
+        <button style="flex-shrink:0;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:none;background:var(--blue-60);color:#fff;font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:var(--blue-70)"><iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon>{{ regAddLabel }}</button>
+      </div>
+      <div style="overflow-x:auto"><div style="{{ regGridStyle }}">
+        <sc-for list="{{ regCols }}" as="c" hint-placeholder-count="4">
+          <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-01);border-bottom:1px solid var(--border-subtle-01)">{{ c.label }}</div>
+        </sc-for>
+        <div style="background:var(--layer-01);border-bottom:1px solid var(--border-subtle-01)"></div>
+        <sc-for list="{{ regCells }}" as="c" hint-placeholder-count="12">
+          <div style="{{ c.style }}">
+            <sc-if value="{{ c.hasSub }}" hint-placeholder-val="{{ false }}">
+              <div style="font:400 13px/1.4 var(--font-sans)">{{ c.text }}</div>
+              <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ c.sub }}</div>
+            </sc-if>
+            <sc-if value="{{ c.isAction }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ c.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+            </sc-if>
+            <sc-if value="{{ c.isPlain }}" hint-placeholder-val="{{ true }}">{{ c.text }}</sc-if>
+          </div>
+        </sc-for>
+      </div></div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:40"></div>
+    <div style="{{ menuStyle }}">
+      <button onClick="{{ closeMenu }}" style="width:100%;padding:11px 16px;border:none;background:transparent;color:var(--text-primary);font:400 14px/1 var(--font-sans);cursor:pointer;text-align:left" style-hover="background:var(--layer-hover-01)">Edit</button>
+      <button onClick="{{ closeMenu }}" style="width:100%;padding:11px 16px;border:none;border-top:1px solid var(--border-subtle-01);background:transparent;color:var(--support-error,#da1e28);font:400 14px/1 var(--font-sans);cursor:pointer;text-align:left" style-hover="background:var(--support-error,#da1e28);color:#fff">Delete</button>
+    </div>
+  </sc-if>
+
+  <!-- Body -->
+  <sc-if value="{{ isVisits }}" hint-placeholder-val="{{ true }}">
+  <div style="flex:1;min-height:0;display:flex">
+
+    <!-- Left: visit search / select -->
+    <aside data-screen-label="Visit picker" style="width:340px;flex-shrink:0;display:flex;flex-direction:column;min-height:0;background:var(--layer-01);border-right:1px solid var(--border-subtle-01)">
+      <div style="flex-shrink:0;padding:var(--spacing-05) var(--spacing-05) var(--spacing-04)">
+        <h2 style="margin:0 0 var(--spacing-02);font:600 16px/1.2 var(--font-sans)">Visits</h2>
+        <p style="margin:0 0 var(--spacing-04);font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">Select a visit to review its summary.</p>
+        <label style="display:block;margin-bottom:6px;font:400 12px/1.35 var(--font-sans);color:var(--text-secondary)">Show visits with start date on or prior to:</label>
+        <div style="display:flex;align-items:center;gap:8px;height:40px;padding:0 12px;background:var(--field-01);border-bottom:1px solid var(--border-strong-01)">
+          <input type="text" value="{{ cutoff }}" onInput="{{ onCutoff }}" style="flex:1;min-width:0;border:none;background:transparent;font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+          <iconify-icon icon="carbon:calendar" width="16" height="16" style="color:var(--icon-primary)"></iconify-icon>
+        </div>
+      </div>
+      <div class="om-scroll" style="flex:1;min-height:0;overflow-y:auto;padding-bottom:var(--spacing-05)">
+        <button onClick="{{ onCreateVisit }}" style="width:100%;display:flex;align-items:center;gap:8px;padding:var(--spacing-04) var(--spacing-05);margin-bottom:2px;border:none;border-top:1px solid var(--border-subtle-01);border-bottom:1px solid var(--border-subtle-01);background:transparent;color:var(--link-primary);font:600 14px/1.2 var(--font-sans);cursor:pointer;text-align:left" style-hover="background:var(--layer-hover-01)">
+          <iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon>Create new visit
+        </button>
+        <sc-for list="{{ visitRows }}" as="v" hint-placeholder-count="5">
+          <button onClick="{{ v.onClick }}" style="{{ v.style }}">
+            <span style="{{ v.dotStyle }}"></span>
+            <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;text-align:left">
+              <span style="font:600 14px/1.2 var(--font-sans);color:var(--text-primary)">{{ v.type }}</span>
+              <span style="font:400 12px/1.35 var(--font-sans);color:var(--text-secondary)">{{ v.when }}</span>
+              <span style="font:400 12px/1.35 var(--font-sans);color:var(--text-secondary)">{{ v.meta }}</span>
+            </span>
+            <span style="{{ v.tagStyle }}">{{ v.tag }}</span>
+          </button>
+        </sc-for>
+        <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0;padding:var(--spacing-06);font:400 14px/1.4 var(--font-sans);color:var(--text-secondary);text-align:center">No visits started on or before this date.</p>
+        </sc-if>
+      </div>
+    </aside>
+
+    <!-- Right: visit summary -->
+    <main class="om-scroll" style="flex:1;min-width:0;overflow-y:auto">
+      <sc-if value="{{ noSelection }}" hint-placeholder-val="{{ false }}">
+        <div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing-04);padding:var(--spacing-09);text-align:center">
+          <iconify-icon icon="carbon:document-blank" width="40" height="40" style="color:var(--icon-secondary)"></iconify-icon>
+          <p style="margin:0;font:400 16px/1.4 var(--font-sans);color:var(--text-secondary)">Select a visit on the left to view its summary.</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ hasSelection }}" hint-placeholder-val="{{ true }}">
+        <div data-screen-label="Visit summary" style="padding:var(--spacing-06) var(--spacing-07) var(--spacing-09)">
+
+          <div style="{{ summaryHeaderStyle }}">
+            <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                <h2 style="margin:0;font:600 18px/1.2 var(--font-sans)">{{ selType }}</h2>
+                <span style="{{ selTagStyle }}">{{ selTag }}</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font:400 13px/1.35 var(--font-sans);flex-wrap:wrap">
+                <iconify-icon icon="carbon:time" width="13" height="13"></iconify-icon><span>{{ selWhen }}</span>
+                <span>&middot;</span>
+                <iconify-icon icon="carbon:enterprise" width="13" height="13"></iconify-icon><span>{{ selLoc }}</span>
+              </div>
+            </div>
+            <div style="margin-left:auto;display:flex;align-items:center;gap:var(--spacing-03)">
+              <button onClick="{{ onVisitMenu }}" aria-label="Visit actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+            </div>
+          </div>
+
+          <div data-screen-label="Visit-level actions" style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap;margin-top:var(--spacing-05);padding:var(--spacing-04) var(--spacing-05);background:var(--layer-01);border-left:3px solid var(--blue-60)">
+            <span style="font:600 12px/1.3 var(--font-sans);letter-spacing:0.02em;color:var(--text-secondary)">Add to this visit</span>
+            <div style="display:flex;align-items:center;gap:var(--spacing-03);flex-wrap:wrap">
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:none;background:var(--blue-60);color:#fff;font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:var(--blue-70)"><iconify-icon icon="carbon:document" width="16" height="16"></iconify-icon>Visit note</button>
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><iconify-icon icon="carbon:activity" width="16" height="16"></iconify-icon>Vitals</button>
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><iconify-icon icon="carbon:shopping-cart" width="16" height="16"></iconify-icon>Orders</button>
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><iconify-icon icon="carbon:document-multiple-01" width="16" height="16"></iconify-icon>Clinical form</button>
+            </div>
+            <span style="margin-left:auto;display:inline-flex;align-items:center;gap:6px;font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)"><iconify-icon icon="carbon:link" width="14" height="14"></iconify-icon>Encounters attach to {{ selType }} &mdash; {{ selWhen }}</span>
+          </div>
+
+          <div style="display:flex;gap:var(--spacing-06);margin-top:var(--spacing-06)">
+
+          <!-- Vertical tab rail -->
+          <div style="width:180px;flex-shrink:0">
+            <p style="margin:0 0 var(--spacing-04);font:600 14px/1 var(--font-sans)">Diagnoses</p>
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
+                <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="flex:1;min-width:0">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;min-height:24px;margin-bottom:var(--spacing-05)">
+            <sc-for list="{{ diagnoses }}" as="d" hint-placeholder-count="2">
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.Tag" type="{{ d.type }}" size="md" hint-size="auto,24px">{{ d.text }}</x-import>
+            </sc-for>
+            <sc-if value="{{ noDiagnoses }}" hint-placeholder-val="{{ false }}">
+              <span style="font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">No diagnoses found</span>
+            </sc-if>
+          </div>
+
+          <div>
+
+            <!-- Timeline -->
+            <sc-if value="{{ isTimeline }}" hint-placeholder-val="{{ true }}">
+              <sc-for list="{{ encounters }}" as="e" hint-placeholder-count="2">
+                <div style="padding-bottom:var(--spacing-05)">
+                <div style="display:flex;gap:var(--spacing-05)">
+                  <div style="width:78px;flex-shrink:0;text-align:right;padding-top:2px;font:400 13px/1.4 var(--font-mono);color:var(--text-secondary)">{{ e.time }}</div>
+                  <div style="width:1px;flex-shrink:0;background:var(--border-subtle-01);position:relative">
+                    <span style="position:absolute;top:6px;left:-4px;width:9px;height:9px;background:var(--blue-60)"></span>
+                  </div>
+                  <div style="flex:1;min-width:0">
+                    <div style="display:flex;align-items:flex-start;gap:8px">
+                      <button onClick="{{ e.onToggle }}" aria-label="Expand encounter" style="{{ e.chevronStyle }}"><iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button>
+                      <div style="flex:1;min-width:0">
+                        <div style="font:600 14px/1.3 var(--font-sans)">{{ e.type }}</div>
+                        <div style="margin-top:2px;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">{{ e.form }} &middot; {{ e.provider }}</div>
+                        <div style="margin-top:6px;font:400 13px/1.5 var(--font-sans);color:var(--text-secondary)">{{ e.detail }}</div>
+                      </div>
+                      <button onClick="{{ e.onToggleMenu }}" aria-label="Encounter actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+                    </div>
+                  </div>
+                </div>
+                <sc-if value="{{ e.open }}" hint-placeholder-val="{{ false }}">
+                      <div style="margin:var(--spacing-04) 0 0;padding:var(--spacing-04);background:var(--layer-01);border-left:2px solid var(--border-subtle-01)">
+                        <p style="margin:0 0 var(--spacing-03);font:600 13px/1.3 var(--font-sans)">Observations</p>
+                        <div style="overflow-x:auto"><div style="display:grid;grid-template-columns:32px minmax(100px,1.1fr) minmax(160px,2.2fr) minmax(130px,1.2fr) minmax(130px,1.2fr);min-width:560px">
+                          <div style="border-bottom:1px solid var(--border-subtle-01)"></div>
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Concept</div>
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Answer</div>
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Recorded for / at</div>
+                          <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered by / at</div>
+                          <sc-for list="{{ e.obs }}" as="o" hint-placeholder-count="3">
+                            <div style="display:flex;align-items:flex-start;justify-content:center;padding:8px 0;border-bottom:1px solid var(--border-subtle-01)"><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><button onClick="{{ o.onToggleHistory }}" title="Show edit history" aria-label="Show edit history" style="{{ o.historyChevronStyle }}"><iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button></sc-if></div>
+                            <div style="padding:8px var(--spacing-04);font:400 13px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ o.concept }}</div>
+                            <div style="padding:0;border-bottom:1px solid var(--border-subtle-01)">
+                              <div style="{{ o.answerStyle }}">{{ o.answer }}</div>
+                              <sc-if value="{{ o.showToggle }}" hint-placeholder-val="{{ false }}">
+                                <button onClick="{{ o.onToggleAnswer }}" style="margin:0 0 8px var(--spacing-04);border:none;background:transparent;padding:0;color:var(--link-primary);font:400 12px/1.3 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">{{ o.toggleLabel }}</button>
+                              </sc-if>
+                            </div>
+                            <div style="padding:8px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                              <div style="font:400 13px/1.4 var(--font-sans)">{{ o.provider }}</div>
+                              <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ o.recordedAt }}</div>
+                            </div>
+                            <div style="padding:8px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                              <div style="font:400 13px/1.4 var(--font-sans)">{{ o.enteredBy }}</div>
+                              <div style="margin-top:2px;display:flex;align-items:center;gap:6px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)"><span>{{ o.obsDatetime }}</span><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><iconify-icon icon="carbon:warning-alt-filled" width="16" height="16" title="Edited after entry" style="color:var(--support-warning,#f1c21b);flex-shrink:0"></iconify-icon></sc-if></div>
+                            </div>
+                            <sc-if value="{{ o.historyOpen }}" hint-placeholder-val="{{ false }}">
+                              <div style="grid-column:1 / -1;padding:var(--spacing-04) var(--spacing-05);background:var(--layer-accent-01,#e0e0e0);border-bottom:1px solid var(--border-subtle-01)">
+                                <p style="margin:0 0 var(--spacing-03);font:600 12px/1.3 var(--font-sans);letter-spacing:0.02em">Edit history</p>
+                                <div style="display:grid;grid-template-columns:minmax(70px,0.8fr) minmax(80px,0.9fr) minmax(110px,1.1fr) minmax(120px,1.2fr) minmax(100px,1fr) minmax(130px,1.3fr) minmax(140px,1.6fr)">
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Answer</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Action</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Recorded for</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Recorded at</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered by</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered at</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Reason</div>
+                                  <sc-for list="{{ o.history }}" as="h" hint-placeholder-count="3">
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.answer }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.action }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.provider }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-mono);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle-01)">{{ h.recordedAt }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.enteredBy }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-mono);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle-01)">{{ h.datetime }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle-01)">{{ h.reason }}</div>
+                                  </sc-for>
+                                </div>
+                              </div>
+                            </sc-if>
+                          </sc-for>
+                        </div>
+                        </div>
+                        <sc-if value="{{ e.noObs }}" hint-placeholder-val="{{ false }}">
+                          <p style="margin:0;padding:var(--spacing-03) var(--spacing-04);font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">No observations recorded for this encounter</p>
+                        </sc-if>
+                      </div>
+                </sc-if>
+                </div>
+              </sc-for>
+              <sc-if value="{{ noEncounters }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;padding:var(--spacing-07) 0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">There are no encounters for this visit to display for this patient</p>
+              </sc-if>
+            </sc-if>
+
+            <!-- Notes -->
+            <sc-if value="{{ isNotes }}" hint-placeholder-val="{{ false }}">
+              <sc-for list="{{ notes }}" as="n" hint-placeholder-count="2">
+                <div style="padding:0 0 var(--spacing-05);margin-bottom:var(--spacing-05);border-bottom:1px solid var(--border-subtle-01)">
+                  <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
+                    <span style="font:600 14px/1.3 var(--font-sans)">{{ n.provider }}</span>
+                    <span style="font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)">{{ n.role }}</span>
+                    <span style="margin-left:auto;font:400 12px/1.3 var(--font-mono);color:var(--text-secondary)">{{ n.time }}</span>
+                  </div>
+                  <p style="margin:var(--spacing-03) 0 0;font:400 14px/1.5 var(--font-sans);text-wrap:pretty">{{ n.note }}</p>
+                </div>
+              </sc-for>
+              <sc-if value="{{ noNotes }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;padding:var(--spacing-07) 0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">There are no notes to display for this patient</p>
+              </sc-if>
+            </sc-if>
+
+            <!-- Tests -->
+            <sc-if value="{{ isTests }}" hint-placeholder-val="{{ false }}">
+              <sc-for list="{{ testPanels }}" as="p" hint-placeholder-count="1">
+                <div style="margin-bottom:var(--spacing-06)">
+                  <div style="display:flex;align-items:baseline;gap:8px;padding-bottom:var(--spacing-03)">
+                    <span style="font:600 14px/1.3 var(--font-sans)">{{ p.name }}</span>
+                    <span style="font:400 12px/1.3 var(--font-mono);color:var(--text-secondary)">{{ p.date }}</span>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr auto auto;gap:0;border-top:1px solid var(--border-subtle-01)">
+                    <sc-for list="{{ p.rows }}" as="r" hint-placeholder-count="3">
+                      <div style="{{ r.cellStyle }}">{{ r.name }}</div>
+                      <div style="{{ r.valueStyle }}">{{ r.value }}</div>
+                      <div style="{{ r.rangeStyle }}">{{ r.range }}</div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-for>
+              <sc-if value="{{ noTests }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;padding:var(--spacing-07) 0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">There are no test results to display for this patient</p>
+              </sc-if>
+            </sc-if>
+
+            <!-- Medications -->
+            <sc-if value="{{ isMeds }}" hint-placeholder-val="{{ false }}">
+              <sc-for list="{{ medications }}" as="m" hint-placeholder-count="2">
+                <div style="padding:0 0 var(--spacing-04);margin-bottom:var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                  <div style="font:400 14px/1.5 var(--font-sans)"><span style="font-weight:600">{{ m.name }}</span> &mdash; {{ m.dose }} &mdash; {{ m.route }}</div>
+                  <div style="margin-top:4px;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">{{ m.instructions }}</div>
+                  <div style="margin-top:4px;font:400 12px/1.4 var(--font-sans);color:var(--text-secondary)">{{ m.provider }} &middot; {{ m.date }}</div>
+                </div>
+              </sc-for>
+              <sc-if value="{{ noMeds }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;padding:var(--spacing-07) 0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">There are no medications to display for this patient</p>
+              </sc-if>
+            </sc-if>
+
+            <!-- Completed forms / Encounters tables -->
+            <sc-if value="{{ isTable }}" hint-placeholder-val="{{ false }}">
+              <div style="overflow-x:auto;border-top:1px solid var(--border-subtle-01)">
+                <div style="min-width:640px">
+                <div style="display:grid;grid-template-columns:40px 150px minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) 44px;background:var(--layer-accent-01,#e0e0e0)">
+                  <div></div>
+                  <div style="padding:12px var(--spacing-05) 12px 0;font:600 13px/1.3 var(--font-sans)">Date &amp; time</div>
+                  <div style="padding:12px var(--spacing-05);font:600 13px/1.3 var(--font-sans)">Encounter type</div>
+                  <div style="padding:12px var(--spacing-05);font:600 13px/1.3 var(--font-sans)">Form name</div>
+                  <div style="padding:12px var(--spacing-05);font:600 13px/1.3 var(--font-sans)">Provider</div>
+                  <div></div>
+                </div>
+                <sc-for list="{{ tableRows }}" as="row" hint-placeholder-count="3">
+                  <div style="border-bottom:1px solid var(--border-subtle-01)">
+                    <div style="display:grid;grid-template-columns:40px 150px minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) 44px;align-items:center">
+                      <button onClick="{{ row.onToggle }}" aria-label="Expand row" style="{{ row.chevronStyle }}"><iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button>
+                      <div style="padding:12px var(--spacing-05) 12px 0;font:400 13px/1.4 var(--font-mono);color:var(--text-secondary)">{{ row.time }}</div>
+                      <div style="padding:12px var(--spacing-05);font:400 13px/1.4 var(--font-sans)">{{ row.type }}</div>
+                      <div style="padding:12px var(--spacing-05);font:400 13px/1.4 var(--font-sans)">{{ row.form }}</div>
+                      <div style="padding:12px var(--spacing-05);font:400 13px/1.4 var(--font-sans)">{{ row.provider }}</div>
+                      <div style="position:sticky;right:0;display:flex;align-items:center;justify-content:center;background:var(--background)">
+                        <button onClick="{{ row.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+                      </div>
+                    </div>
+                    <sc-if value="{{ row.open }}" hint-placeholder-val="{{ false }}">
+                      <div style="padding:var(--spacing-05) var(--spacing-04) var(--spacing-06);background:var(--layer-01)">
+                        <div style="overflow-x:auto;border-top:1px solid var(--border-subtle-01)"><div style="display:grid;grid-template-columns:32px minmax(100px,1.1fr) minmax(160px,2.2fr) minmax(130px,1.2fr) minmax(130px,1.2fr) 40px;min-width:600px">
+                          <div style="border-bottom:1px solid var(--border-subtle-01)"></div>
+                          <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Concept</div>
+                          <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Answer</div>
+                          <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Recorded for / at</div>
+                          <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered by / at</div>
+                          <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)"></div>
+                          <sc-for list="{{ row.obs }}" as="o" hint-placeholder-count="3">
+                            <div style="display:flex;align-items:flex-start;justify-content:center;padding:10px 0;border-bottom:1px solid var(--border-subtle-01)"><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><button onClick="{{ o.onToggleHistory }}" title="Show edit history" aria-label="Show edit history" style="{{ o.historyChevronStyle }}"><iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button></sc-if></div>
+                            <div style="padding:10px var(--spacing-04);font:400 13px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ o.concept }}</div>
+                            <div style="padding:0;border-bottom:1px solid var(--border-subtle-01)">
+                              <div style="{{ o.answerStyle }}">{{ o.answer }}</div>
+                              <sc-if value="{{ o.showToggle }}" hint-placeholder-val="{{ false }}">
+                                <button onClick="{{ o.onToggleAnswer }}" style="margin:0 0 8px var(--spacing-04);border:none;background:transparent;padding:0;color:var(--link-primary);font:400 12px/1.3 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">{{ o.toggleLabel }}</button>
+                              </sc-if>
+                            </div>
+                            <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                              <div style="font:400 13px/1.4 var(--font-sans)">{{ o.provider }}</div>
+                              <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ o.recordedAt }}</div>
+                            </div>
+                            <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
+                              <div style="font:400 13px/1.4 var(--font-sans)">{{ o.enteredBy }}</div>
+                              <div style="margin-top:2px;display:flex;align-items:center;gap:6px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)"><span>{{ o.obsDatetime }}</span><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><iconify-icon icon="carbon:warning-alt-filled" width="16" height="16" title="Edited after entry" style="color:var(--support-warning,#f1c21b);flex-shrink:0"></iconify-icon></sc-if></div>
+                            </div>
+                            <div style="position:sticky;right:0;display:flex;align-items:flex-start;justify-content:center;padding:4px 0;border-bottom:1px solid var(--border-subtle-01);background:var(--layer-01)">
+                              <button onClick="{{ o.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+                            </div>
+                            <sc-if value="{{ o.historyOpen }}" hint-placeholder-val="{{ false }}">
+                              <div style="grid-column:1 / -1;padding:var(--spacing-04) var(--spacing-05);background:var(--layer-accent-01,#e0e0e0);border-bottom:1px solid var(--border-subtle-01)">
+                                <p style="margin:0 0 var(--spacing-03);font:600 12px/1.3 var(--font-sans);letter-spacing:0.02em">Edit history</p>
+                                <div style="display:grid;grid-template-columns:minmax(70px,0.8fr) minmax(80px,0.9fr) minmax(110px,1.1fr) minmax(120px,1.2fr) minmax(100px,1fr) minmax(130px,1.3fr) minmax(140px,1.6fr)">
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Answer</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Action</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Recorded for</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Recorded at</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered by</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered at</div>
+                                  <div style="padding:6px var(--spacing-03);font:600 12px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Reason</div>
+                                  <sc-for list="{{ o.history }}" as="h" hint-placeholder-count="3">
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.answer }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.action }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.provider }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-mono);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle-01)">{{ h.recordedAt }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ h.enteredBy }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-mono);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle-01)">{{ h.datetime }}</div>
+                                    <div style="padding:6px var(--spacing-03);font:400 12px/1.4 var(--font-sans);color:var(--text-secondary);border-bottom:1px solid var(--border-subtle-01)">{{ h.reason }}</div>
+                                  </sc-for>
+                                </div>
+                              </div>
+                            </sc-if>
+                          </sc-for>
+                        </div>
+                        </div>
+                        <sc-if value="{{ row.noObs }}" hint-placeholder-val="{{ false }}">
+                          <p style="margin:0;padding:var(--spacing-05) var(--spacing-04);font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">No observations recorded for this encounter</p>
+                        </sc-if>
+                      </div>
+                    </sc-if>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ noTableRows }}" hint-placeholder-val="{{ false }}">
+                  <p style="margin:0;padding:var(--spacing-07) var(--spacing-05);font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">No encounters to display</p>
+                </sc-if>
+                </div>
+              </div>
+            </sc-if>
+
+          </div>
+          </div>
+          </div>
+        </div>
+      </sc-if>
+    </main>
+  </div>
+  </sc-if>
+
+  <!-- Create a visit -->
+  <sc-if value="{{ createOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:600;display:flex;align-items:center;justify-content:center;background:var(--overlay)">
+      <div data-screen-label="Create a visit" style="width:600px;max-width:92vw;background:var(--layer-02);box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+        <div style="display:flex;align-items:flex-start;gap:var(--spacing-05);padding:var(--spacing-05) var(--spacing-06);border-bottom:1px solid var(--border-subtle-01)">
+          <div style="flex:1">
+            <h2 style="margin:0;font:400 20px/1.3 var(--font-sans)">Create a visit</h2>
+            <p style="margin:var(--spacing-02) 0 0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">Record a visit that already took place.</p>
+          </div>
+          <button onClick="{{ closeCreate }}" aria-label="Close" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:close" width="20" height="20"></iconify-icon></button>
+        </div>
+        <div style="padding:var(--spacing-06);display:flex;flex-direction:column;gap:var(--spacing-05)">
+          <div style="display:flex;gap:var(--spacing-05)">
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+              <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Visit type</label>
+              <select value="{{ nvType }}" onChange="{{ setNvType }}" style="height:40px;padding:0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none;cursor:pointer">
+                <option>Facility Visit</option>
+                <option>Home Visit</option>
+                <option>OPD Visit</option>
+                <option>Group Session</option>
+              </select>
+            </div>
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+              <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Location</label>
+              <input type="text" value="{{ nvLoc }}" onInput="{{ setNvLoc }}" style="height:40px;padding:0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+            </div>
+          </div>
+          <div style="display:flex;gap:var(--spacing-05)">
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+              <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Start date</label>
+              <input type="text" placeholder="dd/mm/yyyy" value="{{ nvStart }}" onInput="{{ setNvStart }}" style="height:40px;padding:0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+            </div>
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+              <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">End date (optional)</label>
+              <input type="text" placeholder="dd/mm/yyyy" value="{{ nvEnd }}" onInput="{{ setNvEnd }}" style="height:40px;padding:0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;border-top:1px solid var(--border-subtle-01)">
+          <button onClick="{{ closeCreate }}" style="flex:1;padding:16px;border:none;background:var(--gray-80);color:#fff;font:400 14px/1.4 var(--font-sans);text-align:left;cursor:pointer" style-hover="background:var(--gray-70)">Cancel</button>
+          <button onClick="{{ submitCreate }}" style="{{ createBtnStyle }}">Create visit</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { selectedId: 'v-2026-07-20', cutoff: '23/07/2026', tab: 0, ptTab: 'visits' };
+
+  PT_TABS = [
+    { id: 'visits', label: 'Visits', icon: 'carbon:calendar-heat-map' },
+    { id: 'programs', label: 'Program enrollments', icon: 'carbon:user-profile' },
+    { id: 'conditions', label: 'Conditions', icon: 'carbon:list-bulleted' },
+    { id: 'allergies', label: 'Allergies', icon: 'carbon:warning' },
+    { id: 'procedures', label: 'Procedures', icon: 'carbon:scalpel' },
+    { id: 'immunizations', label: 'Immunizations', icon: 'carbon:medication' },
+  ];
+
+  REGISTRY = {
+    programs: {
+      title: 'Program enrollments', add: 'Add program enrollment',
+      cols: ['Program', 'Enrolled on', 'Completed on', 'Status', 'Recorded for', 'Recorded at', 'Entered by', 'Entered at'],
+      rows: [
+        ['HIV care and treatment', '14-Mar-2024', '--', 'Active', 'Dr. A. Nyirahabimana', '14-Mar-2024, 10:05 AM', 'K. Iradukunda', '20-Jul-2026, 11:26 AM'],
+        ['Non-communicable diseases', '02-Sep-2022', '11-Jan-2025', 'Completed', 'Dr. J. Mugisha', '02-Sep-2022, 02:40 PM', 'K. Iradukunda', '18-Jun-2026, 09:03 AM'],
+        ['Nutrition support', '05-Apr-2021', '30-Nov-2021', 'Completed', 'S. Uwase, RN', '05-Apr-2021, 09:15 AM', 'M. Ntaganda', '18-Jun-2026, 09:07 AM'],
+      ],
+    },
+    conditions: {
+      title: 'Conditions', add: 'Add condition',
+      cols: ['Condition', 'Onset date', 'Status', 'Recorded for', 'Recorded at', 'Entered by', 'Entered at'],
+      rows: [
+        ['Type 2 diabetes mellitus', '12-Feb-2019', 'Active', 'Dr. A. Nyirahabimana', '12-Feb-2019, 11:20 AM', 'K. Iradukunda', '20-Jul-2026, 11:31 AM'],
+        ['Hypertension', '30-Aug-2020', 'Active', 'Dr. A. Nyirahabimana', '30-Aug-2020, 08:55 AM', 'K. Iradukunda', '20-Jul-2026, 11:32 AM'],
+        ['Pulmonary tuberculosis', '04-Jun-2018', 'Inactive', 'Dr. J. Mugisha', '04-Jun-2018, 03:10 PM', 'M. Ntaganda', '18-Jun-2026, 09:12 AM'],
+      ],
+    },
+    allergies: {
+      title: 'Allergies', add: 'Add allergy',
+      cols: ['Allergen', 'Reaction', 'Severity', 'Onset date', 'Recorded for', 'Recorded at', 'Entered by', 'Entered at'],
+      rows: [
+        ['Penicillin', 'Hives, itching', 'Severe', '2015', 'Dr. J. Mugisha', '18-Jun-2015, 10:00 AM', 'M. Ntaganda', '18-Jun-2026, 09:18 AM'],
+        ['Peanuts', 'Swelling', 'Moderate', '2009', 'S. Uwase, RN', '22-Mar-2009, 04:25 PM', 'M. Ntaganda', '18-Jun-2026, 09:20 AM'],
+      ],
+    },
+    procedures: {
+      title: 'Procedures', add: 'Add procedure',
+      cols: ['Procedure', 'Date performed', 'Outcome', 'Recorded for', 'Recorded at', 'Entered by', 'Entered at'],
+      rows: [
+        ['Appendectomy', '21-Oct-2017', 'Successful', 'Dr. P. Habimana', '21-Oct-2017, 06:40 PM', 'M. Ntaganda', '18-Jun-2026, 09:24 AM'],
+        ['Cataract extraction, left eye', '09-May-2023', 'Successful', 'Dr. P. Habimana', '09-May-2023, 01:15 PM', 'M. Ntaganda', '18-Jun-2026, 09:26 AM'],
+      ],
+    },
+    immunizations: {
+      title: 'Immunizations', add: 'Add immunization',
+      cols: ['Vaccine', 'Dose', 'Date given', 'Recorded for', 'Recorded at', 'Entered by', 'Entered at'],
+      rows: [
+        ['Tetanus toxoid', 'Dose 3', '17-Jan-2022', 'S. Uwase, RN', '17-Jan-2022, 11:05 AM', 'M. Ntaganda', '18-Jun-2026, 09:31 AM'],
+        ['COVID-19 (Pfizer)', 'Booster 1', '02-Dec-2022', 'S. Uwase, RN', '02-Dec-2022, 09:50 AM', 'M. Ntaganda', '18-Jun-2026, 09:33 AM'],
+        ['Influenza', 'Annual', '11-Apr-2026', 'Dr. A. Nyirahabimana', '11-Apr-2026, 10:30 AM', 'K. Iradukunda', '20-Jul-2026, 11:40 AM'],
+      ],
+    },
+  };
+
+  setPtTab = (id) => this.setState({ ptTab: id, openMenu: null });
+
+  TABS = ['Timeline', 'Notes', 'Tests', 'Medications', 'Completed forms', 'Encounters'];
+
+  VISITS = [
+    {
+      id: 'v-2026-07-20', type: 'Facility Visit', loc: 'Butaro DH', active: true,
+      when: 'Started 20-Jul-2026, 11:19 AM', short: '20-Jul-2026', meta: 'Butaro DH · 3 encounters',
+      diagnoses: [{ text: 'Type 2 diabetes mellitus', primary: true }, { text: 'Hypertension', primary: false }],
+      notes: [
+        { provider: 'Dr. A. Nyirahabimana', role: 'Clinician', time: '11:42 AM', note: 'Patient reports improved glycaemic control since last review. Denies polyuria or blurred vision. Continue current regimen and review in three months.' },
+      ],
+      tests: [
+        { name: 'Complete blood count', date: '20-Jul-2026, 12:04 PM', rows: [
+          { name: 'Haemoglobin', value: '13.8 g/dL', range: '13.0 – 17.0', flag: null },
+          { name: 'White cell count', value: '11.4 ×10⁹/L', range: '4.0 – 11.0', flag: 'high' },
+          { name: 'Platelets', value: '254 ×10⁹/L', range: '150 – 400', flag: null },
+        ] },
+      ],
+      medications: [
+        { name: 'Metformin', dose: '500 mg', route: 'Oral', instructions: 'Twice daily with meals — 90 days, 180 tablets', provider: 'Dr. A. Nyirahabimana', date: '20-Jul-2026' },
+        { name: 'Amlodipine', dose: '5 mg', route: 'Oral', instructions: 'Once daily in the morning — 90 days, 90 tablets', provider: 'Dr. A. Nyirahabimana', date: '20-Jul-2026' },
+      ],
+      encounters: [
+        { time: '11:19 AM', type: 'Registration', form: 'Visit registration', provider: 'J. Uwase', detail: 'Visit opened at Butaro DH, outpatient queue.' },
+        { time: '11:31 AM', type: 'Vitals', form: 'Vitals and biometrics', provider: 'J. Uwase', detail: 'BP 138/86 mmHg · Pulse 78 bpm · Temp 36.8 °C · Weight 74 kg' },
+        { time: '11:42 AM', type: 'Consultation', form: 'Adult outpatient note', provider: 'Dr. A. Nyirahabimana', detail: 'Diabetes review, medications continued.' },
+      ],
+      forms: [{ time: '11:31 AM', type: 'Vitals', form: 'Vitals and biometrics', provider: 'J. Uwase' }, { time: '11:42 AM', type: 'Consultation', form: 'Adult outpatient note', provider: 'Dr. A. Nyirahabimana' }],
+    },
+    {
+      id: 'v-2026-03-26', type: 'Home Visit', loc: 'Site 42', active: false,
+      when: '26-Mar-2026', short: '26-Mar-2026', meta: 'Site 42 · 2 encounters',
+      diagnoses: [{ text: 'Hypertension', primary: true }],
+      notes: [
+        { provider: 'CHW P. Mukamana', role: 'Community health worker', time: '09:15 AM', note: 'Home visit completed. Medication adherence confirmed by pill count. Household counselled on salt reduction.' },
+      ],
+      tests: [],
+      medications: [],
+      encounters: [
+        { time: '09:05 AM', type: 'Vitals', form: 'Community vitals', provider: 'CHW P. Mukamana', detail: 'BP 144/90 mmHg · Pulse 82 bpm' },
+        { time: '09:15 AM', type: 'Home visit note', form: 'Community follow-up', provider: 'CHW P. Mukamana', detail: 'Adherence counselling delivered.' },
+      ],
+      forms: [{ time: '09:05 AM', type: 'Vitals', form: 'Community vitals', provider: 'CHW P. Mukamana' }],
+    },
+    {
+      id: 'v-2026-02-11', type: 'Facility Visit', loc: 'Butaro DH', active: false,
+      when: '11-Feb-2026 – 13-Feb-2026', short: '11-Feb-2026', meta: 'Butaro DH · inpatient, 3 days',
+      diagnoses: [{ text: 'Community-acquired pneumonia', primary: true }, { text: 'Dehydration', primary: false }],
+      notes: [
+        { provider: 'Dr. E. Habimana', role: 'Clinician', time: '02:20 PM', note: 'Admitted with three days of productive cough and fever. Started on IV ceftriaxone. Chest examination shows right basal crackles.' },
+        { provider: 'Dr. E. Habimana', role: 'Clinician', time: '10:05 AM', note: 'Day 3: afebrile for 24 hours, tolerating oral intake. Discharged on oral amoxicillin to complete the course.' },
+      ],
+      tests: [
+        { name: 'Basic metabolic panel', date: '11-Feb-2026, 03:10 PM', rows: [
+          { name: 'Sodium', value: '134 mmol/L', range: '135 – 145', flag: 'low' },
+          { name: 'Potassium', value: '4.1 mmol/L', range: '3.5 – 5.1', flag: null },
+          { name: 'Creatinine', value: '1.4 mg/dL', range: '0.7 – 1.3', flag: 'high' },
+        ] },
+      ],
+      medications: [
+        { name: 'Ceftriaxone', dose: '1 g', route: 'Intravenous', instructions: 'Once daily — 3 days', provider: 'Dr. E. Habimana', date: '11-Feb-2026' },
+        { name: 'Amoxicillin', dose: '500 mg', route: 'Oral', instructions: 'Three times daily — 5 days, 15 capsules', provider: 'Dr. E. Habimana', date: '13-Feb-2026' },
+      ],
+      encounters: [
+        { time: '01:48 PM', type: 'Admission', form: 'Inpatient admission', provider: 'Dr. E. Habimana', detail: 'Admitted to medical ward, bed 12.' },
+        { time: '02:20 PM', type: 'Consultation', form: 'Adult inpatient note', provider: 'Dr. E. Habimana', detail: 'Pneumonia, IV antibiotics started.' },
+        { time: '10:05 AM', type: 'Discharge', form: 'Discharge summary', provider: 'Dr. E. Habimana', detail: 'Discharged 13-Feb-2026 in stable condition.' },
+      ],
+      forms: [{ time: '02:20 PM', type: 'Consultation', form: 'Adult inpatient note', provider: 'Dr. E. Habimana' }, { time: '10:05 AM', type: 'Discharge', form: 'Discharge summary', provider: 'Dr. E. Habimana' }],
+    },
+    {
+      id: 'v-2026-01-02', type: 'OPD Visit', loc: 'Mobile Clinic', active: false,
+      when: '02-Jan-2026', short: '02-Jan-2026', meta: 'Mobile Clinic · 1 encounter',
+      diagnoses: [],
+      notes: [],
+      tests: [],
+      medications: [{ name: 'Paracetamol', dose: '1 g', route: 'Oral', instructions: 'Four times daily as needed — 5 days', provider: 'Nurse C. Ingabire', date: '02-Jan-2026' }],
+      encounters: [{ time: '02:40 PM', type: 'Consultation', form: 'Mobile clinic screening', provider: 'Nurse C. Ingabire', detail: 'Screening visit, symptomatic treatment given.' }],
+      forms: [],
+    },
+    {
+      id: 'v-2025-11-08', type: 'Facility Visit', loc: 'Butaro DH', active: false,
+      when: '08-Nov-2025', short: '08-Nov-2025', meta: 'Butaro DH · no encounters recorded',
+      diagnoses: [], notes: [], tests: [], medications: [], encounters: [], forms: [],
+    },
+  ];
+
+  // Fallback observations by encounter type, used when a row has no obs of its own.
+  OBS_BY_TYPE = {
+    Vitals: [
+      { concept: 'Systolic blood pressure', answer: '138 mmHg', provider: 'Dr. A. Nyirahabimana', obsDatetime: '22-Jul-2026, 09:14 AM', edited: true,
+        history: [
+          { answer: '138 mmHg', provider: 'Dr. A. Nyirahabimana', recordedAt: '20-Jul-2026, 11:24 AM', enteredBy: 'K. Iradukunda', datetime: '22-Jul-2026, 09:14 AM', action: 'Edited', reason: 'Value confirmed against paper chart' },
+          { answer: '148 mmHg', provider: 'J. Uwase', recordedAt: '20-Jul-2026, 11:24 AM', enteredBy: 'M. Ntaganda', datetime: '21-Jul-2026, 04:02 PM', action: 'Edited', reason: 'Corrected transcription error' },
+          { answer: '184 mmHg', provider: 'J. Uwase', recordedAt: '20-Jul-2026, 11:24 AM', enteredBy: 'M. Ntaganda', datetime: '20-Jul-2026, 11:31 AM', action: 'Entered', reason: '--' },
+        ] },
+      { concept: 'Diastolic blood pressure', answer: '86 mmHg' },
+      { concept: 'Pulse', answer: '78 beats/min' },
+      { concept: 'Temperature', answer: '36.8 °C' },
+      { concept: 'Weight', answer: '74 kg' },
+    ],
+    Consultation: [
+      { concept: 'Text of encounter note', answer: 'Patient returns for routine diabetes review. Reports good adherence to metformin with no missed doses over the past month. Denies polyuria, polydipsia, blurred vision or paraesthesia. Home glucose readings shared from a paper log range 6.1–8.4 mmol/L fasting. Diet discussed at length: has reduced sweetened tea to one cup daily and increased vegetable intake with support from a household member. Feet examined, no ulceration or callus, pedal pulses intact bilaterally, monofilament sensation preserved at all sites. Blood pressure slightly above target today but consistent with previous readings taken in clinic; no symptoms of headache or dizziness. Counselled on salt reduction and on the importance of attending the ophthalmology screening appointment scheduled for next quarter. Plan: continue metformin 500 mg twice daily and amlodipine 5 mg once daily, repeat HbA1c and creatinine in three months, return sooner if symptoms of hypoglycaemia develop.' },
+      { concept: 'Visit diagnoses', answer: 'Type 2 diabetes mellitus (primary)' },
+      { concept: 'Plan', answer: 'Continue current regimen, review in three months' },
+    ],
+    Registration: [
+      { concept: 'Visit type', answer: 'Facility Visit' },
+      { concept: 'Queue', answer: 'Outpatient' },
+    ],
+    Admission: [
+      { concept: 'Ward', answer: 'Medical ward' },
+      { concept: 'Bed number', answer: '12' },
+    ],
+    Discharge: [
+      { concept: 'Discharge summary', answer: 'Admitted with a three-day history of productive cough, fever and reduced oral intake. Chest examination on admission revealed right basal crackles and the working diagnosis was community-acquired pneumonia with mild dehydration. Treated with intravenous ceftriaxone 1 g daily and maintenance fluids. Became afebrile within forty-eight hours and oral intake improved steadily thereafter. Repeat examination on day three showed clearing of the right base with no residual respiratory distress. Discharged on oral amoxicillin 500 mg three times daily to complete a five-day course, with advice to return immediately if fever recurs, breathing becomes difficult, or oral intake falls again. Follow-up arranged at the outpatient clinic in two weeks.' },
+      { concept: 'Discharge condition', answer: 'Stable' },
+      { concept: 'Discharge destination', answer: 'Home' },
+    ],
+    'Home visit note': [
+      { concept: 'Narrative summary', answer: 'Household visited at the agreed time and both the patient and his daughter were present. Pill count reconciled against the dispensing record with no discrepancy. The family described difficulty reaching the health centre during the rainy season because the road becomes impassable, and asked whether refills could be collected by a relative. Water source is a shared standpipe roughly ten minutes away. Counselling delivered on salt reduction, on recognising warning signs of stroke, and on keeping the appointment card in a dry place. Referral to the community adherence group offered and accepted.' },
+      { concept: 'Medication adherence', answer: 'Confirmed by pill count' },
+      { concept: 'Counselling provided', answer: 'Salt reduction' },
+    ],
+  };
+
+  // Long free-text answers clamp to two lines with an ellipsis until expanded.
+  CLAMP_AT = 150;
+  obsRows(list, keyPrefix, ctx) {
+    const expanded = this.state.expandedObs || {};
+    return (list || []).map((o, i) => {
+      const key = keyPrefix + ':' + i;
+      const full = o.answer || '';
+      const long = full.length > this.CLAMP_AT;
+      const open = !!expanded[key];
+      // Truncate in JS so the ellipsis is real text, not a CSS clamp.
+      const shown = long && !open ? full.slice(0, full.lastIndexOf(' ', this.CLAMP_AT)) + '…' : full;
+      return {
+        concept: o.concept, answer: shown,
+        provider: o.provider || (ctx && ctx.provider) || '--',
+        recordedAt: o.recordedAt || (ctx && ctx.datetime) || '--',
+        enteredBy: o.enteredBy || (ctx && ctx.enteredBy) || '--',
+        obsDatetime: o.obsDatetime || (ctx && ctx.enteredAt) || '--',
+        edited: !!o.edited,
+        menuOpen: this.state.openMenu === 'obs:' + key,
+        onToggleMenu: this.toggleMenu('obs:' + key),
+        history: o.history || [],
+        historyOpen: !!expanded['h:' + key],
+        onToggleHistory: () => this.setState({ expandedObs: Object.assign({}, expanded, { ['h:' + key]: !expanded['h:' + key] }), openMenu: null }),
+        historyChevronStyle: {
+          width: '20px', height: '20px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+          border: 'none', background: 'transparent', color: 'var(--link-primary)', cursor: 'pointer', padding: 0,
+          transform: expanded['h:' + key] ? 'rotate(180deg)' : 'none',
+          transition: 'transform var(--duration-fast-02,110ms) var(--easing-standard,ease)',
+        },
+        answerStyle: {
+          padding: '8px var(--spacing-04)', font: '400 13px/1.45 var(--font-sans)',
+          whiteSpace: 'pre-wrap', textWrap: 'pretty',
+        },
+        showToggle: long,
+        toggleLabel: open ? 'Show less' : 'Show more',
+        onToggleAnswer: () => this.setState({ expandedObs: Object.assign({}, expanded, { [key]: !open }) }),
+      };
+    });
+  }
+
+  toggleMenu = (key) => (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const r = e && e.currentTarget ? e.currentTarget.getBoundingClientRect() : null;
+    const MENU_H = 88;
+    const top = r ? (r.bottom + 2 + MENU_H > window.innerHeight ? Math.max(8, r.top - 2 - MENU_H) : r.bottom + 2) : 0;
+    this.setState(s => s.openMenu === key ? { openMenu: null } : { openMenu: key, menuRect: r ? { top, right: window.innerWidth - r.right } : null });
+  };
+  closeMenu = () => this.setState({ openMenu: null });
+  onAnyScroll = () => { if (this.state.openMenu) this.closeMenu(); };
+  componentDidMount() { window.addEventListener('scroll', this.onAnyScroll, true); }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onAnyScroll, true); }
+
+  onCutoff = (e) => this.setState({ cutoff: e.target.value });
+  onCreateVisit = () => this.setState({ createOpen: true, nvType: 'Facility Visit', nvLoc: 'Butaro DH', nvStart: '', nvEnd: '' });
+  closeCreate = () => this.setState({ createOpen: false });
+  setNv = (k) => (e) => this.setState({ [k]: e.target.value });
+
+  MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  toShort(s) {
+    const m = /^\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\s*$/.exec(s || '');
+    if (!m) return null;
+    return ('0' + m[1]).slice(-2) + '-' + this.MONTH_NAMES[+m[2] - 1] + '-' + m[3];
+  }
+  submitCreate = () => {
+    const short = this.toShort(this.state.nvStart);
+    if (!short) return;
+    const endShort = this.toShort(this.state.nvEnd);
+    const id = 'v-new-' + Date.now();
+    this.VISITS = [{
+      id, type: this.state.nvType, loc: this.state.nvLoc || '—', active: false,
+      when: endShort && endShort !== short ? short + ' – ' + endShort : short,
+      short, meta: (this.state.nvLoc || '—') + ' · no encounters recorded',
+      diagnoses: [], notes: [], tests: [], medications: [], encounters: [], forms: [],
+    }].concat(this.VISITS);
+    this.setState({ createOpen: false, selectedId: id, tab: 0 });
+  };
+
+  // dd/mm/yyyy → epoch ms; null when incomplete.
+  parseCutoff(s) {
+    const m = /^\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\s*$/.exec(s || '');
+    if (!m) return null;
+    return new Date(+m[3], +m[2] - 1, +m[1], 23, 59, 59).getTime();
+  }
+  select = (id) => this.setState({ selectedId: id, tab: 0, openMenu: null });
+  setTab = (i) => this.setState({ tab: i, openMenu: null });
+
+  registryVals() {
+    const cur = this.state.ptTab || 'visits';
+    const ptTabs = this.PT_TABS.map(t => {
+      const on = t.id === cur;
+      return {
+        label: t.label, icon: t.icon, onClick: () => this.setPtTab(t.id),
+        style: 'display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:12px 14px;border:none;border-bottom:2px solid ' + (on ? 'var(--blue-60)' : 'transparent') +
+          ';background:transparent;color:' + (on ? 'var(--text-primary)' : 'var(--text-secondary)') +
+          ';font:' + (on ? '600' : '400') + ' 13px/1 var(--font-sans);cursor:pointer',
+      };
+    });
+    const reg = this.REGISTRY[cur];
+    if (!reg) return { ptTabs, isVisits: true, isRegistry: false, regCols: [], regCells: [] };
+    // The four provenance values collapse into two stacked cells, as in the obs tables.
+    const dataCols = reg.cols.slice(0, -4).concat(['Recorded for / at', 'Entered by / at']);
+    const cells = [];
+    reg.rows.forEach((row, ri) => {
+      const bg = ri % 2 ? 'transparent' : 'var(--layer-01)';
+      const cellStyle = 'padding:12px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01);background:' + bg;
+      row.slice(0, -4).forEach(text => {
+        cells.push({ text, isPlain: true, style: cellStyle + ';font:400 13px/1.4 var(--font-sans)' });
+      });
+      const p = row.slice(-4);
+      cells.push({ text: p[0], sub: p[1], hasSub: true, style: cellStyle });
+      cells.push({ text: p[2], sub: p[3], hasSub: true, style: cellStyle });
+      cells.push({
+        text: '', isAction: true,
+        menuOpen: this.state.openMenu === 'reg:' + cur + ':' + ri,
+        onToggleMenu: this.toggleMenu('reg:' + cur + ':' + ri),
+        style: 'position:sticky;right:0;display:flex;align-items:center;justify-content:center;padding:4px 0;border-bottom:1px solid var(--border-subtle-01);background:' + (ri % 2 ? 'var(--background)' : 'var(--layer-01)'),
+      });
+    });
+    return {
+      ptTabs, isVisits: false, isRegistry: true,
+      regTitle: reg.title, regAddLabel: reg.add,
+      regCols: dataCols.map(label => ({ label })),
+      regCells: cells,
+      regGridStyle: 'display:grid;min-width:' + (110 * dataCols.length + 44) + 'px;grid-template-columns:repeat(' + (dataCols.length - 2) + ',minmax(110px,1fr)) minmax(140px,1.3fr) minmax(140px,1.3fr) 44px',
+    };
+  }
+
+  renderVals() {
+    const MONTHS = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+    const startMs = (v) => {
+      const m = /^(\d{1,2})-([A-Za-z]{3})-(\d{4})$/.exec(v.short || '');
+      return m ? new Date(+m[3], MONTHS[m[2].toLowerCase()], +m[1]).getTime() : 0;
+    };
+    const cut = this.parseCutoff(this.state.cutoff);
+    // Active visit pinned first, then reverse-chronological.
+    const filtered = this.VISITS
+      .filter(v => cut === null || startMs(v) <= cut)
+      .slice()
+      .sort((a, b) => (b.active ? 1 : 0) - (a.active ? 1 : 0) || startMs(b) - startMs(a));
+    // A visit filtered out of the list must not keep the summary pane.
+    const sel = filtered.find(v => v.id === this.state.selectedId) || null;
+    const tab = this.state.tab || 0;
+    const tabName = this.TABS[tab];
+
+    const visitRows = filtered.map(v => {
+      const on = sel && v.id === sel.id;
+      const base = v.active ? '#e2f4e5' : '#fbeadd';
+      const accent = v.active ? 'var(--green-50)' : 'var(--orange-40)';
+      return {
+        type: v.type, when: v.when, meta: v.meta, tag: v.active ? 'Active' : 'Past',
+        onClick: () => this.select(v.id),
+        style: {
+          width: '100%', display: 'flex', alignItems: 'flex-start', gap: 'var(--spacing-04)',
+          padding: 'var(--spacing-04) var(--spacing-05)', border: 'none', cursor: 'pointer',
+          background: on ? (v.active ? '#cfead4' : '#f5dcc9') : base,
+          boxShadow: on ? 'inset 3px 0 0 ' + accent : 'none',
+          marginBottom: '2px', textAlign: 'left',
+        },
+        dotStyle: { width: '8px', height: '8px', marginTop: '5px', flexShrink: 0, borderRadius: '50%', background: accent },
+        tagStyle: { flexShrink: 0, padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)', color: 'var(--text-primary)', background: 'rgba(255,255,255,0.7)' },
+      };
+    });
+
+    const tabs = this.TABS.map((label, i) => ({
+      label, onClick: () => this.setTab(i),
+      style: {
+        padding: '10px 16px', border: 'none', background: 'transparent', cursor: 'pointer',
+        textAlign: 'left', whiteSpace: 'nowrap',
+        font: (i === tab ? '600' : '400') + ' 14px/1.3 var(--font-sans)',
+        color: i === tab ? 'var(--text-primary)' : 'var(--text-secondary)',
+        boxShadow: 'inset 2px 0 0 ' + (i === tab ? 'var(--teal-70)' : 'var(--border-subtle-01)'),
+      },
+    }));
+
+    const cell = { padding: '10px var(--spacing-04)', font: '400 13px/1.4 var(--font-sans)', borderBottom: '1px solid var(--border-subtle-01)' };
+    const testPanels = (sel ? sel.tests : []).map(p => ({
+      name: p.name, date: p.date,
+      rows: p.rows.map(r => ({
+        name: r.name, value: r.value, range: r.range,
+        cellStyle: cell,
+        valueStyle: Object.assign({}, cell, {
+          textAlign: 'right', fontWeight: r.flag ? 600 : 400,
+          color: r.flag === 'high' ? 'var(--red-60)' : (r.flag === 'low' ? 'var(--blue-60)' : 'var(--text-primary)'),
+        }),
+        rangeStyle: Object.assign({}, cell, { textAlign: 'right', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', fontSize: '12px' }),
+      })),
+    }));
+
+    const openRows = this.state.openRows || {};
+    const tableRows = !sel ? [] : (tabName === 'Completed forms' ? sel.forms : sel.encounters).map((r, i) => {
+      const key = sel.id + ':' + tabName + ':' + i;
+      const open = !!openRows[key];
+      const obs = this.obsRows(r.obs || this.OBS_BY_TYPE[r.type], key, {
+        provider: r.provider,
+        datetime: (sel.short || '') + ', ' + r.time,
+        enteredBy: r.enteredBy || 'K. Iradukunda',
+        enteredAt: r.enteredAt || '22-Jul-2026, 08:14 AM',
+      });
+      return {
+        time: (sel.short || '') + ', ' + r.time, type: r.type, form: r.form || '--', provider: r.provider || '--',
+        open, obs, noObs: obs.length === 0,
+        menuOpen: this.state.openMenu === 'enc:' + key,
+        onToggleMenu: this.toggleMenu('enc:' + key),
+        onToggle: () => this.setState({ openRows: Object.assign({}, openRows, { [key]: !open }), openMenu: null }),
+        chevronStyle: {
+          width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          border: 'none', background: 'transparent', color: 'var(--icon-primary)', cursor: 'pointer',
+          transform: open ? 'rotate(180deg)' : 'none',
+          transition: 'transform var(--duration-fast-02,110ms) var(--easing-standard,ease)',
+        },
+      };
+    });
+
+    const accent = sel ? (sel.active ? 'var(--green-50)' : 'var(--orange-40)') : 'var(--border-strong-01)';
+
+    return {
+      cutoff: this.state.cutoff || '',
+      menuOpen: !!this.state.openMenu,
+      onVisitMenu: this.toggleMenu('visit:' + (this.state.selectedId || '')),
+      closeMenu: this.closeMenu,
+      menuStyle: 'position:fixed;z-index:41;min-width:160px;background:var(--layer-01);box-shadow:var(--shadow-md,0 2px 6px rgba(0,0,0,0.2));top:' +
+        ((this.state.menuRect && this.state.menuRect.top) || 0) + 'px;right:' + ((this.state.menuRect && this.state.menuRect.right) || 0) + 'px',
+      ...this.registryVals(),
+      onCutoff: this.onCutoff, onCreateVisit: this.onCreateVisit,
+      createOpen: !!this.state.createOpen, closeCreate: this.closeCreate, submitCreate: this.submitCreate,
+      nvType: this.state.nvType || '', nvLoc: this.state.nvLoc || '',
+      nvStart: this.state.nvStart || '', nvEnd: this.state.nvEnd || '',
+      setNvType: this.setNv('nvType'), setNvLoc: this.setNv('nvLoc'),
+      setNvStart: this.setNv('nvStart'), setNvEnd: this.setNv('nvEnd'),
+      createBtnStyle: {
+        flex: 1, padding: '16px', border: 'none', textAlign: 'left', font: '400 14px/1.4 var(--font-sans)',
+        background: this.toShort(this.state.nvStart) ? 'var(--teal-70)' : 'var(--button-disabled,#c6c6c6)',
+        color: this.toShort(this.state.nvStart) ? '#fff' : 'var(--text-on-color-disabled,#8d8d8d)',
+        cursor: this.toShort(this.state.nvStart) ? 'pointer' : 'not-allowed',
+      },
+      visitRows,
+      noResults: filtered.length === 0,
+      hasSelection: !!sel, noSelection: !sel,
+
+      selType: sel ? sel.type : '', selWhen: sel ? sel.when : '', selLoc: sel ? sel.loc : '',
+      selTag: sel ? (sel.active ? 'Active visit' : 'Past visit') : '',
+      selTagStyle: {
+        padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)',
+        background: sel && sel.active ? '#d8efd3' : '#f8e5d6', color: 'var(--text-primary)',
+      },
+      summaryHeaderStyle: {
+        display: 'flex', alignItems: 'flex-start', gap: 'var(--spacing-05)', flexWrap: 'wrap',
+        padding: 'var(--spacing-05)', background: sel && sel.active ? '#eef8ec' : '#fdf3ec',
+        borderLeft: '3px solid ' + accent,
+      },
+
+      diagnoses: (sel ? sel.diagnoses : []).map(d => ({
+        text: d.text, type: d.primary ? 'red' : 'gray',
+      })),
+      noDiagnoses: !!sel && sel.diagnoses.length === 0,
+
+      tabs,
+      isTimeline: tabName === 'Timeline',
+      isNotes: tabName === 'Notes',
+      isTests: tabName === 'Tests',
+      isMeds: tabName === 'Medications',
+      isTable: tabName === 'Completed forms' || tabName === 'Encounters',
+
+      encounters: (sel ? sel.encounters : []).map((e, i) => {
+        const key = sel.id + ':timeline:' + i;
+        const open = !!openRows[key];
+        const obs = this.obsRows(e.obs || this.OBS_BY_TYPE[e.type], key, {
+          provider: e.provider,
+          datetime: (sel.short || '') + ', ' + e.time,
+          enteredBy: e.enteredBy || 'K. Iradukunda',
+          enteredAt: e.enteredAt || '22-Jul-2026, 08:14 AM',
+        });
+        return Object.assign({}, e, {
+          open, obs, noObs: obs.length === 0,
+          menuOpen: this.state.openMenu === 'tl:' + key,
+          onToggleMenu: this.toggleMenu('tl:' + key),
+          onToggle: () => this.setState({ openRows: Object.assign({}, openRows, { [key]: !open }), openMenu: null }),
+          chevronStyle: {
+            width: '24px', height: '24px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+            border: 'none', background: 'transparent', color: 'var(--link-primary)', cursor: 'pointer',
+            transform: open ? 'rotate(180deg)' : 'none',
+            transition: 'transform var(--duration-fast-02,110ms) var(--easing-standard,ease)',
+          },
+        });
+      }),
+      noEncounters: !!sel && sel.encounters.length === 0,
+      notes: sel ? sel.notes : [],
+      noNotes: !!sel && sel.notes.length === 0,
+      testPanels, noTests: !!sel && sel.tests.length === 0,
+      medications: sel ? sel.medications : [],
+      noMeds: !!sel && sel.medications.length === 0,
+      tableRows, noTableRows: tableRows.length === 0,
+    };
+  }
+}
+</script>
+</body>
+</html>
