@@ -23,23 +23,60 @@
   </style>
 </helmet>
 
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
+    <symbol id="i-menu" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h24M4 16h24M4 24h24"/></symbol>
+    <symbol id="i-in-progress" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 8a8 8 0 0 1 0 16z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-location" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 29s9-9.6 9-16a9 9 0 0 0-18 0c0 6.4 9 16 9 16z"/><circle cx="16" cy="13" r="3.2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="8"/><path d="M20 20l8 8"/></symbol>
+    <symbol id="i-user-avatar" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="13" r="4.2"/><path d="M8 26a8.6 8.6 0 0 1 16 0"/></symbol>
+    <symbol id="i-gender-male" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="19" r="8"/><path d="M19 13l9-9M21 4h7v7"/></symbol>
+    <symbol id="i-events" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M11 16h10M16 11v10"/></symbol>
+    <symbol id="i-add" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5v22M5 16h22"/></symbol>
+    <symbol id="i-overflow-menu-vertical" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="6.5" r="2.6" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="2.6" fill="currentColor" stroke="none"/><circle cx="16" cy="25.5" r="2.6" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-side-panel-open" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="26" height="22"/><path d="M11 5v22M25 16h-9M20 12l-4 4 4 4"/></symbol>
+    <symbol id="i-side-panel-close" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="26" height="22"/><path d="M11 5v22M16 16h9M21 12l4 4-4 4"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="24" height="21"/><path d="M4 13h24M10 4v5M22 4v5"/></symbol>
+    <symbol id="i-document-blank" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 3H7v26h18V9z"/><path d="M19 3v6h6"/></symbol>
+    <symbol id="i-time" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 9v8l6 3"/></symbol>
+    <symbol id="i-enterprise" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28V6h13v22M17 28V13h11v15"/><path d="M8 11h5M8 17h5M8 23h5M21 18h4M21 23h4"/></symbol>
+    <symbol id="i-document" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 3H7v26h18V9z"/><path d="M19 3v6h6M11 15h10M11 20h10M11 25h6"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h6l3-8 5 15 4-9 3 2h7"/></symbol>
+    <symbol id="i-shopping-cart" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h4l4 15h14l3-11H9"/><circle cx="12" cy="26" r="2.4"/><circle cx="24" cy="26" r="2.4"/></symbol>
+    <symbol id="i-document-multiple-01" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8h-11v20h15V12z"/><path d="M22 8v4h4M21 4H7v20h4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 19l6-6"/><path d="M17 8l2-2a5.7 5.7 0 0 1 8 8l-2 2M15 24l-2 2a5.7 5.7 0 0 1-8-8l2-2"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l10 10 10-10"/></symbol>
+    <symbol id="i-warning-alt-filled" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3L1 29h30z" fill="currentColor" stroke="none"/><path d="M16 12v8" stroke="#161616"/><circle cx="16" cy="24.5" r="1.6" fill="#161616" stroke="none"/></symbol>
+    <symbol id="i-warning" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3L1 29h30z"/><path d="M16 12v8"/><circle cx="16" cy="24.5" r="1.6" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-close" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l20 20M26 6L6 26"/></symbol>
+    <symbol id="i-dashboard" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="11" height="11"/><rect x="18" y="3" width="11" height="11"/><rect x="3" y="18" width="11" height="11"/><rect x="18" y="18" width="11" height="11"/></symbol>
+    <symbol id="i-calendar-heat-map" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="24" height="21"/><path d="M4 13h24"/><rect x="8" y="17" width="4" height="4" fill="currentColor" stroke="none"/><rect x="14" y="17" width="4" height="4"/><rect x="20" y="17" width="4" height="4" fill="currentColor" stroke="none"/><rect x="8" y="23" width="4" height="3"/><rect x="14" y="23" width="4" height="3" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-user-profile" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="26" height="24"/><circle cx="16" cy="14" r="4"/><path d="M9 24a7.6 7.6 0 0 1 14 0"/></symbol>
+    <symbol id="i-list-bulleted" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="9" r="1.9" fill="currentColor" stroke="none"/><circle cx="6" cy="16" r="1.9" fill="currentColor" stroke="none"/><circle cx="6" cy="23" r="1.9" fill="currentColor" stroke="none"/><path d="M12 9h16M12 16h16M12 23h16"/></symbol>
+    <symbol id="i-scalpel" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28l9-9"/><path d="M13 19l7-13 8 4-11 11z"/></symbol>
+    <symbol id="i-medication" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="26" height="9" rx="4.5" transform="rotate(-40 16 16)"/><path d="M12.5 10.5l7.5 7.5"/></symbol>
+    <symbol id="i-catalog" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h20v24H6z"/><path d="M11 4v24M15 10h7M15 16h7"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28h6L27 11l-6-6L4 22z"/><path d="M19 7l6 6"/></symbol>
+    <symbol id="i-syringe" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 29l8-8"/><path d="M11 21l10-10 6 6-10 10z"/><path d="M22 4l6 6"/></symbol>
+  </svg>
+
+
 <div style="height:100vh;display:flex;flex-direction:column;overflow:hidden;background:var(--background);font-family:var(--font-sans);color:var(--text-primary)">
 
   <!-- App header -->
   <header style="flex-shrink:0;height:48px;display:flex;align-items:center;background:var(--teal-70);color:#fff">
-    <button aria-label="Menu" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:menu" width="20" height="20"></iconify-icon></button>
+    <button aria-label="Menu" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><svg width="20" height="20" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-menu"></use></svg></button>
     <div style="display:flex;align-items:center;gap:10px;padding:0 8px">
-      <iconify-icon icon="carbon:in-progress" width="24" height="24" style="color:#fff"></iconify-icon>
+      <svg width="24" height="24" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0;color:#fff"><use href="#i-in-progress"></use></svg>
       <span style="font:600 15px/1 var(--font-sans)">OpenMRS</span>
     </div>
     <div style="width:1px;height:24px;background:rgba(255,255,255,0.3);margin:0 12px"></div>
     <div style="display:flex;align-items:center;gap:8px;color:#fff;font:400 14px/1 var(--font-sans)">
-      <iconify-icon icon="carbon:location" width="16" height="16"></iconify-icon>
+      <svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-location"></use></svg>
       <span>Outpatient Clinic</span>
     </div>
     <div style="margin-left:auto;display:flex;height:100%;align-items:center">
-      <button aria-label="Search" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:search" width="20" height="20"></iconify-icon></button>
-      <button aria-label="Account" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><iconify-icon icon="carbon:user-avatar" width="20" height="20"></iconify-icon></button>
+      <button aria-label="Search" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><svg width="20" height="20" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-search"></use></svg></button>
+      <button aria-label="Account" style="width:48px;height:48px;border:none;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:rgba(255,255,255,0.1)"><svg width="20" height="20" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-user-avatar"></use></svg></button>
     </div>
   </header>
 
@@ -50,27 +87,118 @@
       <div style="flex:1;min-width:0">
         <div style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap">
           <h1 style="margin:0;font:600 20px/1.1 var(--font-sans)">Mark Williams</h1>
-          <span style="display:inline-flex;align-items:center;gap:4px;color:var(--text-secondary);font:400 15px/1 var(--font-sans)"><iconify-icon icon="carbon:gender-male" width="16" height="16"></iconify-icon>Male</span>
+          <span style="display:inline-flex;align-items:center;gap:4px;color:var(--text-secondary);font:400 15px/1 var(--font-sans)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-gender-male"></use></svg>Male</span>
         </div>
         <div style="display:flex;align-items:center;gap:var(--spacing-04);margin-top:var(--spacing-03);color:var(--text-secondary);font:400 14px/1 var(--font-sans);flex-wrap:wrap">
           <span>63 yrs</span><span>&middot;</span><span>05-Apr-1963</span><span>&middot;</span>
           <span>CR Number:&nbsp; <span style="color:var(--text-primary);font-weight:600;font-family:var(--font-mono)">100019A</span></span>
         </div>
       </div>
-      <div style="flex-shrink:0;display:flex;align-items:center;gap:var(--spacing-04);padding:6px 12px;background:var(--tag-bg-purple);border-left:3px solid var(--purple-60);font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">
-        <iconify-icon icon="carbon:time-plot" width="16" height="16" style="color:var(--purple-60)"></iconify-icon>
-        <span>Retrospective data entry</span>
-      </div>
     </div>
     <div data-screen-label="Patient tabs" style="display:flex;align-items:stretch;gap:var(--spacing-04);padding:0 var(--spacing-06);border-top:1px solid var(--border-subtle-01)">
       <div style="display:flex;align-items:stretch;gap:var(--spacing-02);min-width:0;overflow-x:auto">
         <sc-for list="{{ ptTabs }}" as="t" hint-placeholder-count="6">
-          <button onClick="{{ t.onClick }}" style="{{ t.style }}"><iconify-icon icon="{{ t.icon }}" width="16" height="16"></iconify-icon>{{ t.label }}</button>
+          <button onClick="{{ t.onClick }}" style="{{ t.style }}"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="{{ t.iconHref }}"></use></svg>{{ t.label }}</button>
         </sc-for>
       </div>
-      <button style="margin-left:auto;flex-shrink:0;align-self:center;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:none;background:transparent;color:var(--support-error,#da1e28);font:400 13px/1 var(--font-sans);cursor:pointer;white-space:nowrap" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:events" width="16" height="16"></iconify-icon>Mark patient deceased</button>
+      <button style="margin-left:auto;flex-shrink:0;align-self:center;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:none;background:transparent;color:var(--support-error,#da1e28);font:400 13px/1 var(--font-sans);cursor:pointer;white-space:nowrap" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-events"></use></svg>Mark patient deceased</button>
     </div>
   </section>
+
+  <!-- Patient summary -->
+  <sc-if value="{{ isSummary }}" hint-placeholder-val="{{ false }}">
+    <div class="om-scroll" data-screen-label="Patient summary" style="flex:1;min-height:0;overflow-y:auto">
+      <div style="padding:var(--spacing-06) var(--spacing-07) var(--spacing-06);border-bottom:1px solid var(--border-subtle-01)">
+        <div style="display:flex;align-items:baseline;gap:var(--spacing-04);flex-wrap:wrap;margin-bottom:var(--spacing-04)">
+          <h2 style="margin:0;font:600 18px/1.2 var(--font-sans)">Recent visits</h2>
+          <a href="#" onClick="{{ onShowAllVisits }}" style="margin-left:auto;font:400 13px/1.3 var(--font-sans)">Show all visits</a>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ recentVisits }}" as="v" hint-placeholder-count="5">
+            <button onClick="{{ v.onClick }}" style="{{ v.style }}">
+              <span style="{{ v.dotStyle }}"></span>
+              <span style="flex:1;min-width:0">
+                <span style="display:block;font:600 14px/1.3 var(--font-sans)">{{ v.type }}</span>
+                <span style="display:block;margin-top:2px;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">{{ v.when }} &middot; {{ v.meta }}</span>
+              </span>
+              <span style="{{ v.tagStyle }}">{{ v.tag }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:baseline;gap:var(--spacing-04);flex-wrap:wrap;padding:var(--spacing-06) var(--spacing-07) var(--spacing-04)">
+        <h2 style="margin:0;font:600 18px/1.2 var(--font-sans)">Vitals and biometrics</h2>
+        <span style="font:400 13px/1.4 var(--font-mono);color:var(--text-secondary)">{{ latestVitalsAt }}</span>
+      </div>
+      <div style="display:flex;gap:var(--spacing-05);flex-wrap:wrap;padding:0 var(--spacing-07) var(--spacing-06);border-bottom:1px solid var(--border-subtle-01)">
+        <sc-for list="{{ vitalTiles }}" as="v" hint-placeholder-count="8">
+          <div style="{{ v.style }}">
+            <div style="font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)">{{ v.label }}</div>
+            <div style="margin-top:6px;font:400 20px/1.2 var(--font-sans)"><span style="font-weight:600">{{ v.value }}</span> <span style="font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">{{ v.unit }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="padding:var(--spacing-06) var(--spacing-07) var(--spacing-09)">
+        <div style="margin-bottom:var(--spacing-07)">
+          <h3 style="margin:0 0 var(--spacing-04);padding-bottom:6px;font:600 16px/1.2 var(--font-sans);border-bottom:2px solid var(--teal-70);width:max-content">Vitals</h3>
+          <div style="overflow-x:auto"><div style="{{ psVtGridStyle }}">
+            <sc-for list="{{ psVtCols }}" as="c" hint-placeholder-count="6">
+              <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">{{ c.label }}</div>
+            </sc-for>
+            <sc-for list="{{ psVtCells }}" as="c" hint-placeholder-count="24">
+              <div style="{{ c.style }}">
+                <sc-if value="{{ c.isPlain }}" hint-placeholder-val="{{ true }}">{{ c.text }}</sc-if>
+                <sc-if value="{{ c.isAction }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ c.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div></div>
+        </div>
+        <div style="margin-bottom:var(--spacing-07)">
+          <h3 style="margin:0 0 var(--spacing-04);padding-bottom:6px;font:600 16px/1.2 var(--font-sans);border-bottom:2px solid var(--teal-70);width:max-content">Biometrics</h3>
+          <div style="overflow-x:auto"><div style="{{ psBioGridStyle }}">
+            <sc-for list="{{ psBioCols }}" as="c" hint-placeholder-count="6">
+              <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">{{ c.label }}</div>
+            </sc-for>
+            <sc-for list="{{ psBioCells }}" as="c" hint-placeholder-count="24">
+              <div style="{{ c.style }}">
+                <sc-if value="{{ c.isPlain }}" hint-placeholder-val="{{ true }}">{{ c.text }}</sc-if>
+                <sc-if value="{{ c.isAction }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ c.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--spacing-06)">
+          <div>
+            <h3 style="margin:0 0 var(--spacing-04);padding-bottom:6px;font:600 16px/1.2 var(--font-sans);border-bottom:2px solid var(--teal-70);width:max-content">Conditions</h3>
+            <sc-for list="{{ psConditions }}" as="c" hint-placeholder-count="3">
+              <div style="display:flex;align-items:flex-start;gap:var(--spacing-04);padding:var(--spacing-04) var(--spacing-05);margin-bottom:2px;background:var(--layer-01)">
+                <div style="flex:1;min-width:0">
+                  <div style="font:400 14px/1.4 var(--font-sans)">{{ c.name }}</div>
+                  <div style="margin-top:2px;font:400 12px/1.4 var(--font-sans);color:var(--text-secondary)">Onset {{ c.onset }} &middot; {{ c.status }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div>
+            <h3 style="margin:0 0 var(--spacing-04);padding-bottom:6px;font:600 16px/1.2 var(--font-sans);border-bottom:2px solid var(--teal-70);width:max-content">Active medications</h3>
+            <sc-for list="{{ psMeds }}" as="m" hint-placeholder-count="3">
+              <div style="padding:var(--spacing-04) var(--spacing-05);margin-bottom:2px;background:var(--layer-01)">
+                <div style="font:400 14px/1.4 var(--font-sans)"><span style="font-weight:600">{{ m.name }}</span> &mdash; {{ m.dose }}</div>
+                <div style="margin-top:2px;font:400 12px/1.4 var(--font-sans);color:var(--text-secondary)">{{ m.route }} &middot; {{ m.frequency }} &middot; started {{ m.started }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
 
   <!-- Patient-level registry -->
   <sc-if value="{{ isRegistry }}" hint-placeholder-val="{{ false }}">
@@ -80,7 +208,7 @@
           <h2 style="margin:0;font:600 18px/1.2 var(--font-sans)">{{ regTitle }}</h2>
           <p style="margin:4px 0 0;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">Not tied to a visit. Each entry records a back-date and the clinician it is recorded for.</p>
         </div>
-        <button style="flex-shrink:0;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:none;background:var(--blue-60);color:#fff;font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:var(--blue-70)"><iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon>{{ regAddLabel }}</button>
+        <button style="flex-shrink:0;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:none;background:var(--blue-60);color:#fff;font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:var(--blue-70)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-add"></use></svg>{{ regAddLabel }}</button>
       </div>
       <div style="overflow-x:auto"><div style="{{ regGridStyle }}">
         <sc-for list="{{ regCols }}" as="c" hint-placeholder-count="4">
@@ -94,7 +222,7 @@
               <div style="margin-top:2px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)">{{ c.sub }}</div>
             </sc-if>
             <sc-if value="{{ c.isAction }}" hint-placeholder-val="{{ false }}">
-              <button onClick="{{ c.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+              <button onClick="{{ c.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-overflow-menu-vertical"></use></svg></button>
             </sc-if>
             <sc-if value="{{ c.isPlain }}" hint-placeholder-val="{{ true }}">{{ c.text }}</sc-if>
           </div>
@@ -116,27 +244,37 @@
   <div style="flex:1;min-height:0;display:flex">
 
     <!-- Left: visit search / select -->
+    <sc-if value="{{ pickerCollapsed }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Visit picker (collapsed)" style="width:48px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:var(--spacing-04);padding:var(--spacing-04) 0;background:var(--layer-01);border-right:1px solid var(--border-subtle-01)">
+        <button onClick="{{ onTogglePicker }}" aria-label="Expand visit list" title="Expand visit list" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-side-panel-open"></use></svg></button>
+        <span style="writing-mode:vertical-rl;font:600 13px/1.2 var(--font-sans);color:var(--text-secondary);letter-spacing:0.02em">Visits</span>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ pickerOpen }}" hint-placeholder-val="{{ true }}">
     <aside data-screen-label="Visit picker" style="width:340px;flex-shrink:0;display:flex;flex-direction:column;min-height:0;background:var(--layer-01);border-right:1px solid var(--border-subtle-01)">
       <div style="flex-shrink:0;padding:var(--spacing-05) var(--spacing-05) var(--spacing-04)">
-        <h2 style="margin:0 0 var(--spacing-02);font:600 16px/1.2 var(--font-sans)">Visits</h2>
+        <div style="display:flex;align-items:flex-start;gap:var(--spacing-03)">
+          <h2 style="margin:0 0 var(--spacing-02);font:600 16px/1.2 var(--font-sans)">Visits</h2>
+          <button onClick="{{ onTogglePicker }}" aria-label="Collapse visit list" title="Collapse visit list" style="margin-left:auto;width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-side-panel-close"></use></svg></button>
+        </div>
         <p style="margin:0 0 var(--spacing-04);font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">Select a visit to review its summary.</p>
         <label style="display:block;margin-bottom:6px;font:400 12px/1.35 var(--font-sans);color:var(--text-secondary)">Show visits with start date on or prior to:</label>
         <div style="display:flex;align-items:center;gap:8px;height:40px;padding:0 12px;background:var(--field-01);border-bottom:1px solid var(--border-strong-01)">
           <input type="text" value="{{ cutoff }}" onInput="{{ onCutoff }}" style="flex:1;min-width:0;border:none;background:transparent;font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
-          <iconify-icon icon="carbon:calendar" width="16" height="16" style="color:var(--icon-primary)"></iconify-icon>
+          <svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0;color:var(--icon-primary)"><use href="#i-calendar"></use></svg>
         </div>
       </div>
       <div class="om-scroll" style="flex:1;min-height:0;overflow-y:auto;padding-bottom:var(--spacing-05)">
         <button onClick="{{ onCreateVisit }}" style="width:100%;display:flex;align-items:center;gap:8px;padding:var(--spacing-04) var(--spacing-05);margin-bottom:2px;border:none;border-top:1px solid var(--border-subtle-01);border-bottom:1px solid var(--border-subtle-01);background:transparent;color:var(--link-primary);font:600 14px/1.2 var(--font-sans);cursor:pointer;text-align:left" style-hover="background:var(--layer-hover-01)">
-          <iconify-icon icon="carbon:add" width="16" height="16"></iconify-icon>Create new visit
+          <svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-add"></use></svg>Create new visit
         </button>
         <sc-for list="{{ visitRows }}" as="v" hint-placeholder-count="5">
           <button onClick="{{ v.onClick }}" style="{{ v.style }}">
-            <span style="{{ v.dotStyle }}"></span>
             <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;text-align:left">
               <span style="font:600 14px/1.2 var(--font-sans);color:var(--text-primary)">{{ v.type }}</span>
-              <span style="font:400 12px/1.35 var(--font-sans);color:var(--text-secondary)">{{ v.when }}</span>
-              <span style="font:400 12px/1.35 var(--font-sans);color:var(--text-secondary)">{{ v.meta }}</span>
+              <span style="display:flex;align-items:center;gap:6px;font:400 12px/1.35 var(--font-sans);color:var(--text-secondary)"><svg width="13" height="13" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-time"></use></svg>{{ v.when }}</span>
+              <span style="display:flex;align-items:center;gap:6px;font:400 12px/1.35 var(--font-sans);color:var(--text-secondary)"><svg width="13" height="13" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-enterprise"></use></svg>{{ v.meta }}</span>
             </span>
             <span style="{{ v.tagStyle }}">{{ v.tag }}</span>
           </button>
@@ -146,12 +284,13 @@
         </sc-if>
       </div>
     </aside>
+    </sc-if>
 
     <!-- Right: visit summary -->
     <main class="om-scroll" style="flex:1;min-width:0;overflow-y:auto">
       <sc-if value="{{ noSelection }}" hint-placeholder-val="{{ false }}">
         <div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing-04);padding:var(--spacing-09);text-align:center">
-          <iconify-icon icon="carbon:document-blank" width="40" height="40" style="color:var(--icon-secondary)"></iconify-icon>
+          <svg width="40" height="40" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0;color:var(--icon-secondary)"><use href="#i-document-blank"></use></svg>
           <p style="margin:0;font:400 16px/1.4 var(--font-sans);color:var(--text-secondary)">Select a visit on the left to view its summary.</p>
         </div>
       </sc-if>
@@ -166,25 +305,24 @@
                 <span style="{{ selTagStyle }}">{{ selTag }}</span>
               </div>
               <div style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font:400 13px/1.35 var(--font-sans);flex-wrap:wrap">
-                <iconify-icon icon="carbon:time" width="13" height="13"></iconify-icon><span>{{ selWhen }}</span>
+                <svg width="13" height="13" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-time"></use></svg><span>{{ selWhen }}</span>
                 <span>&middot;</span>
-                <iconify-icon icon="carbon:enterprise" width="13" height="13"></iconify-icon><span>{{ selLoc }}</span>
+                <svg width="13" height="13" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-enterprise"></use></svg><span>{{ selLoc }}</span>
               </div>
             </div>
             <div style="margin-left:auto;display:flex;align-items:center;gap:var(--spacing-03)">
-              <button onClick="{{ onVisitMenu }}" aria-label="Visit actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+              <button onClick="{{ onVisitMenu }}" aria-label="Visit actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-overflow-menu-vertical"></use></svg></button>
             </div>
           </div>
 
-          <div data-screen-label="Visit-level actions" style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap;margin-top:var(--spacing-05);padding:var(--spacing-04) var(--spacing-05);background:var(--layer-01);border-left:3px solid var(--blue-60)">
+          <div data-screen-label="Visit-level actions" style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap;margin-top:var(--spacing-05);padding:var(--spacing-04) var(--spacing-05);background:var(--layer-01)">
             <span style="font:600 12px/1.3 var(--font-sans);letter-spacing:0.02em;color:var(--text-secondary)">Add to this visit</span>
             <div style="display:flex;align-items:center;gap:var(--spacing-03);flex-wrap:wrap">
-              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:none;background:var(--blue-60);color:#fff;font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:var(--blue-70)"><iconify-icon icon="carbon:document" width="16" height="16"></iconify-icon>Visit note</button>
-              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><iconify-icon icon="carbon:activity" width="16" height="16"></iconify-icon>Vitals</button>
-              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><iconify-icon icon="carbon:shopping-cart" width="16" height="16"></iconify-icon>Orders</button>
-              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><iconify-icon icon="carbon:document-multiple-01" width="16" height="16"></iconify-icon>Clinical form</button>
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-document"></use></svg>Visit note</button>
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-activity"></use></svg>Vitals</button>
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-shopping-cart"></use></svg>Orders</button>
+              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-document-multiple-01"></use></svg>Clinical form</button>
             </div>
-            <span style="margin-left:auto;display:inline-flex;align-items:center;gap:6px;font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)"><iconify-icon icon="carbon:link" width="14" height="14"></iconify-icon>Encounters attach to {{ selType }} &mdash; {{ selWhen }}</span>
           </div>
 
           <div style="display:flex;gap:var(--spacing-06);margin-top:var(--spacing-06)">
@@ -222,13 +360,13 @@
                   </div>
                   <div style="flex:1;min-width:0">
                     <div style="display:flex;align-items:flex-start;gap:8px">
-                      <button onClick="{{ e.onToggle }}" aria-label="Expand encounter" style="{{ e.chevronStyle }}"><iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button>
+                      <button onClick="{{ e.onToggle }}" aria-label="Expand encounter" style="{{ e.chevronStyle }}"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-chevron-down"></use></svg></button>
                       <div style="flex:1;min-width:0">
                         <div style="font:600 14px/1.3 var(--font-sans)">{{ e.type }}</div>
                         <div style="margin-top:2px;font:400 13px/1.4 var(--font-sans);color:var(--text-secondary)">{{ e.form }} &middot; {{ e.provider }}</div>
                         <div style="margin-top:6px;font:400 13px/1.5 var(--font-sans);color:var(--text-secondary)">{{ e.detail }}</div>
                       </div>
-                      <button onClick="{{ e.onToggleMenu }}" aria-label="Encounter actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+                      <button onClick="{{ e.onToggleMenu }}" aria-label="Encounter actions" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-overflow-menu-vertical"></use></svg></button>
                     </div>
                   </div>
                 </div>
@@ -242,7 +380,7 @@
                           <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Recorded for / at</div>
                           <div style="padding:8px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered by / at</div>
                           <sc-for list="{{ e.obs }}" as="o" hint-placeholder-count="3">
-                            <div style="display:flex;align-items:flex-start;justify-content:center;padding:8px 0;border-bottom:1px solid var(--border-subtle-01)"><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><button onClick="{{ o.onToggleHistory }}" title="Show edit history" aria-label="Show edit history" style="{{ o.historyChevronStyle }}"><iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button></sc-if></div>
+                            <div style="display:flex;align-items:flex-start;justify-content:center;padding:8px 0;border-bottom:1px solid var(--border-subtle-01)"><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><button onClick="{{ o.onToggleHistory }}" title="Show edit history" aria-label="Show edit history" style="{{ o.historyChevronStyle }}"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-chevron-down"></use></svg></button></sc-if></div>
                             <div style="padding:8px var(--spacing-04);font:400 13px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ o.concept }}</div>
                             <div style="padding:0;border-bottom:1px solid var(--border-subtle-01)">
                               <div style="{{ o.answerStyle }}">{{ o.answer }}</div>
@@ -256,7 +394,7 @@
                             </div>
                             <div style="padding:8px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
                               <div style="font:400 13px/1.4 var(--font-sans)">{{ o.enteredBy }}</div>
-                              <div style="margin-top:2px;display:flex;align-items:center;gap:6px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)"><span>{{ o.obsDatetime }}</span><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><iconify-icon icon="carbon:warning-alt-filled" width="16" height="16" title="Edited after entry" style="color:var(--support-warning,#f1c21b);flex-shrink:0"></iconify-icon></sc-if></div>
+                              <div style="margin-top:2px;display:flex;align-items:center;gap:6px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)"><span>{{ o.obsDatetime }}</span><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0;color:var(--support-warning,#f1c21b);flex-shrink:0"><title>Edited after entry</title><use href="#i-warning-alt-filled"></use></svg></sc-if></div>
                             </div>
                             <sc-if value="{{ o.historyOpen }}" hint-placeholder-val="{{ false }}">
                               <div style="grid-column:1 / -1;padding:var(--spacing-04) var(--spacing-05);background:var(--layer-accent-01,#e0e0e0);border-bottom:1px solid var(--border-subtle-01)">
@@ -364,13 +502,13 @@
                 <sc-for list="{{ tableRows }}" as="row" hint-placeholder-count="3">
                   <div style="border-bottom:1px solid var(--border-subtle-01)">
                     <div style="display:grid;grid-template-columns:40px 150px minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) 44px;align-items:center">
-                      <button onClick="{{ row.onToggle }}" aria-label="Expand row" style="{{ row.chevronStyle }}"><iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button>
+                      <button onClick="{{ row.onToggle }}" aria-label="Expand row" style="{{ row.chevronStyle }}"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-chevron-down"></use></svg></button>
                       <div style="padding:12px var(--spacing-05) 12px 0;font:400 13px/1.4 var(--font-mono);color:var(--text-secondary)">{{ row.time }}</div>
                       <div style="padding:12px var(--spacing-05);font:400 13px/1.4 var(--font-sans)">{{ row.type }}</div>
                       <div style="padding:12px var(--spacing-05);font:400 13px/1.4 var(--font-sans)">{{ row.form }}</div>
                       <div style="padding:12px var(--spacing-05);font:400 13px/1.4 var(--font-sans)">{{ row.provider }}</div>
                       <div style="position:sticky;right:0;display:flex;align-items:center;justify-content:center;background:var(--background)">
-                        <button onClick="{{ row.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+                        <button onClick="{{ row.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-overflow-menu-vertical"></use></svg></button>
                       </div>
                     </div>
                     <sc-if value="{{ row.open }}" hint-placeholder-val="{{ false }}">
@@ -383,7 +521,7 @@
                           <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">Entered by / at</div>
                           <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)"></div>
                           <sc-for list="{{ row.obs }}" as="o" hint-placeholder-count="3">
-                            <div style="display:flex;align-items:flex-start;justify-content:center;padding:10px 0;border-bottom:1px solid var(--border-subtle-01)"><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><button onClick="{{ o.onToggleHistory }}" title="Show edit history" aria-label="Show edit history" style="{{ o.historyChevronStyle }}"><iconify-icon icon="carbon:chevron-down" width="16" height="16"></iconify-icon></button></sc-if></div>
+                            <div style="display:flex;align-items:flex-start;justify-content:center;padding:10px 0;border-bottom:1px solid var(--border-subtle-01)"><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><button onClick="{{ o.onToggleHistory }}" title="Show edit history" aria-label="Show edit history" style="{{ o.historyChevronStyle }}"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-chevron-down"></use></svg></button></sc-if></div>
                             <div style="padding:10px var(--spacing-04);font:400 13px/1.4 var(--font-sans);border-bottom:1px solid var(--border-subtle-01)">{{ o.concept }}</div>
                             <div style="padding:0;border-bottom:1px solid var(--border-subtle-01)">
                               <div style="{{ o.answerStyle }}">{{ o.answer }}</div>
@@ -397,10 +535,10 @@
                             </div>
                             <div style="padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01)">
                               <div style="font:400 13px/1.4 var(--font-sans)">{{ o.enteredBy }}</div>
-                              <div style="margin-top:2px;display:flex;align-items:center;gap:6px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)"><span>{{ o.obsDatetime }}</span><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><iconify-icon icon="carbon:warning-alt-filled" width="16" height="16" title="Edited after entry" style="color:var(--support-warning,#f1c21b);flex-shrink:0"></iconify-icon></sc-if></div>
+                              <div style="margin-top:2px;display:flex;align-items:center;gap:6px;font:400 12px/1.4 var(--font-mono);color:var(--text-secondary)"><span>{{ o.obsDatetime }}</span><sc-if value="{{ o.edited }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0;color:var(--support-warning,#f1c21b);flex-shrink:0"><title>Edited after entry</title><use href="#i-warning-alt-filled"></use></svg></sc-if></div>
                             </div>
                             <div style="position:sticky;right:0;display:flex;align-items:flex-start;justify-content:center;padding:4px 0;border-bottom:1px solid var(--border-subtle-01);background:var(--layer-01)">
-                              <button onClick="{{ o.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:overflow-menu-vertical" width="16" height="16"></iconify-icon></button>
+                              <button onClick="{{ o.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-overflow-menu-vertical"></use></svg></button>
                             </div>
                             <sc-if value="{{ o.historyOpen }}" hint-placeholder-val="{{ false }}">
                               <div style="grid-column:1 / -1;padding:var(--spacing-04) var(--spacing-05);background:var(--layer-accent-01,#e0e0e0);border-bottom:1px solid var(--border-subtle-01)">
@@ -460,7 +598,7 @@
             <h2 style="margin:0;font:400 20px/1.3 var(--font-sans)">Create a visit</h2>
             <p style="margin:var(--spacing-02) 0 0;font:400 14px/1.4 var(--font-sans);color:var(--text-secondary)">Record a visit that already took place.</p>
           </div>
-          <button onClick="{{ closeCreate }}" aria-label="Close" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><iconify-icon icon="carbon:close" width="20" height="20"></iconify-icon></button>
+          <button onClick="{{ closeCreate }}" aria-label="Close" style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="20" height="20" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-close"></use></svg></button>
         </div>
         <div style="padding:var(--spacing-06);display:flex;flex-direction:column;gap:var(--spacing-05)">
           <div style="display:flex;gap:var(--spacing-05)">
@@ -503,6 +641,7 @@ class Component extends DCLogic {
   state = { selectedId: 'v-2026-07-20', cutoff: '23/07/2026', tab: 0, ptTab: 'visits' };
 
   PT_TABS = [
+    { id: 'summary', label: 'Patient summary', icon: 'carbon:dashboard' },
     { id: 'visits', label: 'Visits', icon: 'carbon:calendar-heat-map' },
     { id: 'programs', label: 'Program enrollments', icon: 'carbon:user-profile' },
     { id: 'conditions', label: 'Conditions', icon: 'carbon:list-bulleted' },
@@ -557,14 +696,101 @@ class Component extends DCLogic {
     },
   };
 
-  setPtTab = (id) => this.setState({ ptTab: id, openMenu: null });
+  setPtTab = (id) => this.setState({ ptTab: id, openMenu: null, pickerCollapsed: false });
+
+  PS_FLAG_BG = { high: '#fff1e9', low: '#fff1e9', high2: '#ffd7d9', low2: '#ffd7d9' };
+  PS_FLAG_BORDER = { high: 'var(--gray-60,#6f6f6f)', low: 'var(--gray-60,#6f6f6f)', high2: 'var(--red-50)', low2: 'var(--red-50)' };
+
+  PS_TILES = [
+    { label: 'BP ↓↓', value: '90 / 70', unit: 'mmHg', flag: 'low2' },
+    { label: 'Heart rate ↑', value: '108', unit: 'beats/min', flag: 'high' },
+    { label: 'R. rate ↓↓', value: '9', unit: 'breaths/min', flag: 'low2' },
+    { label: 'SpO2 ↓', value: '91.1', unit: '%', flag: 'low' },
+    { label: 'Temp ↑↑', value: '38.2', unit: 'DEG C', flag: 'high2' },
+    { label: 'Weight', value: '91', unit: 'kg' },
+    { label: 'Height', value: '190', unit: 'cm' },
+    { label: 'BMI', value: '25.2', unit: 'kg / m²' },
+  ];
+
+  PS_VITALS = {
+    cols: ['Date and time', 'Temp (DEG C)', 'BP (mmHg)', 'Pulse (beats/min)', 'R. Rate (breaths/min)', 'SpO2 (%)'],
+    widths: '150px 90px 100px 105px 120px 80px',
+    rows: [
+      { when: '19-Jul-2026, 04:57 AM', recordedFor: 'Dr. A. Nyirahabimana', recordedAt: '19-Jul-2026, 04:57 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:14 AM',
+        vals: [{ v: '38.2 ↑↑', flag: 'high2' }, { v: '90 / 70 ↓↓', flag: 'high2' }, { v: '108 ↑', flag: 'high' }, { v: '9 ↓↓', flag: 'high2' }, { v: '91.1 ↓', flag: 'low' }] },
+      { when: '16-Jul-2026, 06:20 AM', recordedFor: 'S. Uwase, RN', recordedAt: '16-Jul-2026, 06:20 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:16 AM',
+        vals: [{ v: '36.7' }, { v: '145 / 76 ↑', flag: 'high' }, { v: '111 ↑↑', flag: 'high2' }, { v: '18' }, { v: '97.8' }] },
+      { when: '15-Jul-2026, 10:56 AM', recordedFor: 'S. Uwase, RN', recordedAt: '15-Jul-2026, 10:56 AM', enteredBy: 'M. Ntaganda', enteredAt: '22-Jul-2026, 08:20 AM',
+        vals: [{ v: '38.1 ↑↑', flag: 'high2' }, { v: '111 / 40 ↓↓', flag: 'high2' }, { v: '70' }, { v: '22 ↑', flag: 'high' }, { v: '89.6 ↓↓', flag: 'high2' }] },
+      { when: '14-Jul-2026, 01:24 AM', recordedFor: 'Dr. J. Mugisha', recordedAt: '14-Jul-2026, 01:24 AM', enteredBy: 'M. Ntaganda', enteredAt: '22-Jul-2026, 08:22 AM',
+        vals: [{ v: '36.4' }, { v: '159 / 72 ↑', flag: 'high' }, { v: '70' }, { v: '20 ↑', flag: 'high' }, { v: '96.8' }] },
+      { when: '13-Jul-2026, 01:23 AM', recordedFor: 'Dr. J. Mugisha', recordedAt: '13-Jul-2026, 01:23 AM', enteredBy: 'M. Ntaganda', enteredAt: '22-Jul-2026, 08:25 AM',
+        vals: [{ v: '38.5 ↑↑', flag: 'high2' }, { v: '112 / 41 ↓↓', flag: 'high2' }, { v: '55 ↓', flag: 'low' }, { v: '14' }, { v: '92.5 ↓', flag: 'low' }] },
+    ],
+  };
+
+  PS_BIOMETRICS = {
+    cols: ['Date and time', 'Weight (kg)', 'Height (cm)', 'BMI (kg / m²)', 'MUAC (cm)'],
+    widths: '150px 95px 95px 105px 90px',
+    rows: [
+      { when: '19-Jul-2026, 04:57 AM', recordedFor: 'Dr. A. Nyirahabimana', recordedAt: '19-Jul-2026, 04:57 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:14 AM',
+        vals: [{ v: '91' }, { v: '190' }, { v: '25.2 ↑', flag: 'high' }, { v: '--' }] },
+      { when: '16-Jul-2026, 06:20 AM', recordedFor: 'S. Uwase, RN', recordedAt: '16-Jul-2026, 06:20 AM', enteredBy: 'K. Iradukunda', enteredAt: '22-Jul-2026, 08:16 AM',
+        vals: [{ v: '51' }, { v: '176' }, { v: '16.5 ↓', flag: 'low' }, { v: '--' }] },
+      { when: '15-Jul-2026, 10:56 AM', recordedFor: 'S. Uwase, RN', recordedAt: '15-Jul-2026, 10:56 AM', enteredBy: 'M. Ntaganda', enteredAt: '22-Jul-2026, 08:20 AM',
+        vals: [{ v: '86' }, { v: '149' }, { v: '38.7 ↑↑', flag: 'high2' }, { v: '--' }] },
+      { when: '14-Jul-2026, 01:24 AM', recordedFor: 'Dr. J. Mugisha', recordedAt: '14-Jul-2026, 01:24 AM', enteredBy: 'M. Ntaganda', enteredAt: '22-Jul-2026, 08:22 AM',
+        vals: [{ v: '64' }, { v: '193' }, { v: '17.2 ↓', flag: 'low' }, { v: '--' }] },
+      { when: '13-Jul-2026, 01:23 AM', recordedFor: 'Dr. J. Mugisha', recordedAt: '13-Jul-2026, 01:23 AM', enteredBy: 'M. Ntaganda', enteredAt: '22-Jul-2026, 08:25 AM',
+        vals: [{ v: '79' }, { v: '183' }, { v: '23.6' }, { v: '--' }] },
+    ],
+  };
+
+  PS_CONDITIONS = [
+    { name: 'Type 2 diabetes mellitus', onset: '12-Feb-2019', status: 'Active' },
+    { name: 'Hypertension', onset: '30-Aug-2020', status: 'Active' },
+    { name: 'Pulmonary tuberculosis', onset: '04-Jun-2018', status: 'Inactive' },
+  ];
+
+  PS_MEDS = [
+    { name: 'Metformin', dose: '500 mg', route: 'oral', frequency: 'twice daily', started: '20-Jul-2026' },
+    { name: 'Amlodipine', dose: '5 mg', route: 'oral', frequency: 'once daily', started: '20-Jul-2026' },
+    { name: 'Amoxicillin', dose: '500 mg', route: 'oral', frequency: 'three times daily', started: '13-Feb-2026' },
+  ];
+
+  buildSummaryTable(def, key) {
+    const cols = def.cols.concat(['']);
+    const cells = [];
+    def.rows.forEach((r, ri) => {
+      const rowBg = ri % 2 ? 'var(--layer-01)' : 'transparent';
+      const base = 'padding:10px var(--spacing-04);border-bottom:1px solid var(--border-subtle-01);';
+      cells.push({ text: r.when, isPlain: true, style: base + 'font:400 13px/1.4 var(--font-mono);background:' + rowBg });
+      r.vals.forEach(v => {
+        cells.push({
+          text: v.v, isPlain: true,
+          style: base + 'font:' + (v.flag ? '600' : '400') + ' 13px/1.4 var(--font-sans);background:' + (v.flag ? this.PS_FLAG_BG[v.flag] : rowBg),
+        });
+      });
+      cells.push({
+        text: '', isAction: true,
+        menuOpen: this.state.openMenu === key + ':' + ri,
+        onToggleMenu: this.toggleMenu(key + ':' + ri),
+        style: 'position:sticky;right:0;display:flex;align-items:center;justify-content:center;padding:4px 0;border-bottom:1px solid var(--border-subtle-01);background:' + (ri % 2 ? 'var(--layer-01)' : 'var(--background)'),
+      });
+    });
+    return {
+      [key + 'Cols']: cols.map(label => ({ label })),
+      [key + 'Cells']: cells,
+      [key + 'GridStyle']: 'display:grid;min-width:660px;grid-template-columns:' + def.widths + ' 44px',
+    };
+  }
 
   TABS = ['Timeline', 'Notes', 'Tests', 'Medications', 'Completed forms', 'Encounters'];
 
   VISITS = [
     {
       id: 'v-2026-07-20', type: 'Facility Visit', loc: 'Butaro DH', active: true,
-      when: 'Started 20-Jul-2026, 11:19 AM', short: '20-Jul-2026', meta: 'Butaro DH · 3 encounters',
+      when: 'Started 20-Jul-2026, 11:19 AM', short: '20-Jul-2026', meta: 'Butaro DH · Outpatient · 3 encounters',
       diagnoses: [{ text: 'Type 2 diabetes mellitus', primary: true }, { text: 'Hypertension', primary: false }],
       notes: [
         { provider: 'Dr. A. Nyirahabimana', role: 'Clinician', time: '11:42 AM', note: 'Patient reports improved glycaemic control since last review. Denies polyuria or blurred vision. Continue current regimen and review in three months.' },
@@ -589,7 +815,7 @@ class Component extends DCLogic {
     },
     {
       id: 'v-2026-03-26', type: 'Home Visit', loc: 'Site 42', active: false,
-      when: '26-Mar-2026', short: '26-Mar-2026', meta: 'Site 42 · 2 encounters',
+      when: '26-Mar-2026', short: '26-Mar-2026', meta: 'Site 42 · Community · 2 encounters',
       diagnoses: [{ text: 'Hypertension', primary: true }],
       notes: [
         { provider: 'CHW P. Mukamana', role: 'Community health worker', time: '09:15 AM', note: 'Home visit completed. Medication adherence confirmed by pill count. Household counselled on salt reduction.' },
@@ -604,7 +830,7 @@ class Component extends DCLogic {
     },
     {
       id: 'v-2026-02-11', type: 'Facility Visit', loc: 'Butaro DH', active: false,
-      when: '11-Feb-2026 – 13-Feb-2026', short: '11-Feb-2026', meta: 'Butaro DH · inpatient, 3 days',
+      when: '11-Feb-2026 – 13-Feb-2026', short: '11-Feb-2026', meta: 'Butaro DH · Inpatient · 3 encounters',
       diagnoses: [{ text: 'Community-acquired pneumonia', primary: true }, { text: 'Dehydration', primary: false }],
       notes: [
         { provider: 'Dr. E. Habimana', role: 'Clinician', time: '02:20 PM', note: 'Admitted with three days of productive cough and fever. Started on IV ceftriaxone. Chest examination shows right basal crackles.' },
@@ -630,7 +856,7 @@ class Component extends DCLogic {
     },
     {
       id: 'v-2026-01-02', type: 'OPD Visit', loc: 'Mobile Clinic', active: false,
-      when: '02-Jan-2026', short: '02-Jan-2026', meta: 'Mobile Clinic · 1 encounter',
+      when: '02-Jan-2026', short: '02-Jan-2026', meta: 'Mobile Clinic · Outpatient · 1 encounter',
       diagnoses: [],
       notes: [],
       tests: [],
@@ -640,7 +866,7 @@ class Component extends DCLogic {
     },
     {
       id: 'v-2025-11-08', type: 'Facility Visit', loc: 'Butaro DH', active: false,
-      when: '08-Nov-2025', short: '08-Nov-2025', meta: 'Butaro DH · no encounters recorded',
+      when: '08-Nov-2025', short: '08-Nov-2025', meta: 'Butaro DH · Outpatient · 0 encounters',
       diagnoses: [], notes: [], tests: [], medications: [], encounters: [], forms: [],
     },
   ];
@@ -775,14 +1001,39 @@ class Component extends DCLogic {
     const ptTabs = this.PT_TABS.map(t => {
       const on = t.id === cur;
       return {
-        label: t.label, icon: t.icon, onClick: () => this.setPtTab(t.id),
-        style: 'display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:12px 14px;border:none;border-bottom:2px solid ' + (on ? 'var(--blue-60)' : 'transparent') +
+        label: t.label, icon: t.icon, iconHref: '#i-' + String(t.icon || '').replace('carbon:', ''), onClick: () => this.setPtTab(t.id),
+        style: 'display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:12px 14px;border:none;border-bottom:2px solid ' + (on ? 'var(--teal-60,#007d79)' : 'transparent') +
           ';background:transparent;color:' + (on ? 'var(--text-primary)' : 'var(--text-secondary)') +
           ';font:' + (on ? '600' : '400') + ' 13px/1 var(--font-sans);cursor:pointer',
       };
     });
+    if (cur === 'summary') {
+      return Object.assign({
+        ptTabs, isVisits: false, isRegistry: false, isSummary: true,
+        regCols: [], regCells: [],
+        latestVitalsAt: this.PS_VITALS.rows[0].when,
+        onShowAllVisits: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setPtTab('visits'); },
+        recentVisits: this.VISITS.slice(0, 5).map(v => ({
+          type: v.type, when: v.when, meta: v.meta, tag: v.active ? 'Active' : 'Past',
+          onClick: () => this.setState({ ptTab: 'visits', selectedId: v.id, tab: 0, openMenu: null }),
+          style: {
+            width: '100%', display: 'flex', alignItems: 'flex-start', gap: 'var(--spacing-04)',
+            padding: 'var(--spacing-04) var(--spacing-05)', border: 'none', cursor: 'pointer',
+            background: 'var(--layer-01)', marginBottom: '2px', textAlign: 'left',
+          },
+          dotStyle: { width: '8px', height: '8px', marginTop: '7px', flexShrink: 0, borderRadius: '50%', background: v.active ? 'var(--green-50)' : 'var(--gray-60,#6f6f6f)' },
+          tagStyle: { flexShrink: 0, padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)', color: 'var(--text-primary)', background: v.active ? '#defbe6' : '#e0e0e0' },
+        })),
+        vitalTiles: this.PS_TILES.map(t => Object.assign({}, t, {
+          style: 'min-width:150px;padding:var(--spacing-04);background:' + (t.flag ? this.PS_FLAG_BG[t.flag] : 'transparent') +
+            ';border:1px solid ' + (t.flag ? this.PS_FLAG_BORDER[t.flag] : 'transparent'),
+        })),
+        psConditions: this.PS_CONDITIONS,
+        psMeds: this.PS_MEDS,
+      }, this.buildSummaryTable(this.PS_VITALS, 'psVt'), this.buildSummaryTable(this.PS_BIOMETRICS, 'psBio'));
+    }
     const reg = this.REGISTRY[cur];
-    if (!reg) return { ptTabs, isVisits: true, isRegistry: false, regCols: [], regCells: [] };
+    if (!reg) return { ptTabs, isVisits: true, isRegistry: false, isSummary: false, regCols: [], regCells: [] };
     // The four provenance values collapse into two stacked cells, as in the obs tables.
     const dataCols = reg.cols.slice(0, -4).concat(['Recorded for / at', 'Entered by / at']);
     const cells = [];
@@ -803,7 +1054,7 @@ class Component extends DCLogic {
       });
     });
     return {
-      ptTabs, isVisits: false, isRegistry: true,
+      ptTabs, isVisits: false, isRegistry: true, isSummary: false,
       regTitle: reg.title, regAddLabel: reg.add,
       regCols: dataCols.map(label => ({ label })),
       regCells: cells,
@@ -830,20 +1081,19 @@ class Component extends DCLogic {
 
     const visitRows = filtered.map(v => {
       const on = sel && v.id === sel.id;
-      const base = v.active ? '#e2f4e5' : '#fbeadd';
-      const accent = v.active ? 'var(--green-50)' : 'var(--orange-40)';
+      const accent = v.active ? 'var(--green-50)' : 'var(--gray-60,#6f6f6f)';
       return {
         type: v.type, when: v.when, meta: v.meta, tag: v.active ? 'Active' : 'Past',
         onClick: () => this.select(v.id),
         style: {
           width: '100%', display: 'flex', alignItems: 'flex-start', gap: 'var(--spacing-04)',
           padding: 'var(--spacing-04) var(--spacing-05)', border: 'none', cursor: 'pointer',
-          background: on ? (v.active ? '#cfead4' : '#f5dcc9') : base,
-          boxShadow: on ? 'inset 3px 0 0 ' + accent : 'none',
+          background: on ? '#d9f2f1' : 'transparent',
+          boxShadow: on ? 'inset 3px 0 0 var(--teal-60,#007d79)' : 'none',
           marginBottom: '2px', textAlign: 'left',
         },
         dotStyle: { width: '8px', height: '8px', marginTop: '5px', flexShrink: 0, borderRadius: '50%', background: accent },
-        tagStyle: { flexShrink: 0, padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)', color: 'var(--text-primary)', background: 'rgba(255,255,255,0.7)' },
+        tagStyle: { flexShrink: 0, padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)', color: 'var(--text-primary)', background: v.active ? '#defbe6' : '#e0e0e0' },
       };
     });
 
@@ -897,10 +1147,13 @@ class Component extends DCLogic {
       };
     });
 
-    const accent = sel ? (sel.active ? 'var(--green-50)' : 'var(--orange-40)') : 'var(--border-strong-01)';
+    const accent = sel ? (sel.active ? 'var(--green-50)' : 'var(--gray-60,#6f6f6f)') : 'var(--border-strong-01)';
 
     return {
       cutoff: this.state.cutoff || '',
+      pickerCollapsed: !!this.state.pickerCollapsed,
+      pickerOpen: !this.state.pickerCollapsed,
+      onTogglePicker: () => this.setState(s => ({ pickerCollapsed: !s.pickerCollapsed, openMenu: null })),
       menuOpen: !!this.state.openMenu,
       onVisitMenu: this.toggleMenu('visit:' + (this.state.selectedId || '')),
       closeMenu: this.closeMenu,
@@ -927,12 +1180,12 @@ class Component extends DCLogic {
       selTag: sel ? (sel.active ? 'Active visit' : 'Past visit') : '',
       selTagStyle: {
         padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)',
-        background: sel && sel.active ? '#d8efd3' : '#f8e5d6', color: 'var(--text-primary)',
+        background: sel && sel.active ? '#defbe6' : '#e0e0e0', color: 'var(--text-primary)',
       },
       summaryHeaderStyle: {
         display: 'flex', alignItems: 'flex-start', gap: 'var(--spacing-05)', flexWrap: 'wrap',
-        padding: 'var(--spacing-05)', background: sel && sel.active ? '#eef8ec' : '#fdf3ec',
-        borderLeft: '3px solid ' + accent,
+        padding: 'var(--spacing-05)', background: 'transparent',
+        borderLeft: '3px solid var(--teal-60,#007d79)',
       },
 
       diagnoses: (sel ? sel.diagnoses : []).map(d => ({
