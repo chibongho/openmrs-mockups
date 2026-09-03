@@ -57,6 +57,15 @@
     <symbol id="i-catalog" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h20v24H6z"/><path d="M11 4v24M15 10h7M15 16h7"/></symbol>
     <symbol id="i-edit" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28h6L27 11l-6-6L4 22z"/><path d="M19 7l6 6"/></symbol>
     <symbol id="i-syringe" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 29l8-8"/><path d="M11 21l10-10 6 6-10 10z"/><path d="M22 4l6 6"/></symbol>
+    <symbol id="i-chart-line" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v24h24"/><path d="M8 22l6-8 5 4 7-11"/></symbol>
+    <symbol id="i-attachment" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M25 13L14 24a5.6 5.6 0 0 1-8-8L18 4a4 4 0 0 1 6 6L12 22a2.2 2.2 0 0 1-3-3l10-10"/></symbol>
+    <symbol id="i-flow" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="9" height="7"/><rect x="20" y="4" width="9" height="7"/><rect x="11" y="21" width="10" height="7"/><path d="M7.5 11v5h17v-5M16 16v5"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v26l4-2 3 2 3-2 3 2 3-2 4 2V3z"/><path d="M11 11h10M11 17h10"/></symbol>
+    <symbol id="i-task-view" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="26" height="22"/><path d="M8 12l3 3 6-6M8 21h13"/></symbol>
+    <symbol id="i-group" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="5"/><path d="M3 27a9 9 0 0 1 18 0"/><path d="M22 7.5a5 5 0 0 1 0 9M24 27a8.8 8.8 0 0 0-3-6.6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16h22M18 8l8 8-8 8"/></symbol>
+    <symbol id="i-save" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h18l6 6v18H4z"/><path d="M10 4v8h10V4M10 28v-9h12v9"/></symbol>
+    <symbol id="i-chemistry" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3v10L5 26a2.6 2.6 0 0 0 2.3 3h17.4A2.6 2.6 0 0 0 27 26l-8-13V3"/><path d="M11 3h10M9.5 19h13"/></symbol>
   </svg>
 
 
@@ -80,6 +89,9 @@
     </div>
   </header>
 
+  <div style="flex:1;min-height:0;display:flex">
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column;overflow:hidden">
+
   <!-- Patient banner -->
   <section data-screen-label="Patient banner" style="flex-shrink:0;background:var(--layer-01);border-bottom:1px solid var(--border-subtle-01)">
     <div style="display:flex;align-items:flex-start;gap:var(--spacing-05);padding:var(--spacing-05) var(--spacing-06)">
@@ -88,22 +100,271 @@
         <div style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap">
           <h1 style="margin:0;font:600 20px/1.1 var(--font-sans)">Mark Williams</h1>
           <span style="display:inline-flex;align-items:center;gap:4px;color:var(--text-secondary);font:400 15px/1 var(--font-sans)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-gender-male"></use></svg>Male</span>
+          <sc-if value="{{ modePOC }}" hint-placeholder-val="{{ true }}">
+            <span style="display:inline-flex;align-items:center;gap:var(--spacing-03);flex-wrap:wrap">
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.Tag" type="blue" size="sm" hint-size="auto,18px">Active visit</x-import>
+              <span style="font:400 15px/1 var(--font-sans);color:var(--text-primary)">Outpatient Triage</span>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.Tag" type="green" size="sm" hint-size="auto,18px">Not urgent</x-import>
+              <a href="#" style="margin-left:var(--spacing-03);font:400 14px/1 var(--font-sans)">Move</a>
+            </span>
+          </sc-if>
         </div>
         <div style="display:flex;align-items:center;gap:var(--spacing-04);margin-top:var(--spacing-03);color:var(--text-secondary);font:400 14px/1 var(--font-sans);flex-wrap:wrap">
           <span>63 yrs</span><span>&middot;</span><span>05-Apr-1963</span><span>&middot;</span>
           <span>CR Number:&nbsp; <span style="color:var(--text-primary);font-weight:600;font-family:var(--font-mono)">100019A</span></span>
         </div>
       </div>
+      <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:var(--spacing-04)">
+        <div style="position:relative">
+          <button onClick="{{ toggleActions }}" aria-haspopup="menu" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Actions<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-overflow-menu-vertical"></use></svg></button>
+          <sc-if value="{{ actionsOpen }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ closeActions }}" style="position:fixed;inset:0;z-index:40"></div>
+            <div role="menu" style="position:absolute;top:26px;right:0;z-index:41;min-width:248px;background:var(--layer-01);box-shadow:var(--shadow-md,0 2px 6px rgba(0,0,0,0.2))">
+              <sc-for list="{{ patientActions }}" as="a" hint-placeholder-count="5">
+                <button onClick="{{ a.onClick }}" style="{{ a.style }}" style-hover="background:var(--layer-hover-01)">
+                  <svg width="16" height="16" aria-hidden="true" focusable="false" style="{{ a.iconStyle }}"><use href="{{ a.iconHref }}"></use></svg>
+                  <span style="flex:1;min-width:0;text-align:left">{{ a.label }}</span>
+                  <span style="{{ a.checkStyle }}">&#10003;</span>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+        <button style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Show more<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-chevron-down"></use></svg></button>
+      </div>
     </div>
+    <sc-if value="{{ modeRDE }}" hint-placeholder-val="{{ true }}">
     <div data-screen-label="Patient tabs" style="display:flex;align-items:stretch;gap:var(--spacing-04);padding:0 var(--spacing-06);border-top:1px solid var(--border-subtle-01)">
       <div style="display:flex;align-items:stretch;gap:var(--spacing-02);min-width:0;overflow-x:auto">
         <sc-for list="{{ ptTabs }}" as="t" hint-placeholder-count="6">
           <button onClick="{{ t.onClick }}" style="{{ t.style }}"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="{{ t.iconHref }}"></use></svg>{{ t.label }}</button>
         </sc-for>
       </div>
-      <button style="margin-left:auto;flex-shrink:0;align-self:center;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:none;background:transparent;color:var(--support-error,#da1e28);font:400 13px/1 var(--font-sans);cursor:pointer;white-space:nowrap" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-events"></use></svg>Mark patient deceased</button>
     </div>
+    </sc-if>
   </section>
+
+  <!-- POC: enter current data -->
+  <sc-if value="{{ modePOC }}" hint-placeholder-val="{{ true }}">
+  <div style="flex:1;min-height:0;display:flex">
+
+    <nav class="om-scroll" data-screen-label="Chart sections" style="width:224px;flex-shrink:0;background:var(--layer-02);border-right:1px solid var(--border-subtle-01);overflow-y:auto">
+      <sc-for list="{{ pocNav }}" as="item" hint-placeholder-count="12">
+        <button onClick="{{ item.onClick }}" style="{{ item.style }}" style-hover="background:var(--layer-hover-01)">
+          <svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0;color:var(--icon-primary)"><use href="{{ item.iconHref }}"></use></svg>
+          <span>{{ item.label }}</span>
+        </button>
+      </sc-for>
+    </nav>
+
+    <main class="om-scroll" data-screen-label="Point-of-care chart" style="flex:1;min-width:0;overflow-y:auto;padding:var(--spacing-06)">
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-05);flex-wrap:wrap;gap:var(--spacing-04)">
+        <div style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap">
+          <h2 style="margin:0;font:600 16px/1 var(--font-sans)">Vitals and biometrics</h2>
+          <span style="color:var(--text-secondary);font:400 13px/1 var(--font-sans)">26-Mar-2026, 10:06 AM</span>
+          <a href="#" style="font:400 13px/1 var(--font-sans)">Vitals history</a>
+        </div>
+        <button onClick="{{ openPocVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Record vitals<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-arrow-right"></use></svg></button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-05) var(--spacing-06);background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-06)">
+        <sc-for list="{{ pocSummary }}" as="m" hint-placeholder-count="8">
+          <div style="{{ m.wrap }}">
+            <div style="color:var(--text-secondary);font:400 12px/1 var(--font-sans);display:flex;align-items:center;gap:4px">{{ m.label }}<span style="color:var(--orange-60)">{{ m.arrow }}</span></div>
+            <div style="margin-top:6px;font:400 20px/1 var(--font-sans)">{{ m.value }} <span style="font-size:12px;color:var(--text-helper)">{{ m.unit }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-05)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+          <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Vitals</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+          <button onClick="{{ openPocVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-add"></use></svg></button>
+        </div>
+        <div style="{{ pocVitalsHeadStyle }}">
+          <sc-for list="{{ pocVitalsHead }}" as="h" hint-placeholder-count="6"><div style="padding:12px 8px">{{ h }}</div></sc-for>
+        </div>
+        <sc-for list="{{ pocVitalsRows }}" as="row" hint-placeholder-count="5">
+          <div style="{{ row.style }}">
+            <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="6">
+              <div style="{{ c.style }}">{{ c.text }}<span style="color:var(--red-60);font-size:12px">{{ c.arrow }}</span></div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-05)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+          <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Biometrics</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+          <button onClick="{{ openPocVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-add"></use></svg></button>
+        </div>
+        <div style="{{ pocBioHeadStyle }}">
+          <sc-for list="{{ pocBioHead }}" as="h" hint-placeholder-count="5"><div style="padding:12px 8px">{{ h }}</div></sc-for>
+        </div>
+        <sc-for list="{{ pocBioRows }}" as="row" hint-placeholder-count="5">
+          <div style="{{ row.style }}">
+            <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="5">
+              <div style="{{ c.style }}">{{ c.text }}<span style="color:var(--red-60);font-size:12px">{{ c.arrow }}</span></div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-05)">
+        <div style="background:var(--layer-01);padding:var(--spacing-05)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+            <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Conditions</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+            <button onClick="{{ openPocVitals }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-add"></use></svg></button>
+          </div>
+          <sc-for list="{{ pocConditions }}" as="c" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--spacing-04) 0;border-bottom:1px solid var(--border-subtle-01)">
+              <div><div style="font:400 14px/1.3 var(--font-sans)">{{ c.name }}</div><div style="color:var(--text-secondary);font:400 12px/1 var(--font-sans);margin-top:2px">Onset {{ c.since }}</div></div>
+              <span style="color:var(--text-secondary);font:400 13px/1 var(--font-sans)">{{ c.status }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:var(--layer-01);padding:var(--spacing-05)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+            <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Active medications</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+            <button onClick="{{ openPocOrders }}" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-add"></use></svg></button>
+          </div>
+          <sc-for list="{{ pocMeds }}" as="m" hint-placeholder-count="3">
+            <div style="padding:var(--spacing-04) 0;border-bottom:1px solid var(--border-subtle-01)">
+              <div style="font:400 14px/1.3 var(--font-sans)">{{ m.name }}</div>
+              <div style="color:var(--text-secondary);font:400 12px/1 var(--font-sans);margin-top:2px">{{ m.dose }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  </sc-if>
+
+  <sc-if value="{{ pocWsOpen }}" hint-placeholder-val="{{ false }}">
+    <aside data-screen-label="Workspace" style="position:fixed;top:48px;right:48px;bottom:0;z-index:300;width:456px;max-width:88vw;background:var(--layer-02);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;border-left:1px solid var(--border-subtle-01)">
+      <div style="flex-shrink:0;height:48px;display:flex;align-items:center;gap:var(--spacing-04);padding:0 var(--spacing-05);border-bottom:1px solid var(--border-subtle-01)">
+        <span style="flex:1;font:600 15px/1 var(--font-sans)">{{ pocWsTitle }}</span>
+        <button onClick="{{ closePocWs }}" aria-label="Close" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="18" height="18" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="om-scroll" style="flex:1;overflow-y:auto">
+        <sc-if value="{{ pocIsOrders }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:var(--spacing-05);display:flex;flex-direction:column;gap:var(--spacing-05)">
+            <sc-for list="{{ pocBasket }}" as="b" hint-placeholder-count="2">
+              <div style="{{ b.style }}">
+                <div style="display:flex;align-items:center;gap:var(--spacing-04);padding:var(--spacing-04) var(--spacing-05)">
+                  <div style="{{ b.badge }}"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="{{ b.iconHref }}"></use></svg></div>
+                  <span style="flex:1;font:600 15px/1 var(--font-sans)">{{ b.label }}</span>
+                  <button style="display:inline-flex;align-items:center;gap:4px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-add"></use></svg></button>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ pocIsVitals }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:var(--spacing-05);display:flex;flex-direction:column;gap:var(--spacing-05)">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Date &amp; time recorded</label>
+              <div style="display:flex;align-items:center;gap:var(--spacing-04);height:40px;background:var(--field-01);border-bottom:1px solid var(--border-strong-01);padding:0 var(--spacing-04)">
+                <svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0;color:var(--icon-secondary)"><use href="#i-calendar"></use></svg>
+                <span style="font:400 14px/1 var(--font-sans)">Today, 10:06 AM</span>
+              </div>
+              <span style="font:400 12px/1.3 var(--font-sans);color:var(--text-helper)">Defaults to now, within the active visit.</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-05)">
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.NumberInput" label="Systolic (mmHg)" defaultValue="{{ 122 }}" hint-size="100%,64px"></x-import>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.NumberInput" label="Diastolic (mmHg)" defaultValue="{{ 78 }}" hint-size="100%,64px"></x-import>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.NumberInput" label="Pulse (beats/min)" defaultValue="{{ 76 }}" hint-size="100%,64px"></x-import>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.NumberInput" label="Temperature (°C)" defaultValue="{{ 37 }}" step="{{ 0.1 }}" hint-size="100%,64px"></x-import>
+            </div>
+            <x-import component-from-global-scope="CarbonDesignSystem_53f452.TextArea" label="Notes" rows="{{ 3 }}" placeholder="Any relevant observations…" hint-size="100%,120px"></x-import>
+          </div>
+        </sc-if>
+        <sc-if value="{{ pocIsStartVisit }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:var(--spacing-05);display:flex;flex-direction:column;gap:var(--spacing-06)">
+            <sc-if value="{{ pocSvShowModes }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <span style="font:400 13px/1 var(--font-sans);color:var(--text-secondary)">The visit is</span>
+                <x-import component-from-global-scope="CarbonDesignSystem_53f452.ContentSwitcher" options="{{ pocSvModes }}" selectedIndex="{{ pocSvModeIndex }}" onChange="{{ setPocSvMode }}" hint-size="100%,40px"></x-import>
+              </div>
+            </sc-if>
+            <sc-if value="{{ pocSvShowDates }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <h3 style="margin:0;font:600 15px/1 var(--font-sans)">{{ pocSvDateHeading }}</h3>
+                <div style="display:flex;gap:var(--spacing-04)">
+                  <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+                    <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Start date</label>
+                    <div style="display:flex;align-items:center;gap:8px;height:40px;padding:0 12px;background:var(--field-01);border-bottom:1px solid var(--border-strong-01)">
+                      <input type="text" value="01/09/2026" style="flex:1;min-width:0;border:none;background:transparent;font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+                      <svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0;color:var(--icon-primary)"><use href="#i-calendar"></use></svg>
+                    </div>
+                  </div>
+                  <div style="width:96px;flex-shrink:0;display:flex;flex-direction:column;gap:6px">
+                    <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Start time</label>
+                    <input type="text" value="10:06" style="height:40px;padding:0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+                  </div>
+                  <div style="width:84px;flex-shrink:0;display:flex;flex-direction:column;gap:6px">
+                    <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">&nbsp;</label>
+                    <select style="height:40px;padding:0 8px 0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none;cursor:pointer">
+                      <option>AM</option>
+                      <option>PM</option>
+                    </select>
+                  </div>
+                </div>
+                <sc-if value="{{ pocSvShowEnd }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;gap:var(--spacing-04)">
+                    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+                      <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">End date</label>
+                      <div style="display:flex;align-items:center;gap:8px;height:40px;padding:0 12px;background:var(--field-01);border-bottom:1px solid var(--border-strong-01)">
+                        <input type="text" value="01/09/2026" style="flex:1;min-width:0;border:none;background:transparent;font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+                        <svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0;color:var(--icon-primary)"><use href="#i-calendar"></use></svg>
+                      </div>
+                    </div>
+                    <div style="width:96px;flex-shrink:0;display:flex;flex-direction:column;gap:6px">
+                      <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">End time</label>
+                      <input type="text" value="11:30" style="height:40px;padding:0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+                    </div>
+                    <div style="width:84px;flex-shrink:0;display:flex;flex-direction:column;gap:6px">
+                      <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">&nbsp;</label>
+                      <select style="height:40px;padding:0 8px 0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none;cursor:pointer">
+                        <option>AM</option>
+                        <option>PM</option>
+                      </select>
+                    </div>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-if>
+            <x-import component-from-global-scope="CarbonDesignSystem_53f452.InlineNotification" kind="info" lowContrast="{{ true }}" title="Upcoming appointments" subtitle="No upcoming appointments found" hint-size="100%,64px"></x-import>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <h3 style="margin:0;font:600 15px/1 var(--font-sans)">Visit location</h3>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.Dropdown" items="{{ pocSvLocations }}" placeholder="Select a location" label="Select a location" size="md" hint-size="100%,64px"></x-import>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <h3 style="margin:0;font:600 15px/1 var(--font-sans)">Visit type</h3>
+              <x-import component-from-global-scope="CarbonDesignSystem_53f452.Search" placeholder="Search for a visit type" size="md" hint-size="100%,40px"></x-import>
+              <div style="display:flex;flex-direction:column;gap:var(--spacing-04);margin-top:4px">
+                <sc-for list="{{ pocSvVisitTypes }}" as="t" hint-placeholder-count="5">
+                  <x-import component-from-global-scope="CarbonDesignSystem_53f452.RadioButton" name="pocsvtype" value="{{ t.value }}" label="{{ t.label }}" hint-size="auto,24px"></x-import>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <div style="flex-shrink:0;display:flex;height:64px">
+        <button onClick="{{ closePocWs }}" style="flex:1;border:none;background:#393939;color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer" style-hover="background:#4c4c4c">Cancel</button>
+        <button onClick="{{ pocSave }}" style="flex:1;border:none;background:var(--teal-60);color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-hover="filter:brightness(0.94)">{{ pocWsPrimary }}<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="{{ pocWsIconHref }}"></use></svg></button>
+      </div>
+    </aside>
+  </sc-if>
+
+  <sc-if value="{{ pocToast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;right:24px;bottom:24px;z-index:500">
+      <x-import component-from-global-scope="CarbonDesignSystem_53f452.ToastNotification" kind="success" title="{{ pocToastTitle }}" subtitle="{{ pocToastSub }}" onClose="{{ dismissPocToast }}" hint-size="360px,90px"></x-import>
+    </div>
+  </sc-if>
 
   <!-- Patient summary -->
   <sc-if value="{{ isSummary }}" hint-placeholder-val="{{ false }}">
@@ -127,71 +388,79 @@
         </div>
       </div>
 
-      <div style="display:flex;align-items:baseline;gap:var(--spacing-04);flex-wrap:wrap;padding:var(--spacing-06) var(--spacing-07) var(--spacing-04)">
-        <h2 style="margin:0;font:600 18px/1.2 var(--font-sans)">Vitals and biometrics</h2>
-        <span style="font:400 13px/1.4 var(--font-mono);color:var(--text-secondary)">{{ latestVitalsAt }}</span>
-      </div>
-      <div style="display:flex;gap:var(--spacing-05);flex-wrap:wrap;padding:0 var(--spacing-07) var(--spacing-06);border-bottom:1px solid var(--border-subtle-01)">
-        <sc-for list="{{ vitalTiles }}" as="v" hint-placeholder-count="8">
-          <div style="{{ v.style }}">
-            <div style="font:400 12px/1.3 var(--font-sans);color:var(--text-secondary)">{{ v.label }}</div>
-            <div style="margin-top:6px;font:400 20px/1.2 var(--font-sans)"><span style="font-weight:600">{{ v.value }}</span> <span style="font:400 13px/1.3 var(--font-sans);color:var(--text-secondary)">{{ v.unit }}</span></div>
-          </div>
-        </sc-for>
-      </div>
-
       <div style="padding:var(--spacing-06) var(--spacing-07) var(--spacing-09)">
-        <div style="margin-bottom:var(--spacing-07)">
-          <h3 style="margin:0 0 var(--spacing-04);padding-bottom:6px;font:600 16px/1.2 var(--font-sans);border-bottom:2px solid var(--teal-70);width:max-content">Vitals</h3>
-          <div style="overflow-x:auto"><div style="{{ psVtGridStyle }}">
-            <sc-for list="{{ psVtCols }}" as="c" hint-placeholder-count="6">
-              <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">{{ c.label }}</div>
-            </sc-for>
-            <sc-for list="{{ psVtCells }}" as="c" hint-placeholder-count="24">
-              <div style="{{ c.style }}">
-                <sc-if value="{{ c.isPlain }}" hint-placeholder-val="{{ true }}">{{ c.text }}</sc-if>
-                <sc-if value="{{ c.isAction }}" hint-placeholder-val="{{ false }}">
-                  <button onClick="{{ c.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
-                </sc-if>
-              </div>
-            </sc-for>
-          </div></div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-05);flex-wrap:wrap;gap:var(--spacing-04)">
+          <div style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap">
+            <h2 style="margin:0;font:600 16px/1 var(--font-sans)">Vitals and biometrics</h2>
+            <span style="color:var(--text-secondary);font:400 13px/1 var(--font-sans)">26-Mar-2026, 10:06 AM</span>
+          </div>
         </div>
-        <div style="margin-bottom:var(--spacing-07)">
-          <h3 style="margin:0 0 var(--spacing-04);padding-bottom:6px;font:600 16px/1.2 var(--font-sans);border-bottom:2px solid var(--teal-70);width:max-content">Biometrics</h3>
-          <div style="overflow-x:auto"><div style="{{ psBioGridStyle }}">
-            <sc-for list="{{ psBioCols }}" as="c" hint-placeholder-count="6">
-              <div style="padding:10px var(--spacing-04);font:600 13px/1.3 var(--font-sans);background:var(--layer-accent-01,#e0e0e0)">{{ c.label }}</div>
-            </sc-for>
-            <sc-for list="{{ psBioCells }}" as="c" hint-placeholder-count="24">
-              <div style="{{ c.style }}">
-                <sc-if value="{{ c.isPlain }}" hint-placeholder-val="{{ true }}">{{ c.text }}</sc-if>
-                <sc-if value="{{ c.isAction }}" hint-placeholder-val="{{ false }}">
-                  <button onClick="{{ c.onToggleMenu }}" aria-label="Row actions" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;color:var(--icon-primary);cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="display:block;fill:currentColor"><circle cx="8" cy="3" r="1.5"></circle><circle cx="8" cy="8" r="1.5"></circle><circle cx="8" cy="13" r="1.5"></circle></svg></button>
-                </sc-if>
-              </div>
-            </sc-for>
-          </div></div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-05) var(--spacing-06);background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-06)">
+          <sc-for list="{{ pocSummary }}" as="m" hint-placeholder-count="8">
+            <div style="{{ m.wrap }}">
+              <div style="color:var(--text-secondary);font:400 12px/1 var(--font-sans);display:flex;align-items:center;gap:4px">{{ m.label }}<span style="color:var(--orange-60)">{{ m.arrow }}</span></div>
+              <div style="margin-top:6px;font:400 20px/1 var(--font-sans)">{{ m.value }} <span style="font-size:12px;color:var(--text-helper)">{{ m.unit }}</span></div>
+            </div>
+          </sc-for>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--spacing-06)">
-          <div>
-            <h3 style="margin:0 0 var(--spacing-04);padding-bottom:6px;font:600 16px/1.2 var(--font-sans);border-bottom:2px solid var(--teal-70);width:max-content">Conditions</h3>
-            <sc-for list="{{ psConditions }}" as="c" hint-placeholder-count="3">
-              <div style="display:flex;align-items:flex-start;gap:var(--spacing-04);padding:var(--spacing-04) var(--spacing-05);margin-bottom:2px;background:var(--layer-01)">
-                <div style="flex:1;min-width:0">
-                  <div style="font:400 14px/1.4 var(--font-sans)">{{ c.name }}</div>
-                  <div style="margin-top:2px;font:400 12px/1.4 var(--font-sans);color:var(--text-secondary)">Onset {{ c.onset }} &middot; {{ c.status }}</div>
-                </div>
+        <div style="background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-05)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+            <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Vitals</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+          </div>
+          <div style="overflow-x:auto">
+            <div style="{{ pocVitalsHeadStyle }}">
+              <sc-for list="{{ pocVitalsHead }}" as="h" hint-placeholder-count="6"><div style="padding:12px 8px">{{ h }}</div></sc-for>
+            </div>
+            <sc-for list="{{ pocVitalsRows }}" as="row" hint-placeholder-count="4">
+              <div style="{{ row.style }}">
+                <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="6">
+                  <div style="{{ c.style }}">{{ c.text }}<span style="color:var(--red-60);font-size:12px">{{ c.arrow }}</span></div>
+                </sc-for>
               </div>
             </sc-for>
           </div>
-          <div>
-            <h3 style="margin:0 0 var(--spacing-04);padding-bottom:6px;font:600 16px/1.2 var(--font-sans);border-bottom:2px solid var(--teal-70);width:max-content">Active medications</h3>
-            <sc-for list="{{ psMeds }}" as="m" hint-placeholder-count="3">
-              <div style="padding:var(--spacing-04) var(--spacing-05);margin-bottom:2px;background:var(--layer-01)">
-                <div style="font:400 14px/1.4 var(--font-sans)"><span style="font-weight:600">{{ m.name }}</span> &mdash; {{ m.dose }}</div>
-                <div style="margin-top:2px;font:400 12px/1.4 var(--font-sans);color:var(--text-secondary)">{{ m.route }} &middot; {{ m.frequency }} &middot; started {{ m.started }}</div>
+        </div>
+
+        <div style="background:var(--layer-01);padding:var(--spacing-05);margin-bottom:var(--spacing-05)">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+            <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Biometrics</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+          </div>
+          <div style="overflow-x:auto">
+            <div style="{{ pocBioHeadStyle }}">
+              <sc-for list="{{ pocBioHead }}" as="h" hint-placeholder-count="5"><div style="padding:12px 8px">{{ h }}</div></sc-for>
+            </div>
+            <sc-for list="{{ pocBioRows }}" as="row" hint-placeholder-count="4">
+              <div style="{{ row.style }}">
+                <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="5">
+                  <div style="{{ c.style }}">{{ c.text }}<span style="color:var(--red-60);font-size:12px">{{ c.arrow }}</span></div>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-05)">
+          <div style="background:var(--layer-01);padding:var(--spacing-05)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+              <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Conditions</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+            </div>
+            <sc-for list="{{ pocConditions }}" as="c" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--spacing-04) 0;border-bottom:1px solid var(--border-subtle-01)">
+                <div><div style="font:400 14px/1.3 var(--font-sans)">{{ c.name }}</div><div style="color:var(--text-secondary);font:400 12px/1 var(--font-sans);margin-top:2px">Onset {{ c.since }}</div></div>
+                <span style="color:var(--text-secondary);font:400 13px/1 var(--font-sans)">{{ c.status }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="background:var(--layer-01);padding:var(--spacing-05)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-04)">
+              <div><h3 style="margin:0;font:600 16px/1 var(--font-sans)">Active medications</h3><div style="width:32px;height:3px;background:var(--teal-50);margin-top:6px"></div></div>
+            </div>
+            <sc-for list="{{ pocMeds }}" as="m" hint-placeholder-count="3">
+              <div style="padding:var(--spacing-04) 0;border-bottom:1px solid var(--border-subtle-01)">
+                <div style="font:400 14px/1.3 var(--font-sans)">{{ m.name }}</div>
+                <div style="color:var(--text-secondary);font:400 12px/1 var(--font-sans);margin-top:2px">{{ m.dose }}</div>
               </div>
             </sc-for>
           </div>
@@ -576,6 +845,18 @@
       </div>
     </div>
   </sc-if>
+
+  </div>
+  <sc-if value="{{ modePOC }}" hint-placeholder-val="{{ true }}">
+    <div style="width:48px;flex-shrink:0;background:var(--layer-02);border-left:1px solid var(--border-subtle-01);display:flex;flex-direction:column">
+      <sc-for list="{{ pocRail }}" as="r" hint-placeholder-count="4">
+        <button onClick="{{ r.onClick }}" aria-label="{{ r.label }}" title="{{ r.label }}" style="{{ r.style }}" style-hover="background:var(--layer-hover-01)">
+          <svg width="20" height="20" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="{{ r.iconHref }}"></use></svg>
+        </button>
+      </sc-for>
+    </div>
+  </sc-if>
+  </div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
@@ -905,7 +1186,7 @@ class Component extends DCLogic {
   componentWillUnmount() { window.removeEventListener('scroll', this.onAnyScroll, true); }
 
   onCutoff = (e) => this.setState({ cutoff: e.target.value });
-  onCreateVisit = () => this.setState({ createOpen: true, nvType: 'Facility Visit', nvLoc: 'Butaro DH', nvStart: '', nvEnd: '' });
+  onCreateVisit = () => this.setState({ pocWs: 'startvisit', svPast: true, createOpen: false });
   closeCreate = () => this.setState({ createOpen: false });
   setNv = (k) => (e) => this.setState({ [k]: e.target.value });
 
@@ -1002,6 +1283,178 @@ class Component extends DCLogic {
       regCells: cells,
       regGridStyle: 'display:grid;min-width:' + (110 * dataCols.length + 44) + 'px;grid-template-columns:repeat(' + (dataCols.length - 2) + ',minmax(110px,1fr)) minmax(140px,1.3fr) minmax(140px,1.3fr) 44px',
     };
+  }
+
+  POC_SECTIONS = [
+    { id: 'summary', label: 'Patient summary', icon: 'carbon:document' },
+    { id: 'vitals', label: 'Vitals & Biometrics', icon: 'carbon:activity' },
+    { id: 'medications', label: 'Medications', icon: 'carbon:medication' },
+    { id: 'orders', label: 'Orders', icon: 'carbon:shopping-cart' },
+    { id: 'results', label: 'Results', icon: 'carbon:chart-line' },
+    { id: 'visits', label: 'Visits', icon: 'carbon:calendar' },
+    { id: 'allergies', label: 'Allergies', icon: 'carbon:warning' },
+    { id: 'conditions', label: 'Conditions', icon: 'carbon:list-bulleted' },
+    { id: 'procedures', label: 'Procedures', icon: 'carbon:scalpel' },
+    { id: 'immunizations', label: 'Immunizations', icon: 'carbon:syringe' },
+    { id: 'attachments', label: 'Attachments', icon: 'carbon:attachment' },
+    { id: 'programs', label: 'Programs', icon: 'carbon:flow' },
+    { id: 'appointments', label: 'Appointments', icon: 'carbon:time' },
+    { id: 'billing', label: 'Billing history', icon: 'carbon:receipt' },
+  ];
+
+  toggleActions = () => this.setState(st => ({ actionsOpen: !st.actionsOpen }));
+  closeActions = () => this.setState({ actionsOpen: false });
+  setMode = (m) => this.setState(s => ({ mode: m, openMenu: null, pocWs: null, actionsOpen: false,  ptTab: m === 'rde' ? 'visits' : s.ptTab }));
+  pocGo = (id) => this.setState({ pocSection: id });
+  openPocWs = (key) => this.setState({ pocWs: key });
+  closePocWs = () => this.setState({ pocWs: null });
+  dismissPocToast = () => this.setState({ pocToast: null });
+  setPocSvMode = (i) => this.setState({ pocSvMode: i });
+  pocSave = () => {
+    if (this.state.pocWs === 'startvisit') {
+      const past = !!this.state.svPast;
+      this.setState({ pocWs: null, svPast: false, pocToast: past
+        ? { title: 'Visit added', sub: 'The back-dated visit is now in the visit list.' }
+        : { title: 'Visit started', sub: 'Outpatient Triage is now the active visit.' } });
+      clearTimeout(this._pt); this._pt = setTimeout(() => this.setState({ pocToast: null }), 5000);
+      return;
+    }
+    this.setState({ pocWs: null, pocToast: { title: 'Saved', sub: 'Recorded into the active OPD visit.' } });
+    clearTimeout(this._pt); this._pt = setTimeout(() => this.setState({ pocToast: null }), 5000);
+  };
+
+  pocCell(text, tone, arrow) {
+    const bg = tone === 'crit' ? 'rgba(218,30,40,0.12)' : tone === 'abn' ? 'rgba(255,131,43,0.14)' : 'transparent';
+    return { text, arrow: arrow || '', style: { padding: '12px 8px', font: '400 14px/1.2 var(--font-sans)', background: bg, display: 'flex', alignItems: 'center', gap: '4px', fontWeight: tone === 'normal' ? 400 : 600 } };
+  }
+  pocRowStyle(cols) { return { display: 'grid', gridTemplateColumns: cols, borderBottom: '1px solid var(--border-subtle-01)' }; }
+
+  pocVals() {
+    const mode = this.state.mode || 'poc';
+    const modePOC = mode === 'poc';
+    const MODE_OPTS = [
+      { id: 'poc', label: 'Entering current data', iconHref: '#i-activity' },
+      { id: 'rde', label: 'Entering past data', iconHref: '#i-time' },
+    ];
+    const base = {
+      modePOC, modeRDE: !modePOC,
+      actionsOpen: !!this.state.actionsOpen,
+      toggleActions: this.toggleActions, closeActions: this.closeActions,
+      patientActions: [
+        ...MODE_OPTS.map(o => ({
+          label: o.label, iconHref: o.iconHref, mode: true, on: (o.id === 'poc') === modePOC,
+          onClick: () => this.setMode(o.id),
+        })),
+        { label: 'Edit patient details', iconHref: '#i-edit', divider: true },
+        ...(modePOC ? [{ label: 'Add visit', iconHref: '#i-calendar', onClick: () => this.setState({ actionsOpen: false, pocWs: 'startvisit', svPast: false }) }] : []),
+        { label: 'Mark patient deceased', iconHref: '#i-events', danger: true },
+      ].map(it => ({
+        label: it.label, iconHref: it.iconHref,
+        onClick: it.onClick || this.closeActions,
+        style: {
+          display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '12px 16px',
+          border: 'none', background: 'transparent', cursor: 'pointer',
+          borderTop: it.divider ? '1px solid var(--border-subtle-01)' : 'none',
+          font: (it.on ? 600 : 400) + ' 14px/1.2 var(--font-sans)',
+          color: it.danger ? 'var(--support-error,#da1e28)' : 'var(--text-primary)',
+        },
+        iconStyle: { display: 'block', flexShrink: 0, color: it.danger ? 'var(--support-error,#da1e28)' : 'var(--icon-primary)' },
+        checkStyle: { color: 'var(--teal-70)', font: '600 14px/1 var(--font-sans)', visibility: it.mode && it.on ? 'visible' : 'hidden' },
+      })),
+    };
+    const section = this.state.pocSection || 'summary';
+    const ws = this.state.pocWs || null;
+    const C = this.pocCell.bind(this);
+    const vCols = '1.5fr 1fr 1.1fr 1fr 1fr 1fr';
+    const bCols = '1.6fr 1fr 1fr 1fr 1fr';
+    const railBtn = (active) => ({
+      width: '48px', height: '48px', border: 'none', cursor: 'pointer',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      background: active ? 'var(--teal-70)' : 'transparent',
+      color: active ? '#fff' : 'var(--icon-primary)',
+    });
+    const boxed = { padding: '8px 12px', border: '1px solid var(--orange-40)', background: 'rgba(255,131,43,0.10)' };
+
+    return Object.assign(base, modePOC ? { isSummary: false, isRegistry: false, isVisits: false } : {}, {
+      pocNav: this.POC_SECTIONS.map(sn => {
+        const on = sn.id === section;
+        return {
+          label: sn.label, iconHref: '#' + sn.icon.replace('carbon:', 'i-'), onClick: () => this.pocGo(sn.id),
+          style: {
+            width: '100%', minHeight: '48px', display: 'flex', alignItems: 'center', gap: 'var(--spacing-04)',
+            padding: '0 var(--spacing-05)', border: 'none', textAlign: 'left', cursor: 'pointer',
+            background: on ? 'var(--layer-01)' : 'transparent', color: 'var(--text-primary)',
+            borderLeft: on ? '3px solid var(--teal-50)' : '3px solid transparent',
+            font: (on ? 600 : 400) + ' 14px/1.2 var(--font-sans)',
+          },
+        };
+      }),
+      pocRail: [
+        { label: 'Order basket', iconHref: '#i-shopping-cart', onClick: () => this.openPocWs('orders'), style: railBtn(ws === 'orders') },
+        { label: 'Clinical forms', iconHref: '#i-task-view', onClick: () => this.openPocWs('vitals'), style: railBtn(ws === 'vitals') },
+        { label: 'Visit notes', iconHref: '#i-document', onClick: () => this.openPocWs('vitals'), style: railBtn(false) },
+        { label: 'Patient lists', iconHref: '#i-group', onClick: () => this.openPocWs('orders'), style: railBtn(false) },
+      ],
+      pocSummary: [
+        { label: 'BP', value: '107 / 56', unit: 'mmHg', arrow: '↓', wrap: boxed },
+        { label: 'Heart rate', value: '96', unit: 'beats/min', arrow: '', wrap: {} },
+        { label: 'R. rate', value: '13', unit: 'breaths/min', arrow: '', wrap: {} },
+        { label: 'SpO₂', value: '98.8', unit: '%', arrow: '', wrap: {} },
+        { label: 'Temp', value: '36.2', unit: 'DEG C', arrow: '', wrap: {} },
+        { label: 'Weight', value: '61', unit: 'kg', arrow: '', wrap: {} },
+        { label: 'Height', value: '186', unit: 'cm', arrow: '', wrap: {} },
+        { label: 'BMI', value: '17.6', unit: 'kg / m²', arrow: '', wrap: {} },
+      ],
+      pocVitalsHead: ['Date and time', 'Temp (DEG C)', 'BP (mmHg)', 'Pulse (beats/min)', 'R. Rate (breaths/min)', 'SpO2 (%)'],
+      pocVitalsHeadStyle: { display: 'grid', gridTemplateColumns: vCols, background: '#e0e0e0', font: '600 13px/1.2 var(--font-sans)', color: 'var(--text-primary)' },
+      pocVitalsRows: [
+        { style: this.pocRowStyle(vCols), cells: [C('26 — Mar — 2026, 10:06 AM','normal'), C('36.2','normal'), C('107 / 56','abn','↓'), C('96','normal'), C('13','normal'), C('98.8','normal')] },
+        { style: this.pocRowStyle(vCols), cells: [C('29 — Aug — 2025, 05:52 AM','normal'), C('36.3','normal'), C('104 / 69','normal'), C('96','normal'), C('12','normal'), C('89.8','crit','↓↓')] },
+        { style: this.pocRowStyle(vCols), cells: [C('03 — Oct — 2024, 12:27 AM','normal'), C('37.2','normal'), C('142 / 53','abn','↑'), C('83','normal'), C('20','abn','↑'), C('88','crit','↓↓')] },
+        { style: this.pocRowStyle(vCols), cells: [C('12 — Sept — 2024, 08:07 AM','normal'), C('36.7','normal'), C('111 / 52','abn','↓'), C('56','abn','↓'), C('13','normal'), C('97.1','normal')] },
+      ],
+      pocBioHead: ['Date and time', 'Weight (kg)', 'Height (cm)', 'BMI (kg / m²)', 'MUAC (cm)'],
+      pocBioHeadStyle: { display: 'grid', gridTemplateColumns: bCols, background: '#e0e0e0', font: '600 13px/1.2 var(--font-sans)', color: 'var(--text-primary)' },
+      pocBioRows: [
+        { style: this.pocRowStyle(bCols), cells: [C('26 — Mar — 2026, 10:06 AM','normal'), C('61','normal'), C('186','normal'), C('17.6','abn','↓'), C('--','normal')] },
+        { style: this.pocRowStyle(bCols), cells: [C('29 — Aug — 2025, 05:52 AM','normal'), C('49','normal'), C('151','normal'), C('21.5','normal'), C('--','normal')] },
+        { style: this.pocRowStyle(bCols), cells: [C('03 — Oct — 2024, 12:27 AM','normal'), C('94','normal'), C('196','normal'), C('24.5','normal'), C('--','normal')] },
+        { style: this.pocRowStyle(bCols), cells: [C('12 — Sept — 2024, 08:07 AM','normal'), C('68','normal'), C('161','normal'), C('26.2','abn','↑'), C('--','normal')] },
+      ],
+      pocConditions: [
+        { name: 'Type 2 diabetes mellitus', since: '2021', status: 'Active' },
+        { name: 'Essential hypertension', since: '2020', status: 'Active' },
+        { name: 'Asthma', since: '2015', status: 'Inactive' },
+      ],
+      pocMeds: [
+        { name: 'Metformin 500 mg', dose: 'Oral · twice daily' },
+        { name: 'Amlodipine 5 mg', dose: 'Oral · once daily' },
+        { name: 'Salbutamol inhaler', dose: '2 puffs · as needed' },
+      ],
+      pocBasket: [
+        { label: 'Drug orders (0)', style: { border: '1px solid var(--border-subtle-01)', borderLeft: '3px solid var(--blue-60)' }, badge: { width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--blue-20)', color: 'var(--blue-70)' }, iconHref: '#i-medication' },
+        { label: 'Lab orders (0)', style: { border: '1px solid var(--border-subtle-01)', borderLeft: '3px solid var(--purple-60)' }, badge: { width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--purple-40)', color: 'var(--purple-70)' }, iconHref: '#i-chemistry' },
+      ],
+      pocWsOpen: !!ws, pocIsOrders: ws === 'orders', pocIsVitals: ws === 'vitals', pocIsStartVisit: ws === 'startvisit',
+      pocWsTitle: ws === 'orders' ? 'Order basket' : ws === 'startvisit' ? (this.state.svPast ? 'Add a past visit' : 'Add a visit') : 'Record vitals and biometrics',
+      pocWsPrimary: ws === 'orders' ? 'Sign and close' : ws === 'startvisit' ? 'Start visit' : 'Save and close',
+      pocWsIconHref: ws === 'startvisit' ? '#i-arrow-right' : '#i-save',
+      pocSvModes: [{ label: 'New' }, { label: 'Ongoing' }],
+      pocSvModeIndex: this.state.pocSvMode || 0,
+      setPocSvMode: this.setPocSvMode,
+      pocSvShowModes: !this.state.svPast,
+      pocSvShowDates: !!this.state.svPast || (this.state.pocSvMode || 0) === 1,
+      pocSvShowEnd: !!this.state.svPast,
+      pocSvDateHeading: this.state.svPast ? 'Visit start and end date' : 'Visit start date',
+      pocSvLocations: [{ value: 'mobile', label: 'Mobile Clinic' }, { value: 'butaro', label: 'Butaro Hospital' }, { value: 'kinyinya', label: 'Kinyinya Health Post' }, { value: 'site42', label: 'Site 42' }],
+      pocSvVisitTypes: [{ value: 'facility', label: 'Facility Visit' }, { value: 'home', label: 'Home Visit' }, { value: 'opd', label: 'OPD Visit' }, { value: 'offline', label: 'Offline Visit' }, { value: 'group', label: 'Group Session' }],
+      openPocOrders: () => this.openPocWs('orders'), openPocVitals: () => this.openPocWs('vitals'),
+      closePocWs: this.closePocWs, pocSave: this.pocSave,
+      pocToast: !!this.state.pocToast,
+      pocToastTitle: this.state.pocToast ? this.state.pocToast.title : '',
+      pocToastSub: this.state.pocToast ? this.state.pocToast.sub : '',
+      dismissPocToast: this.dismissPocToast,
+    });
   }
 
   renderVals() {
@@ -1171,6 +1624,7 @@ class Component extends DCLogic {
       medications: sel ? sel.medications : [],
       noMeds: !!sel && sel.medications.length === 0,
       tableRows, noTableRows: tableRows.length === 0,
+      ...this.pocVals(),
     };
   }
 }
