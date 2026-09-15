@@ -26,6 +26,7 @@
   <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
     <symbol id="i-menu" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h24M4 16h24M4 24h24"></path></symbol>
     <symbol id="i-in-progress" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"></circle><path d="M16 8a8 8 0 0 1 0 16z" fill="currentColor" stroke="none"></path></symbol>
+    <symbol id="i-building" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 29V9l10-6 10 6v20"></path><path d="M2 29h28M11 13h2M17 13h2M11 19h2M17 19h2M13 29v-5h4v5"></path></symbol>
     <symbol id="i-location" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 29s9-9.6 9-16a9 9 0 0 0-18 0c0 6.4 9 16 9 16z"></path><circle cx="16" cy="13" r="3.2"></circle></symbol>
     <symbol id="i-search" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="8"></circle><path d="M20 20l8 8"></path></symbol>
     <symbol id="i-user-avatar" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="13"></circle><circle cx="16" cy="13" r="4.2"></circle><path d="M8 26a8.6 8.6 0 0 1 16 0"></path></symbol>
@@ -54,6 +55,8 @@
     <symbol id="i-list-bulleted" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="9" r="1.9" fill="currentColor" stroke="none"></circle><circle cx="6" cy="16" r="1.9" fill="currentColor" stroke="none"></circle><circle cx="6" cy="23" r="1.9" fill="currentColor" stroke="none"></circle><path d="M12 9h16M12 16h16M12 23h16"></path></symbol>
     <symbol id="i-scalpel" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28l9-9"></path><path d="M13 19l7-13 8 4-11 11z"></path></symbol>
     <symbol id="i-medication" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="26" height="9" rx="4.5" transform="rotate(-40 16 16)"></rect><path d="M12.5 10.5l7.5 7.5"></path></symbol>
+    <symbol id="i-chemistry" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3v10L5 26a2.6 2.6 0 0 0 2.3 3h17.4A2.6 2.6 0 0 0 27 26l-8-13V3"></path><path d="M11 3h10M9.5 19h13"></path></symbol>
+    <symbol id="i-save" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h18l6 6v18H4z"></path><path d="M10 4v8h10V4M10 28v-9h12v9"></path></symbol>
     <symbol id="i-catalog" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h20v24H6z"></path><path d="M11 4v24M15 10h7M15 16h7"></path></symbol>
     <symbol id="i-edit" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28h6L27 11l-6-6L4 22z"></path><path d="M19 7l6 6"></path></symbol>
     <symbol id="i-syringe" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 29l8-8"></path><path d="M11 21l10-10 6 6-10 10z"></path><path d="M22 4l6 6"></path></symbol>
@@ -93,6 +96,24 @@
           <span>63 yrs</span><span>·</span><span>05-Apr-1963</span><span>·</span>
           <span>CR Number:&nbsp; <span style="color:var(--text-primary);font-weight:600;font-family:var(--font-mono)">100019A</span></span>
         </div>
+      </div>
+      <div style="flex-shrink:0;position:relative;align-self:flex-start">
+        <button onClick="{{ toggleActions }}" aria-haspopup="menu" style="display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Actions<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-overflow-menu-vertical"></use></svg></button>
+        <sc-if value="{{ actionsOpen }}" hint-placeholder-val="{{ false }}">
+          <div onClick="{{ closeActions }}" style="position:fixed;inset:0;z-index:40"></div>
+          <div role="menu" style="position:absolute;top:26px;right:0;z-index:41;min-width:248px;background:var(--layer-01);box-shadow:var(--shadow-md,0 2px 6px rgba(0,0,0,0.2))">
+            <sc-for list="{{ patientActions }}" as="a" hint-placeholder-count="4">
+              <span style="position:relative;display:block" onMouseEnter="{{ a.onEnter }}" onMouseLeave="{{ a.onLeave }}">
+                <button onClick="{{ a.onClick }}" style="{{ a.style }}" style-hover="background:var(--layer-hover-01)">
+                  <svg width="16" height="16" aria-hidden="true" focusable="false" style="{{ a.iconStyle }}"><use href="{{ a.iconHref }}"></use></svg>
+                  <span style="flex:1;min-width:0;text-align:left">{{ a.label }}</span>
+                  <span style="{{ a.checkStyle }}">&#10003;</span>
+                </button>
+                <span style="{{ a.tipStyle }}">{{ a.tip }}</span>
+              </span>
+            </sc-for>
+          </div>
+        </sc-if>
       </div>
     </div>
     <div data-screen-label="Patient tabs" style="display:flex;align-items:stretch;gap:var(--spacing-04);padding:0 var(--spacing-06);border-top:1px solid var(--border-subtle-01)">
@@ -248,7 +269,7 @@
       </div>
       <div class="om-scroll" style="flex:1;min-height:0;overflow-y:auto;padding-bottom:var(--spacing-05)">
         <button onClick="{{ onCreateVisit }}" style="width:100%;display:flex;align-items:center;gap:8px;padding:var(--spacing-04) var(--spacing-05);margin-bottom:2px;border:none;border-top:1px solid var(--border-subtle-01);border-bottom:1px solid var(--border-subtle-01);background:transparent;color:var(--link-primary);font:600 14px/1.2 var(--font-sans);cursor:pointer;text-align:left" style-hover="background:var(--layer-hover-01)">
-          <svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-add"></use></svg>Create new visit
+          <svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-add"></use></svg>Add visit
         </button>
         <sc-for list="{{ visitRows }}" as="v" hint-placeholder-count="5">
           <button onClick="{{ v.onClick }}" style="{{ v.style }}">
@@ -283,7 +304,7 @@
             <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
               <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
                 <h2 style="margin:0;font:600 18px/1.2 var(--font-sans)">{{ selType }}</h2>
-                <span style="{{ selTagStyle }}">{{ selTag }}</span>
+                
               </div>
               <div style="display:flex;align-items:center;gap:8px;color:var(--text-secondary);font:400 13px/1.35 var(--font-sans);flex-wrap:wrap">
                 <svg width="13" height="13" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-time"></use></svg><span>{{ selWhen }}</span>
@@ -298,11 +319,13 @@
 
           <div data-screen-label="Visit-level actions" style="display:flex;align-items:center;gap:var(--spacing-04);flex-wrap:wrap;margin-top:var(--spacing-05);padding:var(--spacing-04) var(--spacing-05);background:var(--layer-01)">
             <span style="font:600 12px/1.3 var(--font-sans);letter-spacing:0.02em;color:var(--text-secondary)">Add to this visit</span>
-            <div style="display:flex;align-items:center;gap:var(--spacing-03);flex-wrap:wrap">
-              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-document"></use></svg>Visit note</button>
-              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-activity"></use></svg>Vitals</button>
-              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-shopping-cart"></use></svg>Orders</button>
-              <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-document-multiple-01"></use></svg>Clinical form</button>
+            <button onClick="{{ openBasket }}" style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-shopping-cart"></use></svg>Orders</button><div style="display:flex;align-items:center;gap:var(--spacing-03);flex-wrap:wrap">
+              <sc-for list="{{ mockActions }}" as="a" hint-placeholder-count="3">
+                <span style="position:relative;display:inline-flex" onMouseEnter="{{ a.onEnter }}" onMouseLeave="{{ a.onLeave }}">
+                  <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--border-strong-01);background:transparent;color:var(--text-primary);font:400 13px/1 var(--font-sans);cursor:pointer" style-hover="background:rgba(22,22,22,0.06)"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="{{ a.iconHref }}"></use></svg>{{ a.label }}</button>
+                  <span style="{{ a.tipStyle }}">{{ a.tip }}</span>
+                </span>
+              </sc-for>
             </div>
           </div>
 
@@ -527,6 +550,62 @@
       </sc-if>
     </main>
   </div>
+  </sc-if>
+
+  <!-- Order basket -->
+  <sc-if value="{{ basketOpen }}" hint-placeholder-val="{{ false }}">
+    <aside data-screen-label="Order basket" style="position:fixed;top:48px;right:0;bottom:0;z-index:600;width:456px;max-width:88vw;background:var(--layer-02);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;border-left:1px solid var(--border-subtle-01)">
+      <div style="flex-shrink:0;height:48px;display:flex;align-items:center;gap:var(--spacing-04);padding:0 var(--spacing-05);border-bottom:1px solid var(--border-subtle-01)">
+        <span style="flex:1;font:600 15px/1 var(--font-sans)">Order basket</span>
+        <button onClick="{{ closeBasket }}" aria-label="Close" style="width:32px;height:32px;border:none;background:transparent;color:var(--icon-primary);display:flex;align-items:center;justify-content:center;cursor:pointer" style-hover="background:var(--layer-hover-01)"><svg width="18" height="18" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-close"></use></svg></button>
+      </div>
+      <div style="flex-shrink:0;display:flex;align-items:flex-start;gap:var(--spacing-04);padding:var(--spacing-04) var(--spacing-05);background:var(--layer-01);border-bottom:1px solid var(--border-subtle-01)">
+        <span style="flex-shrink:0;font:400 13px/1.5 var(--font-sans);color:var(--text-secondary)">Adding to:</span>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+          <span style="font:600 14px/1.2 var(--font-sans);color:var(--text-primary)">{{ selType }}</span>
+          <span style="display:flex;align-items:center;gap:6px;font:400 12px/1.35 var(--font-sans);color:var(--text-secondary)"><svg width="13" height="13" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-time"></use></svg>{{ selWhen }}</span>
+          <span style="display:flex;align-items:center;gap:6px;font:400 12px/1.35 var(--font-sans);color:var(--text-secondary)"><svg width="13" height="13" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-enterprise"></use></svg>{{ selBasketMeta }}</span>
+        </div>
+      </div>
+      <div class="om-scroll" style="flex:1;overflow-y:auto">
+        <div style="padding:var(--spacing-05);display:flex;flex-direction:column;gap:var(--spacing-06)">
+          <div style="display:flex;flex-direction:column;gap:var(--spacing-05)">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Recorded by clinician</label>
+              <input type="text" placeholder="Search for a clinician" style="height:40px;padding:0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label style="font:400 12px/1 var(--font-sans);color:var(--text-secondary)">Recorded at</label>
+              <div style="display:flex;gap:var(--spacing-04)">
+                <div style="flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:40px;padding:0 12px;background:var(--field-01);border-bottom:1px solid var(--border-strong-01)">
+                  <input type="text" placeholder="dd/mm/yyyy" style="flex:1;min-width:0;border:none;background:transparent;font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+                  <svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0;color:var(--icon-primary)"><use href="#i-calendar"></use></svg>
+                </div>
+                <input type="text" placeholder="hh:mm" style="width:96px;flex-shrink:0;height:40px;padding:0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none">
+                <select style="width:84px;flex-shrink:0;height:40px;padding:0 8px 0 12px;border:none;border-bottom:1px solid var(--border-strong-01);background:var(--field-01);font:400 14px/1 var(--font-sans);color:var(--text-primary);outline:none;cursor:pointer">
+                  <option>AM</option>
+                  <option>PM</option>
+                </select>
+              </div>
+              <span style="font:400 12px/1.3 var(--font-sans);color:var(--text-helper)">Must fall within the visit dates.</span>
+            </div>
+          </div>
+          <sc-for list="{{ basketGroups }}" as="b" hint-placeholder-count="2">
+            <div style="{{ b.style }}">
+              <div style="display:flex;align-items:center;gap:var(--spacing-04);padding:var(--spacing-04) var(--spacing-05)">
+                <div style="{{ b.badge }}"><svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="{{ b.iconHref }}"></use></svg></div>
+                <span style="flex:1;font:600 15px/1 var(--font-sans)">{{ b.label }}</span>
+                <button style="display:inline-flex;align-items:center;gap:4px;border:none;background:transparent;color:var(--link-primary);font:400 14px/1 var(--font-sans);cursor:pointer" style-hover="text-decoration:underline">Add<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-add"></use></svg></button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="flex-shrink:0;display:flex;height:64px">
+        <button onClick="{{ closeBasket }}" style="flex:1;border:none;background:#393939;color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer" style-hover="background:#4c4c4c">Cancel</button>
+        <button onClick="{{ closeBasket }}" style="flex:1;border:none;background:var(--teal-60);color:#fff;font:400 15px/1 var(--font-sans);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-hover="filter:brightness(0.94)">Sign and close<svg width="16" height="16" aria-hidden="true" focusable="false" style="display:block;flex-shrink:0"><use href="#i-save"></use></svg></button>
+      </div>
+    </aside>
   </sc-if>
 
   <!-- Add a past visit -->
@@ -935,6 +1014,10 @@ class Component extends DCLogic {
   onCutoff = (e) => this.setState({ cutoff: e.target.value });
   onCreateVisit = () => this.setState({ createOpen: true, nvType: 'Facility Visit', nvLoc: 'Butaro DH', nvStart: '', nvEnd: '' });
   closeCreate = () => this.setState({ createOpen: false });
+  toggleActions = () => this.setState(st => ({ actionsOpen: !st.actionsOpen }));
+  closeActions = () => this.setState({ actionsOpen: false });
+  openBasket = () => this.setState({ basketOpen: true, openMenu: null });
+  closeBasket = () => this.setState({ basketOpen: false });
   setNv = (k) => (e) => this.setState({ [k]: e.target.value });
 
   MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -1053,7 +1136,7 @@ class Component extends DCLogic {
       const on = sel && v.id === sel.id;
       const accent = v.active ? 'var(--green-50)' : 'var(--gray-60,#6f6f6f)';
       return {
-        type: v.type, when: v.when, meta: v.meta, tag: v.active ? 'Active' : 'Past',
+        type: v.type, when: v.when, meta: v.meta, tag: v.active ? 'Active' : '',
         onClick: () => this.select(v.id),
         style: {
           width: '100%', display: 'flex', alignItems: 'flex-start', gap: 'var(--spacing-04)',
@@ -1063,7 +1146,7 @@ class Component extends DCLogic {
           marginBottom: '2px', textAlign: 'left',
         },
         dotStyle: { width: '8px', height: '8px', marginTop: '5px', flexShrink: 0, borderRadius: '50%', background: accent },
-        tagStyle: { flexShrink: 0, padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)', color: 'var(--text-primary)', background: v.active ? '#defbe6' : '#e0e0e0' },
+        tagStyle: { display: v.active ? 'inline-block' : 'none', flexShrink: 0, padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)', color: 'var(--text-primary)', background: '#defbe6' },
       };
     });
 
@@ -1133,6 +1216,55 @@ class Component extends DCLogic {
         ((this.state.menuRect && this.state.menuRect.top) || 0) + 'px;right:' + ((this.state.menuRect && this.state.menuRect.right) || 0) + 'px',
       ...this.registryVals(),
       onCutoff: this.onCutoff, onCreateVisit: this.onCreateVisit,
+      basketOpen: !!this.state.basketOpen, openBasket: this.openBasket, closeBasket: this.closeBasket,
+      actionsOpen: !!this.state.actionsOpen,
+      toggleActions: this.toggleActions, closeActions: this.closeActions,
+      patientActions: [
+        { label: 'Entering current data', iconHref: '#i-activity', mode: true, tip: 'Switches back to the patient chart for entering data into the active visit.' },
+        { label: 'Entering past data', iconHref: '#i-time', mode: true, on: true },
+        { label: 'Edit patient details', iconHref: '#i-edit', divider: true },
+        { label: 'Mark patient deceased', iconHref: '#i-events', danger: true },
+      ].map(it => ({
+        label: it.label, iconHref: it.iconHref, onClick: this.closeActions,
+        tip: it.tip || '',
+        onEnter: () => { if (it.tip) this.setState({ actionTip: it.label }); },
+        onLeave: () => this.setState({ actionTip: null }),
+        tipStyle: {
+          position: 'absolute', top: 'calc(100% - 4px)', left: '12px', zIndex: 50, width: '236px',
+          padding: '10px 12px', background: '#393939', color: '#fff',
+          font: '400 12px/1.45 var(--font-sans)', pointerEvents: 'none',
+          display: it.tip && this.state.actionTip === it.label ? 'block' : 'none',
+        },
+        style: {
+          display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '12px 16px',
+          border: 'none', background: 'transparent', cursor: 'pointer',
+          borderTop: it.divider ? '1px solid var(--border-subtle-01)' : 'none',
+          font: (it.on ? 600 : 400) + ' 14px/1.2 var(--font-sans)',
+          color: it.danger ? 'var(--support-error,#da1e28)' : 'var(--text-primary)',
+        },
+        iconStyle: { display: 'block', flexShrink: 0, color: it.danger ? 'var(--support-error,#da1e28)' : 'var(--icon-primary)' },
+        checkStyle: { color: 'var(--teal-70)', font: '600 14px/1 var(--font-sans)', visibility: it.mode && it.on ? 'visible' : 'hidden' },
+      })),
+      mockActions: [
+        { id: 'note', label: 'Visit note', iconHref: '#i-document' },
+        { id: 'vitals', label: 'Vitals', iconHref: '#i-activity' },
+        { id: 'form', label: 'Clinical form', iconHref: '#i-document-multiple-01' },
+      ].map(a => ({
+        label: a.label, iconHref: a.iconHref,
+        tip: 'Similar to the Order Basket workspace: with a visit header and 2 extra fields for entering Recording Clinician and Record time',
+        onEnter: () => this.setState({ mockTip: a.id }),
+        onLeave: () => this.setState({ mockTip: null }),
+        tipStyle: {
+          position: 'absolute', top: 'calc(100% + 8px)', left: 0, zIndex: 30, width: '260px',
+          padding: '10px 12px', background: '#393939', color: '#fff',
+          font: '400 12px/1.45 var(--font-sans)', pointerEvents: 'none',
+          display: this.state.mockTip === a.id ? 'block' : 'none',
+        },
+      })),
+      basketGroups: [
+        { label: 'Drug orders (0)', iconHref: '#i-medication', style: { border: '1px solid var(--border-subtle-01)', borderLeft: '3px solid var(--blue-60)' }, badge: { width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--blue-20)', color: 'var(--blue-70)' } },
+        { label: 'Lab orders (0)', iconHref: '#i-chemistry', style: { border: '1px solid var(--border-subtle-01)', borderLeft: '3px solid var(--purple-60)' }, badge: { width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--purple-40)', color: 'var(--purple-70)' } },
+      ],
       createOpen: !!this.state.createOpen, closeCreate: this.closeCreate, submitCreate: this.submitCreate,
       nvType: this.state.nvType || '', nvLoc: this.state.nvLoc || '',
       nvStart: this.state.nvStart || '', nvEnd: this.state.nvEnd || '',
@@ -1153,6 +1285,7 @@ class Component extends DCLogic {
       hasSelection: !!sel, noSelection: !sel,
 
       selType: sel ? sel.type : '', selWhen: sel ? sel.when : '', selLoc: sel ? sel.loc : '',
+      selBasketMeta: sel ? (sel.meta || '').split(' · ').slice(0, 2).join(' · ') : '',
       selTag: sel ? (sel.active ? 'Active visit' : 'Past visit') : '',
       selTagStyle: {
         padding: '2px 8px', font: '400 12px/1.4 var(--font-sans)',
